@@ -8,6 +8,7 @@ export const AddEventListener = (elementId, type, callbackFunc) => {
   if (!element)  {
     console.error(`Element with the id of ${elementId.toUpperCase()} is not found`);
   } else {
+    
    // get element with the inputed id and attach an event listener to it.
      element.addEventListener(type, () => callbackFunc() );
   }
