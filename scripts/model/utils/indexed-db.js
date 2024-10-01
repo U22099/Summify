@@ -6,7 +6,8 @@ const init = (version = 1) => {
     }
     return opendb;
 }
-const saveData = (data, objStore, key = 1) => {
+
+const saveData = (data, objStore = "History", key = 1) => {
     const request = init(1);
     request.onsuccess = event => {
         const db = event.target.result;
@@ -18,7 +19,8 @@ const saveData = (data, objStore, key = 1) => {
         }
     }
 }
-const getData = (objStore, key = 1) => {
+
+const getData = (objStore = "History", key = 1) => {
     const request = init(1);
     return new Promise(resolve => {
         request.onsuccess = event => {
