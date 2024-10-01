@@ -1,0 +1,104 @@
+
+/* || FADE IN  */
+@keyframes fadeIN {
+     0%{
+        opacity: 0;
+     }
+     50%{
+        opacity: 0.5;
+     }
+     100% {
+        opacity: 1;
+     }
+}
+/* Fades in the element from opacity 0 to 1  */
+
+/* SLIDE FROM TOP  */
+@keyframes slideFROMtop {
+    0%{
+        transform: translateY(-100%);
+    }
+    100%{
+        transform: translateY(0%);
+    }
+}
+
+/* SLIDE FROM BOTTOM */
+@keyframes slideFROMbottom {
+    0%{
+        transform: translateY(100%);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+/* SLIDE FROM LEFT */
+@keyframes slideFROMleft {
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+/* SLIDE FROM RIGHT */
+@keyframes slideFROMright {
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+/* SCALE IN */
+@keyframes scaleIN {
+    0%{
+       transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+/* SCALE OUT  */
+@keyframes scaleOUT {
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(0);
+    }
+}
+/* ROTATE */
+@keyframes rotate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(369deg);
+    }
+}
+/* BOUNCE */
+@keyframes bounce {
+    0%{
+        transform: scale(1);
+        animation-timing-function: ease-out;
+    }
+    50%{
+        transform: scale(1.2);
+        animation-timing-function: ease-in;
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+/* FLIP */
+@keyframes flip {
+    0%{
+        transform: rotateY(0deg);
+    }
+    100%{
+        transform: rotateY(180deg);
+    }
+}
