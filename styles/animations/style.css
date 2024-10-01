@@ -1,104 +1,105 @@
 
 /* || FADE IN  */
-@keyframes fadeIN {
-     0%{
-        opacity: 0;
-     }
-     50%{
-        opacity: 0.5;
-     }
-     100% {
+@keyframes  FADEIN {
+    from{
+       opacity: 0;
+    }
+    to{
         opacity: 1;
-     }
+    }
 }
 /* Fades in the element from opacity 0 to 1  */
 
 /* SLIDE FROM TOP  */
-@keyframes slideFROMtop {
-    0%{
+@keyframes SLIDETOP {
+    from{
         transform: translateY(-100%);
     }
-    100%{
+    to{
         transform: translateY(0%);
     }
 }
 
 /* SLIDE FROM BOTTOM */
-@keyframes slideFROMbottom {
-    0%{
+@keyframes SLIDEBOTTOM {
+    from{
         transform: translateY(100%);
     }
-    100%{
+    to{
         transform: translateY(0);
     }
 }
 /* SLIDE FROM LEFT */
-@keyframes slideFROMleft {
-    0%{
-        transform: translateX(-100%);
+@keyframes SLIDELEFT {
+    from{
+        transform: translateX(-120%);
     }
-    100%{
+   to{
         transform: translateX(0);
     }
 }
 
 /* SLIDE FROM RIGHT */
-@keyframes slideFROMright {
-    0%{
-        transform: translateX(100%);
+@keyframes SLIDERIGHT {
+    from{
+        transform: translateX(120%);
     }
-    100%{
+    to{
         transform: translateX(0);
     }
 }
 
 /* SCALE IN */
-@keyframes scaleIN {
-    0%{
+@keyframes SCALEIN {
+    from{
        transform: scale(0);
     }
-    100%{
+    to{
         transform: scale(1);
     }
 }
 /* SCALE OUT  */
-@keyframes scaleOUT {
-    0%{
+@keyframes SCALEOUT {
+    from{
         transform: scale(1);
     }
-    100%{
+    to{
         transform: scale(0);
     }
 }
 /* ROTATE */
-@keyframes rotate {
-    0%{
+@keyframes ROTATE {
+    from{
         transform: rotate(0deg);
     }
-    100%{
+    to{
         transform: rotate(369deg);
     }
 }
 /* BOUNCE */
-@keyframes bounce {
-    0%{
-        transform: scale(1);
-        animation-timing-function: ease-out;
-    }
-    50%{
-        transform: scale(1.2);
-        animation-timing-function: ease-in;
-    }
-    100%{
-        transform: scale(1);
-    }
+@keyframes BOUNCE{
+   from{
+    transform: translateY(0);
+   }
+   49%{
+    transform: translateY(50px);
+   }
+   50%{
+    transform: translateY(55px);
+   }
+   51%{
+    transform: translateY(45px);
+   }
+   to{
+    transform: translateY(0);
+   }
 }
 /* FLIP */
-@keyframes flip {
-    0%{
+@keyframes FLIP {
+    from{
         transform: rotateY(0deg);
     }
-    100%{
+    to{
         transform: rotateY(180deg);
     }
 }
