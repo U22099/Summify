@@ -1,0 +1,22 @@
+{
+  "homepage": "",
+  "name": "summify",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "generate-pwa-assets": "pwa-assets-generator --preset minimal-2023 public/logo.svg"
+  },
+  "devDependencies": {
+    "vite": "^5.4.1"
+  },
+  "dependencies": {
+    "@vite-pwa/assets-generator": "^0.2.6",
+    "gh-pages": "^6.1.1",
+    "pdfmake": "^0.2.13",
+    "vite-plugin-pwa": "^0.20.5"
+  }
+}
