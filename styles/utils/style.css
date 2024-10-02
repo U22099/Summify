@@ -1,0 +1,37 @@
+:root{
+  --dark-mode-background:#15151B;
+  --light-mode-background:#FFFFFF;
+  --light-mode-navbar:#F9F9F7;
+  --dark-mode-navbar:#101015;
+  --dark-mode-input-box:#1E1E24;
+  --light-mode-input-box:#F9F9F7;
+  --border-color-suggestion-dark-mode:#313131;
+  --border-color-suggestion-light-mode:#D4CDCD;
+}
+.card-1{
+  width:150px;
+  height:110px;
+  border: 2px solid var( --border-color-suggestion-light-mode);
+  border-radius:7px;
+  padding:15px;
+  display:flex;
+  align-items:center;
+  position:absolute;
+}
+.card-2{
+  width:200px;
+  border:2px solid var(--border-color-suggestion-light-mode);
+  position:absolute;
+  border-radius:15px;
+  padding:15px;
+  display:flex;
+  align-items:center;
+}
+.card-3{
+border:2px solid var(--border-color-suggestion-light-mode);
+position:absolute;
+border-radius:13px;
+padding:15px;
+display:flex;
+align-items:center;
+}
