@@ -52,7 +52,7 @@ export async function generateFlashCardForText(text) {
 
 }
 
-export async function generateFlashCardForFile(file, mimeType) {
+export async function generateFlashCardForFile(file) {
   const genAI = new GoogleGenerativeAI(import.meta.env.SUMMIFY_API_KEY);
 
   const model = genAI.getGenerativeModel({
@@ -65,17 +65,21 @@ export async function generateFlashCardForFile(file, mimeType) {
   });
   const prompt = "Generate flashcards of questions and answers from the document in the file";
 
-  async function fileToGenerativePart(path, mimeType) {
+  async function fileToGenerativePart(file) {
+    const base64 = await toBase64(file);
+    const data = base64.split(",")[1];
+    const mimeType = base64.split(",")[0].split(";")[0].split(":")[1];
     return {
       inlineData: {
-        data: await toBase64(file),
+        data,
         mimeType
       },
     };
   }
 
+
   try {
-    const filePart = await fileToGenerativePart(file, mimeType);
+    const filePart = await fileToGenerativePart(file);
     const generatedContent = await model.generateContent([filePart, prompt]);
     const response = generatedContent.response.text();
     const index = getValue("currentIndex");

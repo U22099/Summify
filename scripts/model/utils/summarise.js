@@ -17,9 +17,12 @@ export async function TextSummary(text, length) {
     const response = generatedContent.response.text();
     const index = getValue("currentIndex");
     const history = await getData();
-    history[index].inputData = text;
+    history[index].inputData = {
+      title: text.slice(0,20),
+      type: "text",
+      data: text
+    };
     history[index].outputData = response;
-    history[index].inputType = "text";
     history[index].chat = [
       {
         role: "user",
@@ -38,7 +41,7 @@ export async function TextSummary(text, length) {
   }
 }
 
-export async function FileSummary(file, mimeType, length) {
+export async function FileSummary(file, length) {
   const genAI = new GoogleGenerativeAI(import.meta.env.SUMMIFY_API_KEY);
   const model = genAI.getGenerativeModel({
     model: "gemini-1.5-flash",
@@ -47,28 +50,34 @@ export async function FileSummary(file, mimeType, length) {
 
   const prompt = `Generate a ${length} length summarisation of the document below: `;
 
-  async function fileToGenerativePart(path, mimeType) {
+  async function fileToGenerativePart(file) {
+    const base64 = await toBase64(file);
+    const data = base64.split(",")[1];
+    const mimeType = base64.split(",")[0].split(";")[0].split(":")[1];
     return {
       inlineData: {
-        data: await toBase64(file),
+        data,
         mimeType
       },
     };
   }
 
   try {
-    const filePart = await fileToGenerativePart(file, mimeType);
+    const filePart = await fileToGenerativePart(file);
     const generatedContent = await model.generateContent([filePart, prompt]);
     const response = generatedContent.response.text();
     const index = getValue("currentIndex");
     const history = await getData();
-    history[index].inputData = filePart.inlineData.data;
+    history[index].inputData = {
+      title: file.name,
+      type: "file",
+      data: `data:${filePart.inlineData.mimeType};base64,${filePart.inlineData.data}`
+    };
     history[index].outputData = response;
-    history[index].inputType = "file";
     history[index].chat = [
       {
         role: "user",
-        parts: [{ filePart },{ text }]
+        parts: [{ filePart }, { text }]
       },
       {
         role: "model",
