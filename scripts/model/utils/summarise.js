@@ -17,6 +17,9 @@ export async function TextSummary(text, length) {
     const response = generatedContent.response.text();
     const index = getValue("currentIndex");
     const history = await getData();
+    history[index].inputData = text;
+    history[index].outputData = response;
+    history[index].inputType = "text";
     history[index].chat = [
       {
         role: "user",
@@ -26,7 +29,7 @@ export async function TextSummary(text, length) {
         role: "model",
         parts: [{ text: response }]
       }
-    ]
+    ];
     await saveData(history);
     return response;
   } catch (e) {
@@ -59,6 +62,9 @@ export async function FileSummary(file, mimeType, length) {
     const response = generatedContent.response.text();
     const index = getValue("currentIndex");
     const history = await getData();
+    history[index].inputData = filePart.inlineData.data;
+    history[index].outputData = response;
+    history[index].inputType = "file";
     history[index].chat = [
       {
         role: "user",
@@ -68,8 +74,8 @@ export async function FileSummary(file, mimeType, length) {
         role: "model",
         parts: [{ text: response }]
       }
-    ]
-    await saveData(history
+    ];
+    await saveData(history);
     return response;
   } catch (e) {
     console.log(e)

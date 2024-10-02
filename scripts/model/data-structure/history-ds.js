@@ -2,6 +2,7 @@
 
 const historyDs = [
   {
+    inputType: "text" || "file",
     inputData: text || file,
     outputData: text,
     chat: [
