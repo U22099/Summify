@@ -12,3 +12,4 @@ export const insertHTML = (elementId, htmlText, position) => {
   }
   
 }
+''
