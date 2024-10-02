@@ -2,6 +2,7 @@
 
 const historyDs = [
   {
+    action: "summary" || "explanation",
     inputData: {
       title: "...",
       type: "text" || "file",
