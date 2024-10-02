@@ -18,7 +18,7 @@ export async function TextSummary(text, length) {
     const index = getValue("currentIndex");
     const history = await getData();
     history[index].inputData = {
-      title: text.slice(0, 20),
+      title: text.padEnd(".", 20).slice(0, 20),
       type: "text",
       data: text
     };
