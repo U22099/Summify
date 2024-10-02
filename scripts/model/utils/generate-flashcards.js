@@ -1,5 +1,7 @@
 import { GoogleGenerativeAI, SchemaType } from "@google/generative-ai";
 import toBase64 from "./to-base-64.js";
+import { getData, saveData } from "indexed-db.js";
+import { getValue } from "storage.js";
 
 const schema = {
   description: "FlashCards",
@@ -31,13 +33,17 @@ export async function generateFlashCardForText(text) {
       responseMimeType: "application/json",
       responseSchema: schema,
     },
-    systemInstruction: "You are an expert at flashcards generator, good at giving concise and meaningful flashcards Q&A of documents.",
+    systemInstruction: "You are an expert at flashcards generator, good at giving concise and meaningful flashcards Q&As from documents.",
   });
-  const prompt = "Generate flashcards of question and answer of the document below: ";
+  const prompt = "Generate flashcards of questions and answers from the document below: ";
 
   try {
     const generatedContent = await model.generateContent(prompt + "\n" + text);
     const response = generatedContent.response.text();
+    const index = getValue("currentIndex");
+    const history = await getData();
+    history[index].flashcards = response;
+    await saveData(history);
     return response;
   } catch (e) {
     console.log(e)
@@ -55,9 +61,9 @@ export async function generateFlashCardForFile(file, mimeType) {
       responseMimeType: "application/json",
       responseSchema: schema,
     },
-    systemInstruction: "You are an expert at flashcards generator, good at giving concise and meaningful flashcards Q&A of documents.",
+    systemInstruction: "You are an expert at flashcards generator, good at giving concise and meaningful flashcards Q&As from documents.",
   });
-  const prompt = "Generate flashcards of question and answer of the document in the file";
+  const prompt = "Generate flashcards of questions and answers from the document in the file";
 
   async function fileToGenerativePart(path, mimeType) {
     return {
@@ -72,8 +78,13 @@ export async function generateFlashCardForFile(file, mimeType) {
     const filePart = await fileToGenerativePart(file, mimeType);
     const generatedContent = await model.generateContent([filePart, prompt]);
     const response = generatedContent.response.text();
+    const index = getValue("currentIndex");
+    const history = await getData();
+    history[index].flashcards = response;
+    await saveData(history);
     return response;
-  } catch (e) {
+  }
+  catch (e) {
     console.log(e)
     return false;
   }

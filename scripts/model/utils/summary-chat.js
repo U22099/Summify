@@ -8,13 +8,13 @@ export default async function SummaryChat(text) {
   });
 
   const index = getValue("currentIndex");
-  const chatHistory = await getData()[index].chat;
+  const history = await getData();
 
-  const chatHistory = model.startChat({ history });
+  const chat = model.startChat({ history: history[index].chat });
   try {
     const result = await chat.sendMessage(text);
     const response = result.response.text();
-    chatHistory.push(
+    history[index].chat.push(
     {
       role: "user",
       parts: [{ text }]
@@ -23,7 +23,7 @@ export default async function SummaryChat(text) {
       role: "model",
       parts: [{ text: response }]
     });
-    await saveData(chatHistory);
+    await saveData(history);
     return response;
   } catch (e) {
     console.log(e);
