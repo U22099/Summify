@@ -1,0 +1,94 @@
+INPUT: TextSummary(`The Curious Life of Albert Einstein
+
+In the quaint town of Ulm, Germany, on March 14, 1879, a spark of genius ignited. Albert Einstein, the future icon of modern physics, was born to Hermann and Pauline Einstein. Little did they know that their curious, mischievous child would one day revolutionize our understanding of space, time, and the universe.
+
+Early Years: A Curious Mind
+
+Young Albert's fascination with science and mathematics began with a compass his father gave him. The mysterious needle, always pointing north, captivated him. He spent hours pondering the invisible forces at play. This curiosity would become the hallmark of his life's work.
+
+As a child, Einstein was a slow learner, but his passion for knowledge drove him to devour books on mathematics, physics, and philosophy. He taught himself calculus, geometry, and astronomy, often neglecting his schoolwork. His parents worried, but Albert's thirst for knowledge couldn't be contained.
+
+*The Swiss Years: Education and Inspiration*
+
+In 1894, Einstein moved to Switzerland to attend the Swiss Federal Polytechnic University. Here, he immersed himself in theoretical physics, studying the works of Maxwell, Lorentz, and Planck. His imagination was sparked by the ideas of space and time.
+
+During his studies, Einstein befriended Michele Besso, a fellow physicist who shared his enthusiasm for theoretical discussions. These conversations laid the groundwork for some of Einstein's most groundbreaking ideas.
+
+*Patent Clerk and Theoretical Physicist*
+
+After graduating, Einstein struggled to find academic employment. He took a job as a patent clerk in Bern, Switzerland, evaluating inventions related to electrical and mechanical engineering. This seemingly mundane work allowed him to ponder the mysteries of the universe.
+
+In 1905, Einstein's annus mirabilis (miracle year), he published four revolutionary papers:
+
+1. *Special Relativity*: Introduced the concept of time dilation and length contraction.
+2. *Photoelectric Effect*: Explained the behavior of light and electrons.
+3. *Brownian Motion*: Provided evidence for the existence of atoms.
+4. *Equivalence of Energy and Mass*: Proposed the famous equation E=mc².
+
+*Rise to Fame and International Recognition*
+
+Einstein's work caught the attention of the scientific community. In 1915, he expanded his theory of relativity to include gravity with his *General Theory of Relativity*. This groundbreaking work predicted phenomena such as gravitational waves and black holes.
+
+As his reputation grew, so did his travels. Einstein lectured in Europe, Asia, and the United States, spreading his ideas and inspiring a new generation of physicists.
+
+*Personal Life and Turbulent Times*
+
+Einstein's personal life was marked by turmoil. He married Mileva Marić in 1903, and they had two sons, Hans Albert and Eduard. However, their relationship was complicated, and they divorced in 1919. Einstein later married Elsa Löwenthal.
+
+During World War I, Einstein's pacifist views and Jewish heritage made him a target for anti-Semitic attacks. He emigrated to the United States in the 1930s, settling in Princeton, New Jersey.
+
+*Later Years: Reflections and Legacy*
+
+In his later years, Einstein continued to work on unified field theories, seeking to merge gravity, electromagnetism, and the strong and weak nuclear forces. Though he didn't complete this quest, his efforts paved the way for modern physics.
+
+As the world faced the threat of nuclear war, Einstein's voice resonated against the development of atomic bombs. His famous letter to President Franklin D. Roosevelt warned of the dangers of nuclear proliferation.
+
+On April 18, 1955, Albert Einstein passed away, leaving behind a legacy that transformed humanity's understanding of the universe.
+
+*Einstein's Legacy*
+
+Today, Einstein's theories underpin modern physics, from GPS technology to cosmology. His name has become synonymous with genius, inspiring generations to explore the mysteries of the universe.
+
+As we reflect on Einstein's life, we're reminded that curiosity, creativity, and perseverance can lead to revolutionary breakthroughs. His story encourages us to challenge conventional wisdom, explore the unknown, and push the boundaries of human knowledge.`,"long");
+
+
+OUTPUT: Albert Einstein, born in 1879 in Ulm, Germany, exhibited an early fascination with science and mathematics, particularly evident in his childhood fascination with a compass. Despite being a slow learner initially, his passion for knowledge drove him to self-study and eventually led him to the Swiss Federal Polytechnic University. There, he immersed himself in theoretical physics, forming crucial friendships that fostered his groundbreaking ideas.
+
+After graduating, Einstein worked as a patent clerk, a period that proved remarkably productive. In 1905, he published four revolutionary papers, including the theory of special relativity, the explanation of the photoelectric effect, the evidence for the existence of atoms, and the famous equation E=mc². These papers garnered significant attention and laid the foundation for his future work.
+
+In 1915, Einstein further expanded his theory of relativity with the general theory of relativity, predicting phenomena like gravitational waves and black holes. His work earned him international recognition and propelled him to the forefront of scientific discourse.
+
+Einstein's personal life was marked by challenges, including a complicated marriage and anti-Semitic attacks during World War I. He ultimately emigrated to the United States in the 1930s, settling in Princeton, New Jersey.
+
+Throughout his career, Einstein strived to unify the fundamental forces of nature, a quest that remained unfinished. He also famously warned against the dangers of nuclear proliferation, advocating for peace.
+
+Albert Einstein died in 1955, leaving behind a legacy that revolutionized our understanding of the universe and continues to inspire scientific exploration today. His contributions are evident in various fields, from GPS technology to cosmology, and his name has become synonymous with genius, emphasizing the transformative power of curiosity, creativity, and perseverance. 
+(medium)
+
+OUTPUT2: Albert Einstein, born in 1879, displayed a deep fascination with science and mathematics from a young age. His early years were marked by curiosity and a thirst for knowledge, often exceeding the limitations of traditional schooling. He furthered his studies in Switzerland, where he developed his groundbreaking theories of special and general relativity, revolutionizing our understanding of space, time, and gravity. Einstein's "miracle year" of 1905 saw the publication of four groundbreaking papers, including the famous E=mc². His work led to international recognition, but also faced challenges due to his pacifist views and Jewish heritage during World War I. Later in life, he continued his pursuit of a unified field theory and warned of the dangers of nuclear proliferation.  Einstein's legacy endures as a symbol of scientific brilliance and a reminder of the power of curiosity, creativity, and perseverance. 
+(short)
+
+OUTPUT3: ## The Curious Life of Albert Einstein: A Journey of Genius and Impact
+
+Albert Einstein, born in Ulm, Germany, in 1879, became one of the most influential physicists of the 20th century. His journey began with a fascination with a compass, igniting a lifelong curiosity for the workings of the universe. Though a slow learner initially, his thirst for knowledge led him to self-educate in mathematics, physics, and philosophy, laying the groundwork for his revolutionary ideas.
+
+Einstein's journey took him to Switzerland where he honed his skills in theoretical physics, fueled by the ideas of Maxwell, Lorentz, and Planck. His friendship with fellow physicist Michele Besso further ignited his passion for theoretical discussions. Despite struggling to secure an academic position after graduation, Einstein's work as a patent clerk in Bern, Switzerland, allowed him to contemplate the mysteries of the universe. 
+
+The year 1905 marked a turning point in Einstein's life, as he published four groundbreaking papers:
+
+* **Special Relativity**: Introducing the revolutionary concepts of time dilation and length contraction.
+* **Photoelectric Effect**: Explaining the interaction of light and electrons.
+* **Brownian Motion**: Providing evidence for the existence of atoms.
+* **Equivalence of Energy and Mass**: Formulating the iconic equation E=mc².
+
+These revolutionary papers catapulted Einstein to prominence in the scientific community. His work led to the development of the **General Theory of Relativity** in 1915, further expanding our understanding of gravity and predicting phenomena like gravitational waves and black holes.
+
+Einstein's influence spread globally, inspiring a new generation of physicists through his lectures and discussions. His personal life, however, was marked by turmoil, including a complicated marriage and the anxieties of World War I, where his pacifist views and Jewish heritage made him a target of anti-Semitic attacks. He ultimately emigrated to the United States in the 1930s, settling in Princeton, New Jersey.
+
+Even in his later years, Einstein continued his scientific pursuits, seeking a unified theory to combine gravity, electromagnetism, and nuclear forces. Though unsuccessful in this quest, his efforts laid the groundwork for modern physics. 
+
+Einstein's voice became crucial in the face of the looming threat of nuclear war. He wrote to President Franklin D. Roosevelt, warning of the dangers of nuclear proliferation. 
+
+Albert Einstein passed away in 1955, leaving behind a legacy that profoundly shaped our understanding of the universe. His theories underpin modern physics, impacting technologies like GPS and cosmology. His name has become synonymous with genius, inspiring generations to explore the mysteries of the universe.
+
+Einstein's life stands as a testament to the power of curiosity, creativity, and perseverance. His journey encourages us to question assumptions, embrace the unknown, and push the boundaries of human knowledge.(long)

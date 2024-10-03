@@ -3,7 +3,6 @@ import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
   base: '/Summify/',
-  envPrefix: "SUMMIFY_",
   plugins: [VitePWA({
       registerType: 'autoUpdate',
       manifest: {
