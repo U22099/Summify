@@ -51,6 +51,7 @@ Today, Einstein's theories underpin modern physics, from GPS technology to cosmo
 
 As we reflect on Einstein's life, we're reminded that curiosity, creativity, and perseverance can lead to revolutionary breakthroughs. His story encourages us to challenge conventional wisdom, explore the unknown, and push the boundaries of human knowledge.`,"long");
 
+---------------------------------------
 
 OUTPUT: Albert Einstein, born in 1879 in Ulm, Germany, exhibited an early fascination with science and mathematics, particularly evident in his childhood fascination with a compass. Despite being a slow learner initially, his passion for knowledge drove him to self-study and eventually led him to the Swiss Federal Polytechnic University. There, he immersed himself in theoretical physics, forming crucial friendships that fostered his groundbreaking ideas.
 
@@ -65,8 +66,12 @@ Throughout his career, Einstein strived to unify the fundamental forces of natur
 Albert Einstein died in 1955, leaving behind a legacy that revolutionized our understanding of the universe and continues to inspire scientific exploration today. His contributions are evident in various fields, from GPS technology to cosmology, and his name has become synonymous with genius, emphasizing the transformative power of curiosity, creativity, and perseverance. 
 (medium)
 
+---------------------------------------
+
 OUTPUT2: Albert Einstein, born in 1879, displayed a deep fascination with science and mathematics from a young age. His early years were marked by curiosity and a thirst for knowledge, often exceeding the limitations of traditional schooling. He furthered his studies in Switzerland, where he developed his groundbreaking theories of special and general relativity, revolutionizing our understanding of space, time, and gravity. Einstein's "miracle year" of 1905 saw the publication of four groundbreaking papers, including the famous E=mc². His work led to international recognition, but also faced challenges due to his pacifist views and Jewish heritage during World War I. Later in life, he continued his pursuit of a unified field theory and warned of the dangers of nuclear proliferation.  Einstein's legacy endures as a symbol of scientific brilliance and a reminder of the power of curiosity, creativity, and perseverance. 
 (short)
+
+---------------------------------------
 
 OUTPUT3: ## The Curious Life of Albert Einstein: A Journey of Genius and Impact
 
@@ -92,3 +97,5 @@ Einstein's voice became crucial in the face of the looming threat of nuclear war
 Albert Einstein passed away in 1955, leaving behind a legacy that profoundly shaped our understanding of the universe. His theories underpin modern physics, impacting technologies like GPS and cosmology. His name has become synonymous with genius, inspiring generations to explore the mysteries of the universe.
 
 Einstein's life stands as a testament to the power of curiosity, creativity, and perseverance. His journey encourages us to question assumptions, embrace the unknown, and push the boundaries of human knowledge.(long)
+
+---------------------------------------
