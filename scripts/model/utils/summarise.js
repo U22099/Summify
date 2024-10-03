@@ -4,7 +4,7 @@ import { getData, saveData } from "indexed-db.js";
 import { getValue } from "storage.js";
 
 export async function TextSummary(text, length) {
-  const genAI = new GoogleGenerativeAI(import.meta.env.SUMMIFY_API_KEY);
+  const genAI = new GoogleGenerativeAI(import.meta.env.VITE_API_KEY);
   const model = genAI.getGenerativeModel({
     model: "gemini-1.5-flash",
     systemInstruction: "You are an expert at content summarisation good at giving concise and meaningful summary of contents by preserving key information, main ideas, and essential details omiting unnecessary information, redundant phrases, and trivial details maintaining objectivity and neutrality, avoiding bias and personal opinions ensuring the summary is easy to understand, clear, and free of jargon."
@@ -42,7 +42,7 @@ export async function TextSummary(text, length) {
 }
 
 export async function FileSummary(file, length) {
-  const genAI = new GoogleGenerativeAI(import.meta.env.SUMMIFY_API_KEY);
+  const genAI = new GoogleGenerativeAI(import.meta.env.VITE_API_KEY);
   const model = genAI.getGenerativeModel({
     model: "gemini-1.5-flash",
     systemInstruction: "You are an expert at content summarisation good at giving concise and meaningful summary of documents by preserving key information, main ideas, and essential details omiting unnecessary information, redundant phrases, and trivial details maintaining objectivity and neutrality, avoiding bias and personal opinions ensuring the summary is easy to understand, clear, and free of jargon."

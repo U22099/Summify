@@ -25,7 +25,7 @@ const schema = {
 };
 
 export async function generateFlashCardForText(text) {
-  const genAI = new GoogleGenerativeAI(import.meta.env.SUMMIFY_API_KEY);
+  const genAI = new GoogleGenerativeAI(import.meta.env.VITE_API_KEY);
 
   const model = genAI.getGenerativeModel({
     model: "gemini-1.5-flash",
@@ -53,7 +53,7 @@ export async function generateFlashCardForText(text) {
 }
 
 export async function generateFlashCardForFile(file) {
-  const genAI = new GoogleGenerativeAI(import.meta.env.SUMMIFY_API_KEY);
+  const genAI = new GoogleGenerativeAI(import.meta.env.VITE_API_KEY);
 
   const model = genAI.getGenerativeModel({
     model: "gemini-1.5-flash",
