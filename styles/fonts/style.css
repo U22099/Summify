@@ -3,22 +3,26 @@
   src: url('FONT/SFPRODISPLAYBOLD.OTF') format('opentype');
   font-weight: bold;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: 'SF-PRO-NORMAL';
   src: url('FONT/SFPRODISPLAYREGULAR.OTF') format('opentype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: 'SF-PRO-SEMIBOLD';
   src: url('FONT/SFPRODISPLAYMEDIUM.OTF') format('opentype');
   font-weight: semi-bold;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: 'SF-PRO-LIGHT-INTALIC';
   src: url('FONT/SFPRODISPLAYLIGHTITALIC.OTF') format('opentype');
   font-weight: normal;
   font-style: italic;
+  font-display: swap;
 }
