@@ -1,10 +1,10 @@
 import pdfMake from "pdfmake";
 
-export default function textToPdf({title, author, subject, keywords, text}){
+export default function textToPdf(text, {title, subject, keywords}){
   const docDefinition = {
     info: {
       title,
-      author,
+      author: "summify",
       subject,
       keywords,
       creator: 'pdfMake',

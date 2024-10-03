@@ -1,6 +1,6 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import { getData, saveData } from "indexed-db.js";
-import { getValue } from "storage.js";
+import { getData, saveData } from "../utils/indexed-db.js";
+import { getValue } from "../utils/storage.js";
 
 export default async function SummaryChat(text) {
   const genAI = new GoogleGenerativeAI(import.meta.env.VITE_API_KEY);

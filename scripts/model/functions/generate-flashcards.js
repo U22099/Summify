@@ -1,7 +1,7 @@
 import { GoogleGenerativeAI, SchemaType } from "@google/generative-ai";
-import toBase64 from "./to-base-64.js";
-import { getData, saveData } from "indexed-db.js";
-import { getValue } from "storage.js";
+import toBase64 from "../utils/to-base-64.js";
+import { getData, saveData } from "../utils/indexed-db.js";
+import { getValue } from "../utils/storage.js";
 
 const schema = {
   description: "FlashCards",
@@ -24,7 +24,7 @@ const schema = {
   },
 };
 
-export async function generateFlashCardForText(text) {
+export async function GenerateFlashCardsForText(text) {
   const genAI = new GoogleGenerativeAI(import.meta.env.VITE_API_KEY);
 
   const model = genAI.getGenerativeModel({
@@ -52,7 +52,7 @@ export async function generateFlashCardForText(text) {
 
 }
 
-export async function generateFlashCardForFile(file) {
+export async function GenerateFlashCardsForFile(file) {
   const genAI = new GoogleGenerativeAI(import.meta.env.VITE_API_KEY);
 
   const model = genAI.getGenerativeModel({

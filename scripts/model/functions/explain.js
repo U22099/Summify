@@ -1,9 +1,9 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import toBase64 from "./to-base-64.js";
-import { getData, saveData } from "indexed-db.js";
-import { getValue } from "storage.js";
+import toBase64 from "../utils/to-base-64.js";
+import { getData, saveData } from "../utils/indexed-db.js";
+import { getValue } from "../utils/storage.js";
 
-export async function TextSummary(text, length) {
+export async function TextExplanation(text, length) {
   const genAI = new GoogleGenerativeAI(import.meta.env.VITE_API_KEY);
   const model = genAI.getGenerativeModel({
     model: "gemini-1.5-flash",
@@ -41,7 +41,7 @@ export async function TextSummary(text, length) {
   }
 }
 
-export async function FileSummary(file, length) {
+export async function FileExplanation(file, length) {
   const genAI = new GoogleGenerativeAI(import.meta.env.VITE_API_KEY);
   const model = genAI.getGenerativeModel({
     model: "gemini-1.5-flash",
