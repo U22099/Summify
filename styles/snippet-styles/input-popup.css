@@ -12,6 +12,7 @@
   bottom: 0;
   left: 0;
   right: 0;
+  animation: SCALEIN 1s cubic-bezier(0.163, 1, 0.658, 1);
 }
 .input-popup > .body{
   display: flex;
