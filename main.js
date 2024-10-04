@@ -1,6 +1,7 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 export async function TextSummary(text, length) {
+  console.log(import.meta.env)
   const genAI = new GoogleGenerativeAI(import.meta.env.VITE_API_KEY);
   const model = genAI.getGenerativeModel({
     model: "gemini-1.5-flash",
