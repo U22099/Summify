@@ -7,6 +7,7 @@ import { InsertHtml } from 'functions/InsertHTML.js';
 import { RemoveClassName } from 'functions/RemoveClassName.js';
 import { RemoveElement } from 'functions/RemoveElement.js';
 import { WriteToElement } from 'functions/WriteToElement.js';
+import inputPopUpHtml from 'utils/input-popup-html.js';
 
 
 export default class View {
@@ -64,5 +65,8 @@ export default class View {
     WriteToElement(elementId, text)
   }
   
-  
+  //returns dynamic html string for input popup
+  runInputPopupHtml(){
+    return inputPopUpHtml;
+  }
 }

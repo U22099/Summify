@@ -1,0 +1,103 @@
+.input-popup{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background: none;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.input-popup > .body{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  border-radius: 10px;
+  background: var(--light-mode-navbar);
+  padding: 10px;
+  gap: 10px;
+}
+.input-popup > .body > .nav{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 5px;
+}
+.input-popup > .body > .nav > p{
+  box-shadow: inset 0px 0px 2px #00000044;
+  border-radius: 20px;
+  padding: 5px 10px;
+  margin: 0px auto;
+  width: fit-content;
+  height: fit-content;
+}
+.active-btn {
+  background: black;
+  color: white;
+}
+.input-popup > .body > .main{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.input-popup > .body > .main > textarea{
+  width: 100%;
+  height: 40vh;
+  border: 2px solid var(--dark-mode-input-box);
+  padding: 5px;
+  font-size: clamp(1.1em, 1.3em, 1.5em);
+}
+.input-popup > .body > .main > label > span{
+  background: black;
+  color: white;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+.input-popup > .body > .footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.input-popup > .body > .footer > select,
+.input-popup > .body > .footer > button{
+  background: none;
+  border: 2px solid var(--dark-mode-input-box);
+  padding: 4px;
+  font-size: 1.1em;
+  border-radius: 10px; 
+}
+.input-popup > .body > .footer > button{
+  padding: 5px 15px;
+}
+@media (prefers-color-scheme: dark) {
+  .input-popup > .body{
+    background: var(--dark-mode-navbar);
+  }
+  .input-popup > .body > .nav > p{
+    background: black;
+    border: 2px solid var(--dark-mode-input-box);
+    color: white;
+  }
+  .active-btn{
+    background: white !important;
+    color: black !important;
+  }
+  .input-popup > .body > .main > textarea{
+    background: black;
+    color: white;
+  }
+  .input-popup > .body > .main > label > span{
+    background: white;
+    color: black;
+  }
+  .input-popup>.body>.footer>select,
+  .input-popup>.body>.footer>button{
+    color: white;
+  }
+}
