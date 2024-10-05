@@ -17,9 +17,9 @@
 <body>
   <div class="container">
     <header class="header">
-      <i class="fa-solid fa-bars"></i>
+      <i class="fa-solid fa-bars" id="open-nav"></i>
       <h1>Summify</h1>
-      <i class="fa-regular fa-pen-to-square"></i>
+      <i class="fa-regular fa-pen-to-square" id="new-chat"></i>
     </header>
     <nav class="side-bar">
       <div>
@@ -29,10 +29,10 @@
           </svg>
           <p>Summify</p>
         </header>
-        <i class="fa-regular fa-circle-xmark"></i>
+        <i class="fa-regular fa-circle-xmark" id="close-nav"></i>
       </div>
       <div>
-        <i class="fa-solid fa-broom"></i>
+        <i class="fa-solid fa-broom" id="clear-history"></i>
         <span>clear history</span>
       </div>
       <button class="card">
@@ -56,11 +56,11 @@
         <h1>Summify</h1>
         <p>Summarize, break down and explain those long exhausting documents with summify</p>
         <div>
-          <button class="card">
+          <button class="card" id="summary">
             <i class="fa-regular fa-file" />
             <p>Summarize Document</p>
           </button>
-          <button class="card">
+          <button class="card" id="explanation">
             <i class="fa-regular fa-file" />
             <p>Explain Document</p>
           </button>
@@ -68,7 +68,7 @@
       </section>
     </main>
   </div>
-  <script type="module" src="/main.js" defer></script>
+  <script type="module" src="main.js" defer></script>
 </body>
 
 </html>

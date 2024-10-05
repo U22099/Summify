@@ -3,6 +3,7 @@ import { AddEventListener } from 'functions/AddEventListener.js';
 import { AppendElement } from 'functions/AppendElement.js';
 import { CreateElement } from 'functions/CreateElement.js';
 import { GetInput } from 'functions/GetInput.js';
+import { GetElement } from 'functions/GetElement.js'
 import { InsertHtml } from 'functions/InsertHTML.js';
 import { RemoveClassName } from 'functions/RemoveClassName.js';
 import { RemoveElement } from 'functions/RemoveElement.js';
@@ -63,6 +64,11 @@ export default class View {
   //write to element method 
   runWriteToElement(elementId, text) {
     WriteToElement(elementId, text)
+  }
+  
+  //returns element
+  runGetElement(identifier){
+    return GetElement(identifier);
   }
   
   //returns dynamic html string for input popup
