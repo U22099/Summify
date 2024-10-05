@@ -39,6 +39,87 @@ body{
 .header > i{
   font-size: var(--clamp);
 }
+.side-bar{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  width: clamp(50vw, 45vw, 30vw);
+  height: 100vh;
+  padding: 8px 8px 30px 8px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--light-mode-navbar);
+  z-index: 100;
+  gap: 8px;
+  overflow-y: scroll;
+  visibility: hidden;
+}
+.side-bar :first-child{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.side-bar :first-child > header{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+.side-bar :first-child > header > svg{
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+  background: linear-gradient(to bottom, black, gray);
+  border: 2px solid var(--border-color-suggestion-light-mode);
+  padding: 5px;
+}
+.side-bar :first-child > header > svg > path{
+  fill: white;
+}
+.side-bar :first-child > header > p{
+  margin: 0px;
+}
+.side-bar :first-child > i{
+  font-size: clamp(1.2em, 1.3em, 1.4em);
+}
+.side-bar :nth-child(2){
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: fit-content;
+  gap: 5px;
+}
+.side-bar :nth-child(2) > i{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  color: black;
+  border: none;
+  padding: 2px;
+  border-radius: 5px;
+  width: 24px;
+  height: 24px;
+}
+.side-bar > div > p{
+  width: 100%;
+}
+.side-bar > button{
+  width: 100%;
+  font-size: 0.9em;
+  justify-content: start;
+  display: flex;
+  align-items: center;
+  text-align: start;
+  background: white;
+  border: none;
+}
 .main{
   display: flex;
   flex-direction: column;
@@ -80,10 +161,10 @@ body{
 .main > section > div > button > i{
   font-size: clamp(1.2em, 1.3em, 1.5em);
 }
-.icon-1{
+.main > section > div :first-child :first-child{
   color: aqua;
 }
-.icon-2{
+.main > section > div :last-child :first-child{
   color: firebrick;
 }
 .main > section > div > button > p{
@@ -96,5 +177,35 @@ body{
   }
   svg > path{
     fill: white;
+  }
+  .side-bar{
+    background: var(--dark-mode-navbar);
+  }
+  .side-bar :first-child > header > svg{
+    border: 2px solid var(--border-color-suggestion-dark-mode);
+  }
+  .side-bar :nth-child(2) > i{
+    background: var(--dark-mode-input-box);
+    color: white;
+  }
+  .side-bar > button{
+    background: var(--dark-mode-input-box);
+    border: none;
+  }
+}
+@media (min-width: 718px) {
+  body{
+    justify-content: start;
+  }
+  .header :first-child{
+    visibility: hidden;
+  }
+  .side-bar{
+    visibility: visible;
+    position: normal;
+    width: 100%;
+  }
+  .main{
+    width: 100%;
   }
 }
