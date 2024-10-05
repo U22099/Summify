@@ -12,7 +12,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  animation: SCALEIN 1s cubic-bezier(0.163, 1, 0.658, 1);
+  animation: SCALEIN .5s cubic-bezier(0.163, 1, 0.658, 1);
 }
 .input-popup > .body{
   display: flex;
@@ -46,12 +46,25 @@
   justify-content: start;
   align-items: center;
 }
-.input-popup > .body > .main > textarea{
+.input-popup > .body > .main > label{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.input-popup > .body > .main > textarea,
+.input-popup > .body > .main > label > object{
   width: 100%;
   height: 40vh;
   border: 2px solid var(--dark-mode-input-box);
   padding: 5px;
+  border-radius: 10px;
   font-size: clamp(1.1em, 1.3em, 1.5em);
+}
+.input-popup > .body > .main > label > object{
+  width: clamp(80vw, 70vw, 50vw);
+  object-fit: cover;
 }
 .input-popup > .body > .main > label > span{
   background: black;
