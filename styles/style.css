@@ -8,3 +8,15 @@
 *:focus{
   outline: none;
 }
+body{
+  background: var(--light-mode-background);
+}
+@media (prefers-color-scheme: dark) {
+  body{
+    background: var(--dark-mode-background);
+    color: white;
+  }
+  svg > path{
+    fill: white;
+  }
+}

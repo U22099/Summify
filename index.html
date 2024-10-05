@@ -1,67 +1,75 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/xml-svg" href="logo.svg" />
-    <link rel="icon" href="favicon.ico" sizes="48x48">
-    <link rel="apple-touch-icon" href="apple-touch-icon-180x180.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Summify is an AI-powered content summarizer that uses the Gemini API to quickly and easily create summaries of text, PDFs, and images. Generate flash cards, chat with the AI about your content, and save your summaries for later.">
-    <meta name="keywords" content="AI summarizer, content summarization, text summarizer, PDF summarizer, image summarizer, Gemini API, flash cards, chat, IndexedDB, PDF download, Summify, AI, content, summarization, knowledge, learning">
-    <link rel="stylesheet" href="main.css" /> 
-    <title>Summify</title>
-  </head>
-  <body>
-     <div class="container">
-      <nav class="navBar">
-        <img src="public/logo.svg" alt="Summify Logo" class="logo" />
-        <p>Summify</p>
-        <img src="" alt="" class="" />
-        <p>new chat</p>
-        <button class="card">Summary of acid/bases</button>
-        <button class="card">Flash cards</button>
-        <button class="card">Pdf generation</button>
-        <button class="card">Summary of acid/bases</button>
-      </nav>
-      <main>
-        <section class="section1">
-          <img src="public/logo.svg" alt="" class="logo" />
-          <h1>Summify</h1>
-          <p>Summarize notes, Generate pdf, converse <br /> ideas with summify</p>
-          <div class="">
-            <button class="card">
-              <img src="" alt="" />
-              <p>Summarize document</p>
-            </button>
-            <button class="card">
-              <img src="" alt="" />
-              <p>Get top analysis of your notes</p>
-            </button>
-            <button class="card">
-              <img src="" alt="" />
-              <p>Generate flash cards for active recall</p>
-            </button>
-            <button class="card">
-              <img src="" alt="" />
-              <p>Generate top response</p>
-            </button>
-          </div>
-        </section>
 
-        <section class="section2">
-          <input type="text" placeholder="What would you like Summify to do" />
-          <div>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/xml-svg" href="logo.svg" />
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="apple-touch-icon" href="apple-touch-icon-180x180.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Summify is an AI-powered content summarizer that uses the Gemini API to quickly and easily create summaries of text, PDFs, and images. Generate flash cards, chat with the AI about your content, and save your summaries for later.">
+  <meta name="keywords" content="AI summarizer, content summarization, text summarizer, PDF summarizer, image summarizer, Gemini API, flash cards, chat, IndexedDB, PDF download, Summify, AI, content, summarization, knowledge, learning">
+  <link rel="stylesheet" href="main.css" />
+  <title>Summify</title>
+</head>
+
+<body>
+  <div class="container">
+    <nav class="navBar">
+      <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 4C0 1.79086 1.79086 0 4 0H12C14.2091 0 16 1.79086 16 4V11.8553C16.0002 11.9034 16.0003 11.9516 16.0003 12C16.0003 14.206 17.786 15.9949 19.9907 16C19.9938 16 19.9969 16 20 16H28C30.2091 16 32 17.7909 32 20V28C32 30.2091 30.2091 32 28 32H20C17.7909 32 16 30.2091 16 28V20C16 19.9889 16 19.9778 16.0001 19.9667C15.9823 17.7729 14.1983 16 12.0003 16C11.9899 16 11.9796 16 11.9693 16H4C1.79086 16 0 14.2091 0 12V4Z" fill="#0C111D" />
+      </svg>
+
+      <p>Summify</p>
+      <img src="" alt="" class="" />
+      <p>new chat</p>
+      <button class="card">Summary of acid/bases</button>
+      <button class="card">Flash cards</button>
+      <button class="card">Pdf generation</button>
+      <button class="card">Summary of acid/bases</button>
+    </nav>
+    <main>
+      <section class="section1">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 4C0 1.79086 1.79086 0 4 0H12C14.2091 0 16 1.79086 16 4V11.8553C16.0002 11.9034 16.0003 11.9516 16.0003 12C16.0003 14.206 17.786 15.9949 19.9907 16C19.9938 16 19.9969 16 20 16H28C30.2091 16 32 17.7909 32 20V28C32 30.2091 30.2091 32 28 32H20C17.7909 32 16 30.2091 16 28V20C16 19.9889 16 19.9778 16.0001 19.9667C15.9823 17.7729 14.1983 16 12.0003 16C11.9899 16 11.9796 16 11.9693 16H4C1.79086 16 0 14.2091 0 12V4Z" fill="#0C111D" />
+        </svg>
+
+        <h1>Summify</h1>
+        <p>Summarize notes, Generate pdf, converse <br /> ideas with summify</p>
+        <div class="">
+          <button class="card">
             <img src="" alt="" />
-            <p>Add an attachment</p>
-          </div>
-          <div>
+            <p>Summarize document</p>
+          </button>
+          <button class="card">
             <img src="" alt="" />
-            <p>Add an image</p>
-          </div>
+            <p>Get top analysis of your notes</p>
+          </button>
+          <button class="card">
+            <img src="" alt="" />
+            <p>Generate flash cards for active recall</p>
+          </button>
+          <button class="card">
+            <img src="" alt="" />
+            <p>Generate top response</p>
+          </button>
+        </div>
+      </section>
+      <section class="section2">
+        <input type="text" placeholder="What would you like Summify to do" />
+        <div>
           <img src="" alt="" />
-        </section>
-      </main>
-     </div>
-    <script type="module" src="/main.js" defer></script>
-  </body>
+          <p>Add an attachment</p>
+        </div>
+        <div>
+          <img src="" alt="" />
+          <p>Add an image</p>
+        </div>
+        <img src="" alt="" />
+      </section>
+    </main>
+  </div>
+  <script type="module" src="/main.js" defer></script>
+</body>
+
 </html>
