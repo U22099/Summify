@@ -1,3 +1,10 @@
 @import "animations/style.css";
 @import "utils/style.css";
 @import "fonts/style.css";
+@import "snippet-styles/input-popup.css";
+*{
+  font-family: 'SF-PRO-NORMAL', sans-serif;
+}
+*:focus{
+  outline: none;
+}

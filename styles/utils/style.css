@@ -14,7 +14,11 @@
   height: fit-content;
   border: 2px solid var(--border-color-suggestion-light-mode);
   border-radius: 7px;
-  padding: 15px;
-  display: flex;
-  align-items: center;
+  padding: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  .card{
+    border: 2px solid var(--border-color-suggestion-dark-mode);
+    color: white;
+  }
 }

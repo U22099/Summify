@@ -1,10 +1,13 @@
-import pdfMake from "pdfmake";
+import pdfMake from "pdfmake/build/pdfmake";
+import pdfFonts from "pdfmake/build/vfs_fonts";
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+
 
 export default function textToPdf(text, {title, subject, keywords}){
   const docDefinition = {
     info: {
       title,
-      author: "summify",
+      author: "Summify",
       subject,
       keywords,
       creator: 'pdfMake',
