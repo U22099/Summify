@@ -6,13 +6,13 @@ Summify is an AI-powered content summarizer that leverages the capabilities of t
 
 **Features**
 
-* **Text Summarization:**  Users can paste or type in text content to generate a summary.
-* **PDF Summarization:**  Users can upload PDF documents for summarization.
-* **Image Summarization:** Users can upload images for summarization, leveraging the Gemini API's image understanding capabilities.
+* **Text Summarization/Explanation:**  Users can paste or type in text content to generate a summary.
+* **PDF Summarization/Explanation:**  Users can upload PDF documents for summarization.
+* **Image Summarization/Explanation:** Users can upload images for summarization, leveraging the Gemini API's image understanding capabilities.
 * **Flash Cards:**  Based on the input document, the application generates flash cards with key points, promoting learning and knowledge retention.
 * **Chat Interface:** Users can engage in a conversational chat interface to ask further questions about the summarized content.
 * **IndexedDB History:**  A user's history of summarized documents is stored locally using IndexedDB for easy access and reference.
-* **PDF Download:**  Users can download a PDF version of the generated summary for offline access and sharing.
+* **PDF Download:**  Users can download a PDF version of the generated summary pr explanation for offline access and sharing.
 
 **Technology Stack**
 
@@ -45,8 +45,8 @@ The project will be structured using a combination of components and modules, wi
 **Workflow**
 
 1. **Input:** Users choose their preferred input method (text, PDF, or image) and provide the content.
-2. **Summarization:**  The application uses the Gemini API to process the input and generate a summary.
-3. **Output:**  The summary is displayed in a user-friendly format.
+2. **Summarization/Explanation:**  The application uses the Gemini API to process the input and generate a summary or explanation.
+3. **Output:**  The summary or explanation is displayed in a user-friendly format.
 4. **Flash Cards:**  The app generates flash cards based on the summary.
 5. **Chat:**  Users can engage in a conversational chat interface to ask further questions.
 6. **History:**  The summary is stored in IndexedDB for later retrieval.
