@@ -16,6 +16,7 @@
   border: 2px solid var(--border-color-suggestion-light-mode);
   border-radius: 7px;
   padding: 10px;
+  background: none;
 }
 
 @media (prefers-color-scheme: dark) {
