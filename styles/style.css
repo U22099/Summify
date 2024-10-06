@@ -31,13 +31,16 @@ body{
   justify-content: space-between;
   align-items: center;
   padding: 5px 10px;
+  animation: SLIDETOP .8s linear;
 }
 .header > h1{
   margin: 0px;
   font-size: var(--clamp);
+  animation: SCALEIN 1.5s ease;
 }
 .header > i{
   font-size: var(--clamp);
+  animation: FADEIN 1s ease;
 }
 .side-bar{
   display: flex;
@@ -57,12 +60,15 @@ body{
   gap: 8px;
   overflow-y: scroll;
   visibility: hidden;
+  animation: SLIDELEFT 1s ease-in-out;
 }
 .side-bar :first-child{
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  animation-delay: 1s;
+  animation: SLIDETOP .5s ease;
 }
 .side-bar :first-child > header{
   display: flex;
@@ -78,6 +84,8 @@ body{
   background: linear-gradient(to bottom, black, gray);
   border: 2px solid var(--border-color-suggestion-light-mode);
   padding: 5px;
+  animation-delay: 1s;
+  animation: FADEIN .5s ease;
 }
 .side-bar :first-child > header > svg > path{
   fill: white;
@@ -119,6 +127,8 @@ body{
   text-align: start;
   background: white;
   border: none;
+  animation-delay: 1s;
+  animation: SLIDEBOTTOM 1s ease-in;
 }
 .main{
   display: flex;
@@ -135,12 +145,15 @@ body{
   justify-content: center;
   align-items: center;
   gap: 10px;
+  animation: SLIDEBOTTOM .8s ease-in-out;
 }
 .main > section > h1{
   font-size: var(--clamp);
+  animation: FADEIN 1s ease;
 }
 .main > section > p{
   font-size: clamp(0.9em, 1em, 1.2em);
+  animation: FADEIN 1s ease;
 }
 .main > section > div{
   display: flex;
@@ -157,6 +170,8 @@ body{
   flex-wrap: wrap;
   white-space: nowrap;
   width: clamp(40vw, 35vw, 30vw);
+  animation-delay: .5s;
+  animation: SCALEIN 1s ease-in-out;
 }
 .main > section > div > button > i{
   font-size: clamp(1.2em, 1.3em, 1.5em);
