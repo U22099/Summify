@@ -42,9 +42,3 @@ export const fileInputHtml = (file, type) => `<label for="file-input">
           </span>
           <input type="file" name="file" id="file-input" accept=".jpeg, .jpg, .png" hidden style="display: none;" />
         </label>`;
-export const fileInputHtml = (type, ext) => `<label for="file-input">
-          <span>
-            Add ${type}
-          </span>
-          <input type="file" name="file" id="file-input" accept="${ext}" hidden style="display: none;" />
-        </label>`
