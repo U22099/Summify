@@ -26,7 +26,7 @@ const schema = {
   required: ["title", "subject", "keywords"],
 };
 
-export async function getPdfMeta(summary) {
+export default async function getPdfMeta(summary) {
   const genAI = new GoogleGenerativeAI(import.meta.env.VITE_API_KEY);
 
   const model = genAI.getGenerativeModel({

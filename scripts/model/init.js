@@ -1,7 +1,7 @@
 import { TextSummary, FileSummary } from './functions/summarise.js';
 import { GenerateFlashCardsForText, GenerateFlashCardsForFile } from './functions/generate-flashcards.js';
 import { TextExplanation, FileExplanation } from './functions/explain.js';
-import { SummaryChat } from './functions/summary-chat.js';
+import SummaryChat from './functions/summary-chat.js';
 import getPdfMeta from './functions/get-pdf-meta.js';
 import { storeValue } from './utils/storage.js';
 import { saveData, getData } from './utils/indexed-db.js';

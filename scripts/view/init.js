@@ -4,7 +4,7 @@ import { AppendElement } from './functions/AppendElement.js';
 import { CreateElement } from './functions/CreateElement.js';
 import { GetInput } from './functions/GetInput.js';
 import { GetElement } from './functions/GetElement.js'
-import { InsertHtml } from './functions/InsertHTML.js';
+import { insertHTML } from './functions/InsertHTML.js';
 import { RemoveClassName } from './functions/RemoveClassName.js';
 import { RemoveElement } from './functions/RemoveElement.js';
 import { WriteToElement } from './functions/WriteToElement.js';
@@ -44,8 +44,8 @@ export default class View {
   
   
   // insertHtml text method 
-  runInsertHtml(elementId, htmlText, position) {
-    InsertHtml(elementId, htmlText, position);
+  runInsertHTML(elementId, htmlText, position) {
+    insertHTML(elementId, htmlText, position);
   }
   
   
