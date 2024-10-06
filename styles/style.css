@@ -59,15 +59,13 @@ body{
   z-index: 100;
   gap: 8px;
   overflow-y: scroll;
-  opacity: 0;
-  transition: opacity .5s ease-out;
-  animation: SLIDELEFT 1s ease-in-out;
+  visibility: hidden;
 }
 .animate-open-side-bar{
   animation: SLIDELEFT 1s ease-in-out;
 }
 .animate-close-side-bar{
-  animation: SLIDERIGHT 1s ease-in-out;
+  animation: SCALEOUT .2s ease-in-out;
 }
 .side-bar :first-child{
   display: flex;
@@ -223,7 +221,7 @@ body{
     visibility: hidden;
   }
   .side-bar{
-    opacity: 1;
+    visibility: visible;
     position: normal;
     width: 100%;
   }
