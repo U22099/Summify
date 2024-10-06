@@ -5,13 +5,17 @@ export default class Controller {
   }
 
   init() {
-    
+
     this.view.runAddEventListener("open-nav", "click", () => {
-      this.view.runGetElement(".side-bar").style.visibility = "visible";
+      const sideBar = this.view.runGetElement(".side-bar")
+      sideBar.style.opacity = "1";
+      sideBar.classList.toggle(".animate-open-side-bar");
     });
-    
+
     this.view.runAddEventListener("close-nav", "click", () => {
-      this.view.runGetElement(".side-bar").style.visibility = "hidden";
+      const sideBar = this.view.runGetElement(".side-bar")
+      sideBar.style.opacity = "0";
+      sideBar.classList.toggle(".animate-close-side-bar");
     });
   }
 }
