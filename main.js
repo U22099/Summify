@@ -1,8 +1,6 @@
-
-console.log("wtart")
-import Model from "scripts/model/init.js";
-import View from "scripts/view/init.js";
-import Controller from "scripts/controller/init.js";
+import Model from "/scripts/model/init.js";
+import View from "/scripts/view/init.js";
+import Controller from "/scripts/controller/init.js";
 
 const model = new Model();
 const view = new View();
