@@ -225,8 +225,12 @@ body{
     position: normal;
     width: 30%;
   }
+  .side-bar :first-child > i{
+    visibility: hidden;
+  }
   .main{
     height: 60%;
     width: 70%;
+    align-self: end;
   }
 }
