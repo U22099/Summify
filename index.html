@@ -11,16 +11,16 @@
   <meta name="keywords" content="AI summarizer, content summarization, text summarizer, PDF summarizer, image summarizer, Gemini API, flash cards, chat, IndexedDB, PDF download, Summify, AI, content, summarization, knowledge, learning">
   <script src="https://kit.fontawesome.com/ce134ae05f.js" crossorigin="anonymous"></script>
   <title>Summify</title>
-  <script type="module" crossorigin src="/Summify/assets/index-asZuLMCd.js"></script>
+  <script type="module" crossorigin src="/Summify/assets/index-CVcCMHtN.js"></script>
   <link rel="stylesheet" crossorigin href="/Summify/assets/index-B5bNZHuQ.css">
 <link rel="manifest" href="/Summify/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/Summify/registerSW.js"></script></head>
 
 <body>
   <div class="container">
     <header class="header">
-      <i class="fa-solid fa-bars"></i>
+      <i class="fa-solid fa-bars" id="open-nav"></i>
       <h1>Summify</h1>
-      <i class="fa-regular fa-pen-to-square"></i>
+      <i class="fa-regular fa-pen-to-square" id="new-chat"></i>
     </header>
     <nav class="side-bar">
       <div>
@@ -30,10 +30,10 @@
           </svg>
           <p>Summify</p>
         </header>
-        <i class="fa-regular fa-circle-xmark"></i>
+        <i class="fa-regular fa-circle-xmark" id="close-nav"></i>
       </div>
       <div>
-        <i class="fa-solid fa-broom"></i>
+        <i class="fa-solid fa-broom" id="clear-history"></i>
         <span>clear history</span>
       </div>
       <button class="card">
@@ -57,12 +57,12 @@
         <h1>Summify</h1>
         <p>Summarize, break down and explain those long exhausting documents with summify</p>
         <div>
-          <button class="card">
-            <i class="fa-regular fa-file" />
+          <button class="card" id="summary">
+            <i class="fa-regular fa-file"></i></i>
             <p>Summarize Document</p>
           </button>
-          <button class="card">
-            <i class="fa-regular fa-file" />
+          <button class="card" id="explanation">
+            <i class="fa-regular fa-file"></i></i>
             <p>Explain Document</p>
           </button>
         </div>
