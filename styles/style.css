@@ -58,7 +58,7 @@ body{
   right: 0;
   background: var(--light-mode-navbar);
   z-index: 100;
-  gap: 8px;
+  gap: 16px;
   overflow-y: scroll;
   visibility: hidden;
 }
@@ -235,6 +235,6 @@ body{
   .main{
    height: 60%;
    width: 70vw;
-   align-self: 
+   align-self: end;
   }
 }
