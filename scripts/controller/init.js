@@ -5,11 +5,13 @@ export default class Controller {
   }
 
   init() {
+    
     this.view.runAddEventListener("open-nav", "click", () => {
-      this.view.runGetElement(".nav").style.visibility = "visible";
+      this.view.runGetElement(".side-bar").style.visibility = "visible";
     });
+    
     this.view.runAddEventListener("close-nav", "click", () => {
-      this.view.runGetElement(".nav").style.visibility = "hidden";
+      this.view.runGetElement(".side-bar").style.visibility = "hidden";
     });
   }
 }

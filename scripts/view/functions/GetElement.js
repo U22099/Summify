@@ -5,10 +5,10 @@ export const GetElement = (identifier) => {
  
  // check if selected element is valid 
  if (element) {
-   return element
+   return element;
  } else {
    console.error(`Element with the id of ${elementId.toUpperCase()} is not found`);
-   return null
+   return null;
  } 
  
 }
