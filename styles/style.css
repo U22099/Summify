@@ -60,6 +60,7 @@ body{
   gap: 8px;
   overflow-y: scroll;
   visibility: hidden;
+  transition: visibility .8s ease-out;
   animation: SLIDELEFT 1s ease-in-out;
 }
 .side-bar :first-child{
