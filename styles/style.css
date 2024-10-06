@@ -143,7 +143,7 @@ body{
   align-items: center;
   text-align: center;
   margin: 0px auto;
-  width: 100vw;
+  width: 100%;
   height: 80%;
 }
 .main > section{
@@ -152,6 +152,7 @@ body{
   justify-content: center;
   align-items: center;
   gap: 10px;
+  width: 100%;
   animation: SLIDEBOTTOM .8s ease-in-out;
 }
 .main > section > h1{
@@ -168,6 +169,7 @@ body{
   justify-content: center;
   align-items: center;
   gap: 8px;
+  width: 100%;
 }
 .main > section > div > button{
   display: flex;
@@ -177,7 +179,7 @@ body{
   gap: 40px;
   flex-wrap: wrap;
   white-space: nowrap;
-  width: clamp(40vw, 20vw, 10vw);
+  width: clamp(40%, 30%, 15%);
   animation-delay: .5s;
   animation: SCALEIN 1s ease-in-out;
 }
@@ -193,6 +195,8 @@ body{
 .main > section > div > button > p{
  font-size: var(--clamp);
 }
+
+
 @media (prefers-color-scheme: dark) {
   body{
     background: var(--dark-mode-background);
@@ -223,14 +227,14 @@ body{
   .side-bar{
     visibility: visible;
     position: normal;
-    width: 30%;
+    width: 30vw;
   }
   .side-bar :first-child > i{
     visibility: hidden;
   }
   .main{
-    height: 60%;
-    width: 70%;
-    align-self: end;
+   height: 60%;
+   width: 70vw;
+   align-self: 
   }
 }
