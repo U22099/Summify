@@ -38,4 +38,4 @@ const getData = (objStore = "History", key = 1) => {
     });
 }
 
-export default { saveData, getData}
+export { saveData, getData }
