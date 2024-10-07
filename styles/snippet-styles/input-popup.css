@@ -62,7 +62,8 @@
   border-radius: 10px;
   font-size: clamp(1.1em, 1.3em, 1.5em);
 }
-.input-popup > .body > .main > label > object{
+.input-popup > .body > .main > label > object,
+.input-popup > .body > .main > label > img{
   width: clamp(80vw, 70vw, 50vw);
   object-fit: cover;
 }
