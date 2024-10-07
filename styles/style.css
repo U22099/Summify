@@ -30,10 +30,18 @@ body{
 .container{
   display: flex;
   justify-content: start;
-  align-items: center;
-  flex-direction: column;
+  align-items: start;
   width: 100%;
   height: 100%;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: auto auto;
+  margin-top: 120px;
 }
 .header{
   display: flex;
@@ -51,13 +59,6 @@ body{
 .header > i{
   font-size: var(--clamp);
   animation: FADEIN 1s ease;
-}
-.container > .section {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: start;
-  align-items: start; 
 }
 .side-bar{
   display: flex;
@@ -152,16 +153,7 @@ body{
   animation-delay: 1s;
   animation: SLIDEBOTTOM 1s ease-in;
 }
-.main{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin: auto auto;
-  margin-top: 120px;
-}
-.main > section{
+.section{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -170,23 +162,23 @@ body{
   width: 100%;
   animation: SLIDEBOTTOM .8s ease-in-out;
 }
-.main > section > h1{
+.section > h1{
   font-size: var(--clamp);
   animation: FADEIN 1s ease;
 }
-.main > section > p{
+.section > p{
   font-size: clamp(0.9em, 1em, 1.2em);
   animation: FADEIN 1s ease;
   max-width: clamp(70%, 65%, 40%);
 }
-.main > section > div{
+.section > div{
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
   width: 100%;
 }
-.main > section > div > button{
+.section > div > button{
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -198,16 +190,16 @@ body{
   animation-delay: .5s;
   animation: SCALEIN 1s ease-in-out;
 }
-.main > section > div > button > i{
+.section > div > button > i{
   font-size: clamp(1.2em, 1.3em, 1.5em);
 }
-.main > section > div :first-child :first-child{
+.section > div :first-child :first-child{
   color: aqua;
 }
-.main > section > div :last-child :first-child{
+.section > div :last-child :first-child{
   color: firebrick;
 }
-.main > section > div > button > p{
+.section > div > button > p{
  font-size: var(--clamp);
 }
 
