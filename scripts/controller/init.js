@@ -2,6 +2,7 @@ export default class Controller {
   constructor(model, view) {
     this.model = model;
     this.view = view;
+    this.action = "";
   }
 
   init() {
@@ -12,14 +13,16 @@ export default class Controller {
 
     this.view.runAddEventListener("summary", "click", () => {
       this.view.runInsertHTML("input-popup", this.view.getInputPopupHtml().PopupHtml, "afterbegin");
+      this.action = "summary";
       this.initPopupNav();
-      this.initPopupBtn("summary");
+      this.initPopupBtn();
     });
 
     this.view.runAddEventListener("explanation", "click", () => {
       this.view.runInsertHTML("input-popup", this.view.getInputPopupHtml().PopupHtml, "afterbegin");
+      this.action = "explanation";
       this.initPopupNav();
-      this.initPopupBtn("explanation");
+      this.initPopupBtn();
     });
   }
 
@@ -60,7 +63,6 @@ export default class Controller {
       this.view.runInsertHTML("input-popup-main", this.view.getInputPopupHtml().ImageInputHtml(null, "none"), "afterbegin");
       this.view.runAddEventListener("input-popup-image-input", "change", async (e) => {
 
-        console.log(e.target)
         const data = await this.model.runToBase64(e.target.files[0]);
 
         this.view.runInsertHTML("input-popup-main", this.view.getInputPopupHtml().ImageInputHtml(data, "flex"), "afterbegin");
@@ -79,7 +81,7 @@ export default class Controller {
     });
   }
 
-  initPopupBtn(type) {
+  initPopupBtn() {
     this.view.runAddEventListener("input-popup-btn", "click", async () => {
       const input = {
         data: this.getInputData(),
@@ -87,7 +89,7 @@ export default class Controller {
         length: this.view.runGetInput("input-popup-length", "string")
       };
       console.log(input);
-      //await this.model.init(type);
+      //await this.model.init(this.action);
     });
   }
 

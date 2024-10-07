@@ -54,6 +54,7 @@
   gap: 10px;
 }
 .input-popup > .body > .main > textarea,
+.input-popup > .body > .main > label > img,
 .input-popup > .body > .main > label > object{
   width: 100%;
   height: 40vh;
@@ -65,6 +66,7 @@
 .input-popup > .body > .main > label > object,
 .input-popup > .body > .main > label > img{
   width: clamp(80vw, 70vw, 50vw);
+  max-height: clamp(70vh, 60vh, 50vh);
   object-fit: cover;
 }
 .input-popup > .body > .main > label > span{
