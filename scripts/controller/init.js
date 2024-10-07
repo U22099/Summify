@@ -44,15 +44,15 @@ export default class Controller {
     });
   }
 
-  changeActiveBtn(id){
-      this.view.runRemoveClassName("input-popup-text", "active-btn");
-      this.view.runRemoveClassName("input-popup-image", "active-btn");
-      this.view.runRemoveClassName("input-popup-document", "active-btn");
-      this.view.runAddClassName(id, "active-btn");
-    }
+  changeActiveBtn(id) {
+    this.view.runRemoveClassName("input-popup-text", "active-btn");
+    this.view.runRemoveClassName("input-popup-image", "active-btn");
+    this.view.runRemoveClassName("input-popup-document", "active-btn");
+    this.view.runAddClassName(id, "active-btn");
+  }
 
   initPopupNav() {
-    
+
     this.view.runAddEventListener("input-popup-text", "click", () => {
       this.changeActiveBtn("input-popup-text");
       this.view.runInsertHTML("input-popup-main", this.view.getInputPopupHtml().TextInputHtml, "afterbegin");
@@ -60,24 +60,32 @@ export default class Controller {
 
     this.view.runAddEventListener("input-popup-image", "click", () => {
       this.changeActiveBtn("input-popup-image");
-      this.view.runInsertHTML("input-popup-main", this.view.getInputPopupHtml().ImageInputHtml(null, "none"), "afterbegin");
-      this.view.runAddEventListener("input-popup-image-input", "change", async (e) => {
-
-        const data = await this.model.runToBase64(e.target.files[0]);
-
-        this.view.runInsertHTML("input-popup-main", this.view.getInputPopupHtml().ImageInputHtml(data, "flex"), "afterbegin");
-      });
+      this.imageDisplay(null, "none");
     });
 
     this.view.runAddEventListener("input-popup-document", "click", () => {
       this.changeActiveBtn("input-popup-document");
-      this.view.runInsertHTML("input-popup-main", this.view.getInputPopupHtml().FileInputHtml(null, "none"), "afterbegin");
-      this.view.runAddEventListener("input-popup-file-input", "change", async (e) => {
+      this.fileDisplay(null, "none");
+    });
+  }
 
-        const data = await this.model.runToBase64(e.target.files[0]);
+  imageDisplay() {
+    this.view.runInsertHTML("input-popup-main", this.view.getInputPopupHtml().ImageInputHtml(null, "none"), "afterbegin");
+    this.view.runAddEventListener("input-popup-image-input", "change", async (e) => {
 
-        this.view.runInsertHTML("input-popup-main", this.view.getInputPopupHtml().FileInputHtml(data, "flex"), "afterbegin");
-      });
+      const data = await this.model.runToBase64(e.target.files[0]);
+
+      this.imageDisplay(data, "flex");
+    });
+  }
+
+  fileDisplay(data, display) {
+    this.view.runInsertHTML("input-popup-main", this.view.getInputPopupHtml().FileInputHtml(data, display), "afterbegin");
+    this.view.runAddEventListener("input-popup-file-input", "change", async (e) => {
+
+      const data = await this.model.runToBase64(e.target.files[0]);
+
+      this.fileDisplay(data, "flex");
     });
   }
 
