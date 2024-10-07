@@ -51,11 +51,12 @@ export default class Controller {
     }
     
     this.view.runAddEventListener("input-popup-text", "click", () => {
-      this.view.runInsertHTML("input-popup-main", this.view.getInputPopupHtml().TextInputHtml, "afterbegin");
       changeActiveBtn("input-popup-text");
+      this.view.runInsertHTML("input-popup-main", this.view.getInputPopupHtml().TextInputHtml, "afterbegin");
     });
 
     this.view.runAddEventListener("input-popup-image", "click", () => {
+      changeActiveBtn("input-popup-image");
       this.view.runInsertHTML("input-popup-main", this.view.getInputPopupHtml().ImageInputHtml(null, "none"), "afterbegin");
       this.view.runAddEventListener("input-popup-image-input", "onchange", async (e) => {
 
@@ -63,10 +64,10 @@ export default class Controller {
 
         this.view.runInsertHTML("input-popup-main", this.view.getInputPopupHtml().ImageInputHtml(data, "flex"), "afterbegin");
       });
-      changeActiveBtn("input-popup-image");
     });
 
     this.view.runAddEventListener("input-popup-document", "click", () => {
+      changeActiveBtn("input-popup-document");
       this.view.runInsertHTML("input-popup-main", this.view.getInputPopupHtml().FileInputHtml(null, "none"), "afterbegin");
       this.view.runAddEventListener("input-popup-file-input", "onchange", async (e) => {
 
@@ -74,18 +75,17 @@ export default class Controller {
 
         this.view.runInsertHTML("input-popup-main", this.view.getInputPopupHtml().FileInputHtml(data, "flex"), "afterbegin");
       });
-      changeActiveBtn("input-popup-document");
     });
   }
 
   initPopupBtn(type) {
     this.view.runAddEventListener("input-popup-btn", "click", async () => {
-      await this.model.init(type);
       const input = {
         data: this.getInputData(),
         type: this.view.runGetElement(".active-btn").innerText.toLowerCase()
       };
       console.log(input);
+      await this.model.init(type);
     });
   }
 

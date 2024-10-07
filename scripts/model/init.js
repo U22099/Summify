@@ -22,6 +22,12 @@ export default class Model {
     await saveData();
   }
   
+  //Destroy history object
+  async destroy(){
+    storeValue("currentIndex", null);
+    await saveData([]);
+  }
+  
   //change current history index
   changeCurrentIndex(index){
     storeValue("currentIndex", index);

@@ -8,6 +8,7 @@ export const RemoveClassName = (elementId, className) => {
     console.error(`Element with the id of ${elementId.toUpperCase()} is not found`);
   else 
     // add class name to element
-    element.classList.remove(className) || false;
+    element.classList.remove(className);
+    console.log("done")
   
 }
