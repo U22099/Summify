@@ -69,8 +69,8 @@ export default class Controller {
     });
   }
 
-  imageDisplay() {
-    this.view.runInsertHTML("input-popup-main", this.view.getInputPopupHtml().ImageInputHtml(null, "none"), "afterbegin");
+  imageDisplay(data, display) {
+    this.view.runInsertHTML("input-popup-main", this.view.getInputPopupHtml().ImageInputHtml(data, display), "afterbegin");
     this.view.runAddEventListener("input-popup-image-input", "change", async (e) => {
 
       const data = await this.model.runToBase64(e.target.files[0]);
