@@ -13,13 +13,13 @@ export default class Controller {
     this.view.runAddEventListener("summary", "click", () => {
       this.view.runInsertHTML("input-popup", this.view.getInputPopupHtml().PopupHtml, "afterbegin");
       this.initPopupNav();
-      this.initPopupBtn();
+      this.initPopupBtn("summary");
     });
 
     this.view.runAddEventListener("explanation", "click", () => {
       this.view.runInsertHTML("input-popup", this.view.getInputPopupHtml().PopupHtml, "afterbegin");
       this.initPopupNav();
-      this.initPopupBtn();
+      this.initPopupBtn("explanation");
     });
   }
 
@@ -43,8 +43,16 @@ export default class Controller {
 
   initPopupNav() {
     
+    function changeActiveBtn(id){
+      this.view.runRemoveClassName("input-popup-text", "active-btn");
+      this.view.runRemoveClassName("input-popup-image", "active-btn");
+      this.view.runRemoveClassName("input-popup-document", "active-btn");
+      this.view.runAddClassName(id, "active-btn");
+    }
+    
     this.view.runAddEventListener("input-popup-text", "click", () => {
       this.view.runInsertHTML("input-popup-main", this.view.getInputPopupHtml().TextInputHtml, "afterbegin");
+      changeActiveBtn("input-popup-text");
     });
 
     this.view.runAddEventListener("input-popup-image", "click", () => {
@@ -55,6 +63,7 @@ export default class Controller {
 
         this.view.runInsertHTML("input-popup-main", this.view.getInputPopupHtml().ImageInputHtml(data, "flex"), "afterbegin");
       });
+      changeActiveBtn("input-popup-image");
     });
 
     this.view.runAddEventListener("input-popup-document", "click", () => {
@@ -64,16 +73,17 @@ export default class Controller {
         const data = await this.model.runToBase64(e.target.file.files[0]);
 
         this.view.runInsertHTML("input-popup-main", this.view.getInputPopupHtml().FileInputHtml(data, "flex"), "afterbegin");
-      })
+      });
+      changeActiveBtn("input-popup-document");
     });
   }
 
-  initPopupBtn() {
+  initPopupBtn(type) {
     this.view.runAddEventListener("input-popup-btn", "click", async () => {
-      await this.model.init("summary");
+      await this.model.init(type);
       const input = {
         data: this.getInputData(),
-        type: this.view.runGetElement(".active-btn").innerText.toLowerCase().split("-")[2]
+        type: this.view.runGetElement(".active-btn").innerText.toLowerCase()
       };
       console.log(input);
     });
@@ -83,11 +93,11 @@ export default class Controller {
     const activeBtn = this.view.runGetElement(".active-btn").innerText.toLowerCase();
 
     switch (activeBtn) {
-      case "input-popup-text":
+      case "text":
         return this.view.runGetInput("input-popup-text-input", "string");
-      case "input-popup-image":
+      case "image":
         return this.view.runGetInput("input-popup-image-input", "file");
-      case "input-popup-document":
+      case "document":
         return this.view.runGetInput("input-popup-file-input", "file");
     }
   }

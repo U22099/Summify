@@ -1,10 +1,10 @@
 const PopupHtml = `<div class="input-popup">
     <div class="body">
       <nav class="nav">
-        <p id="input-popup-text" class="">
+        <p id="input-popup-text" class="active-btn">
           Text
         </p>
-        <p id="input-popup-image" class="active-btn">
+        <p id="input-popup-image" class="">
           Image
         </p>
         <p id="input-popup-document" class="">
@@ -27,7 +27,7 @@ const PopupHtml = `<div class="input-popup">
 
 const TextInputHtml = `<textarea type="text" placeholder="Paste in anything" id="input-popup-text-input"></textarea>`;
 
-const ImageInputHtml = (img, display) => `<label for="image-input">
+const ImageInputHtml = (img, display) => `<label for="input-popup-image-input">
           <img src="${img}" alt="" style="display: ${display};"/>
           <span>
             Add Image
@@ -35,7 +35,7 @@ const ImageInputHtml = (img, display) => `<label for="image-input">
           <input type="file" name="image" id="input-popup-image-input" accept=".jpeg, .jpg, .png" hidden style="display: none;"/>
         </label>`;
 
-const FileInputHtml = (file, display) => `<label for="file-input">
+const FileInputHtml = (file, display) => `<label for="input-popup-file-input">
           <object data="${file}" type="application/pdf" style="display: ${display};"></object>
           <span>
             Add File

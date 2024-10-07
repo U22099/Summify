@@ -44,8 +44,8 @@ export default class View {
   
   
   // insertHtml text method 
-  runInsertHTML(elementId, htmlText, position) {
-    insertHTML(elementId, htmlText, position);
+  runInsertHTML(elementId, htmlText, position, clear = true) {
+   insertHTML(elementId, htmlText, position, clear);
   }
   
   
