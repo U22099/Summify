@@ -10,9 +10,9 @@ export const GetInput = (elementId, type) => {
    if (type == 'string')
      return input.value; // return the value
    
-   // check if 'type' arg is select 
-   else if (type == 'select')
-     return input.value; //return the value
+   // check if 'type' arg is file 
+   else if (type == 'file')
+     return input.file.files[0]; //return the value
      
  } else {
    console.error(`Element with the id of ${elementId.toUpperCase()} is not found`);

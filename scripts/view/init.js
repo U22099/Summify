@@ -72,7 +72,7 @@ export default class View {
   }
   
   //returns dynamic html string for input popup
-  runInputPopupHtml(){
+  getInputPopupHtml(){
     return inputPopUpHtml;
   }
 }

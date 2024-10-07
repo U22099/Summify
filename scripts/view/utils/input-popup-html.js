@@ -1,44 +1,46 @@
-export default `<div class="input-popup">
+const PopupHtml = `<div class="input-popup">
     <div class="body">
       <nav class="nav">
-        <p id="text" class="">
+        <p id="input-popup-text" class="">
           Text
         </p>
-        <p id="image" class="active-btn">
+        <p id="input-popup-image" class="active-btn">
           Image
         </p>
-        <p id="document" class="">
+        <p id="input-popup-document" class="">
           Document
         </p>
       </nav>
-      <main class="main">
-        <textarea type="text" placeholder="Paste in anything" id="text-input"></textarea>
+      <main class="main" id="input-popup-main">
+        <textarea type="text" placeholder="Paste in anything" id="input-popup-text-input"></textarea>
       </main>
       <footer class="footer">
-        <select name="length" id="length">
+        <select name="length" id="input-popup-length">
           <option value="short">Short</option>
           <option value="medium">Medium</option>
           <option value="long">Long</option>
         </select>
-        <button>Send</button>
+        <button id="input-popup-btn">Send</button>
       </footer>
     </div>
   </div>`;
 
-export const textInputHtml = `<textarea type="text" placeholder="Paste in anything" id="text-input"></textarea>`;
+const TextInputHtml = `<textarea type="text" placeholder="Paste in anything" id="input-popup-text-input"></textarea>`;
 
-export const imageInputHtml = (img) => `<label for="image-input">
-          <img src="${img}" alt="" />
+const ImageInputHtml = (img, display) => `<label for="image-input">
+          <img src="${img}" alt="" style="display: ${display};"/>
           <span>
             Add Image
           </span>
-          <input type="file" name="image" id="image-input" accept=".jpeg, .jpg, .png" hidden style="display: none;"/>
+          <input type="file" name="image" id="input-popup-image-input" accept=".jpeg, .jpg, .png" hidden style="display: none;"/>
         </label>`;
 
-export const fileInputHtml = (file, type) => `<label for="file-input">
-          <object data="${file}" type="${type}"></object>
+const FileInputHtml = (file, display) => `<label for="file-input">
+          <object data="${file}" type="application/pdf" style="display: ${display};"></object>
           <span>
             Add File
           </span>
-          <input type="file" name="file" id="file-input" accept=".jpeg, .jpg, .png" hidden style="display: none;" />
+          <input type="file" name="file" id="input-popup-file-input" accept=".jpeg, .jpg, .png" hidden style="display: none;" />
         </label>`;
+        
+  export default {PopupHtml, TextInputHtml, ImageInputHtml, FileInputHtml}
