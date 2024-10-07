@@ -31,7 +31,7 @@ body{
   display: flex;
   justify-content: start;
   align-items: start;
-  width: 100%;
+  width: 100vw;
   height: 100%;
 }
 .main {
@@ -159,6 +159,7 @@ body{
   align-items: center;
   gap: 10px;
   width: 100%;
+  margin-top: 120px;
 }
 .section > h1{
   font-size: var(--clamp);
@@ -226,6 +227,13 @@ body{
   }
 }
 @media (min-width: 718px) {
+  .container{
+    width: 100%;
+   justify-content: flex-end;
+  }
+  .main{
+   width: 75vw;
+  }
   .header :first-child{
     visibility: hidden;
   }
