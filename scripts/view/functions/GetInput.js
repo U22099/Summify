@@ -12,7 +12,7 @@ export const GetInput = (elementId, type) => {
    
    // check if 'type' arg is file 
    else if (type == 'file')
-     return input.file.files[0]; //return the value
+     return input.files[0]; //return the value
      
  } else {
    console.error(`Element with the id of ${elementId.toUpperCase()} is not found`);

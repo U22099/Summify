@@ -41,37 +41,38 @@ export default class Controller {
     });
   }
 
-  initPopupNav() {
-    
-    function changeActiveBtn(id){
+  changeActiveBtn(id){
       this.view.runRemoveClassName("input-popup-text", "active-btn");
       this.view.runRemoveClassName("input-popup-image", "active-btn");
       this.view.runRemoveClassName("input-popup-document", "active-btn");
       this.view.runAddClassName(id, "active-btn");
     }
+
+  initPopupNav() {
     
     this.view.runAddEventListener("input-popup-text", "click", () => {
-      changeActiveBtn("input-popup-text");
+      this.changeActiveBtn("input-popup-text");
       this.view.runInsertHTML("input-popup-main", this.view.getInputPopupHtml().TextInputHtml, "afterbegin");
     });
 
     this.view.runAddEventListener("input-popup-image", "click", () => {
-      changeActiveBtn("input-popup-image");
+      this.changeActiveBtn("input-popup-image");
       this.view.runInsertHTML("input-popup-main", this.view.getInputPopupHtml().ImageInputHtml(null, "none"), "afterbegin");
-      this.view.runAddEventListener("input-popup-image-input", "onchange", async (e) => {
+      this.view.runAddEventListener("input-popup-image-input", "change", async (e) => {
 
-        const data = await this.model.runToBase64(e.target.file.files[0]);
+        console.log(e.target)
+        const data = await this.model.runToBase64(e.target.files[0]);
 
         this.view.runInsertHTML("input-popup-main", this.view.getInputPopupHtml().ImageInputHtml(data, "flex"), "afterbegin");
       });
     });
 
     this.view.runAddEventListener("input-popup-document", "click", () => {
-      changeActiveBtn("input-popup-document");
+      this.changeActiveBtn("input-popup-document");
       this.view.runInsertHTML("input-popup-main", this.view.getInputPopupHtml().FileInputHtml(null, "none"), "afterbegin");
-      this.view.runAddEventListener("input-popup-file-input", "onchange", async (e) => {
+      this.view.runAddEventListener("input-popup-file-input", "change", async (e) => {
 
-        const data = await this.model.runToBase64(e.target.file.files[0]);
+        const data = await this.model.runToBase64(e.target.files[0]);
 
         this.view.runInsertHTML("input-popup-main", this.view.getInputPopupHtml().FileInputHtml(data, "flex"), "afterbegin");
       });
@@ -82,10 +83,11 @@ export default class Controller {
     this.view.runAddEventListener("input-popup-btn", "click", async () => {
       const input = {
         data: this.getInputData(),
-        type: this.view.runGetElement(".active-btn").innerText.toLowerCase()
+        type: this.view.runGetElement(".active-btn").innerText.toLowerCase(),
+        length: this.view.runGetInput("input-popup-length", "string")
       };
       console.log(input);
-      await this.model.init(type);
+      //await this.model.init(type);
     });
   }
 

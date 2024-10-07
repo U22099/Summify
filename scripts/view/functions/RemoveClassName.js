@@ -4,11 +4,11 @@ export const RemoveClassName = (elementId, className) => {
   const element = document.getElementById(elementId);
  
   // check if element is valid
-  if (!element)
+  if (!element){
     console.error(`Element with the id of ${elementId.toUpperCase()} is not found`);
-  else 
+  } else {
     // add class name to element
     element.classList.remove(className);
-    console.log("done")
+  }
   
 }

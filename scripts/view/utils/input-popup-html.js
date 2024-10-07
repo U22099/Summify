@@ -4,10 +4,10 @@ const PopupHtml = `<div class="input-popup">
         <p id="input-popup-text" class="active-btn">
           Text
         </p>
-        <p id="input-popup-image" class="">
+        <p id="input-popup-image">
           Image
         </p>
-        <p id="input-popup-document" class="">
+        <p id="input-popup-document">
           Document
         </p>
       </nav>
