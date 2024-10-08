@@ -50,11 +50,15 @@ export default class Controller {
     this.view.runAddEventListener("input-popup-container", "click", (e) => {
       const popupElement = this.view.runGetElement(".input-popup");
       if (e.target === popupElement) {
-        popupElement.classList.remove("input-popup-close");
-        popupElement.classList.toggle("input-popup-close")
-        setTimeout(() => this.view.runRemoveElement("input-popup-container", popupElement), 800);
+        this.popupClose()
       }
     })
+  }
+
+  popupClose(popupElement) {
+    popupElement.classList.remove("input-popup-close");
+    popupElement.classList.toggle("input-popup-close")
+    setTimeout(() => this.view.runRemoveElement("input-popup-container", popupElement), 800);
   }
 
   changeActiveBtn(id) {
@@ -120,6 +124,7 @@ export default class Controller {
         inputTitle,
         action: this.action
       }), "afterbegin");
+      this.popupClose(this.view.runGetElement(".input-popup"));
       //await this.model.init(this.action);
     });
   }
