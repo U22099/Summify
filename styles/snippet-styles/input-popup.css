@@ -15,8 +15,8 @@
   animation: SCALEIN .5s cubic-bezier(0.163, 1, 0.658, 1);
 }
 .input-popup-close{
-  animation-fill-mode: forwards;
   animation: SCALEOUT .5s cubic-bezier(0.163, 1, 0.658, 1);
+  animation-fill-mode: forwards;
 }
 .input-popup > .body{
   display: flex;
