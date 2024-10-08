@@ -14,6 +14,10 @@
   right: 0;
   animation: SCALEIN .5s cubic-bezier(0.163, 1, 0.658, 1);
 }
+.input-popup-close{
+  animation: SCALEOUT .5s cubic-bezier(0.163, 1, 0.658, 1);
+  animation-direction: forwards;
+}
 .input-popup > .body{
   display: flex;
   flex-direction: column;

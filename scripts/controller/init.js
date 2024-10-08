@@ -48,9 +48,10 @@ export default class Controller {
   
   initPopupClose(){
     this.view.runAddEventListener("input-popup-container", "click", (e) => {
-      const popupElement = this.view.runGetElement("input-popup");
-      if(e.target !== popupElement){
-        popupElement.style.animation = "SCALEOUT 1s linear";
+      const popupElement = this.view.runGetElement(".input-popup");
+      if(e.target === popupElement){
+        popupElement.classList.remove("input-popup-close");
+        popupElement.classList.toggle("input-popup-close")
         setTimeout(() => this.view.runRemoveElement("input-popup-container", popupElement), 800);
       }
     })
@@ -81,8 +82,8 @@ export default class Controller {
     });
   }
 
-  imageDisplay() {
-    this.view.runInsertHTML("input-popup-main", this.view.getInputPopupHtml().ImageInputHtml(null, "none"), "afterbegin");
+  imageDisplay(data, display) {
+    this.view.runInsertHTML("input-popup-main", this.view.getInputPopupHtml().ImageInputHtml(data, display), "afterbegin");
     this.view.runAddEventListener("input-popup-image-input", "change", async (e) => {
 
       const data = await this.model.runToBase64(e.target.files[0]);

@@ -4,7 +4,7 @@ export const RemoveElement = (parentId, childElement) => {
   const parent = document.getElementById(parentId);
   
   // get child element 
-  const child = document.getElementById(childElement);
+  const child = document.getElementById(childElement) || childElement;
   
   // check if either the parent element or child element is absent 
   if (!parent || !child) {
