@@ -12,15 +12,17 @@ export default class Controller {
     this.initSideBarClose();
 
     this.view.runAddEventListener("summary", "click", () => {
-      this.view.runInsertHTML("input-popup", this.view.getInputPopupHtml().PopupHtml, "afterbegin");
+      this.view.runInsertHTML("input-popup-container", this.view.getInputPopupHtml().PopupHtml, "afterbegin");
       this.action = "summary";
+      this.initPopupClose();
       this.initPopupNav();
       this.initPopupBtn();
     });
 
     this.view.runAddEventListener("explanation", "click", () => {
-      this.view.runInsertHTML("input-popup", this.view.getInputPopupHtml().PopupHtml, "afterbegin");
+      this.view.runInsertHTML("input-popup-container", this.view.getInputPopupHtml().PopupHtml, "afterbegin");
       this.action = "explanation";
+      this.initPopupClose();
       this.initPopupNav();
       this.initPopupBtn();
     });
@@ -42,6 +44,16 @@ export default class Controller {
       sideBar.classList.toggle("animate-close-side-bar");
       setTimeout(() => { sideBar.style.visibility = "hidden"; }, 200);
     });
+  }
+  
+  initPopupClose(){
+    this.view.runAddEventListener("input-popup-container", "click", (e) => {
+      const popupElement = this.view.runGetElement("input-popup");
+      if(e.target !== popupElement){
+        popupElement.style.animation = "SCALEOUT 1s linear";
+        setTimeout(() => this.view.runRemoveElement("input-popup-container", popupElement), 800);
+      }
+    })
   }
 
   changeActiveBtn(id) {
@@ -69,8 +81,8 @@ export default class Controller {
     });
   }
 
-  imageDisplay(data, display) {
-    this.view.runInsertHTML("input-popup-main", this.view.getInputPopupHtml().ImageInputHtml(data, display), "afterbegin");
+  imageDisplay() {
+    this.view.runInsertHTML("input-popup-main", this.view.getInputPopupHtml().ImageInputHtml(null, "none"), "afterbegin");
     this.view.runAddEventListener("input-popup-image-input", "change", async (e) => {
 
       const data = await this.model.runToBase64(e.target.files[0]);
