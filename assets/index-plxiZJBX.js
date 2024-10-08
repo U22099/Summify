@@ -506,7 +506,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         </label>`,yc=(Ot,Mt)=>`<label for="input-popup-file-input">
           <object data="${Ot}" type="application/pdf" style="display: ${Mt};"></object>
           <span>
-            <i class="fa-regular fa-image"></i>
+            <i class="fa-regular fa-file"></i>
             Add File
           </span>
           <input type="file" name="file" id="input-popup-file-input" accept=".pdf" hidden style="display: none;" />
