@@ -499,12 +499,14 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   </div>`,pc='<textarea type="text" placeholder="Paste in anything" id="input-popup-text-input"></textarea>',gc=(Ot,Mt)=>`<label for="input-popup-image-input">
           <img src="${Ot}" alt="" style="display: ${Mt};"/>
           <span>
+            <i class="fa-regular fa-image"></i>
             Add Image
           </span>
           <input type="file" name="image" id="input-popup-image-input" accept=".jpeg, .jpg, .png" hidden style="display: none;"/>
         </label>`,yc=(Ot,Mt)=>`<label for="input-popup-file-input">
           <object data="${Ot}" type="application/pdf" style="display: ${Mt};"></object>
           <span>
+            <i class="fa-regular fa-image"></i>
             Add File
           </span>
           <input type="file" name="file" id="input-popup-file-input" accept=".pdf" hidden style="display: none;" />
