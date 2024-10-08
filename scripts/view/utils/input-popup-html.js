@@ -30,6 +30,7 @@ const TextInputHtml = `<textarea type="text" placeholder="Paste in anything" id=
 const ImageInputHtml = (img, display) => `<label for="input-popup-image-input">
           <img src="${img}" alt="" style="display: ${display};"/>
           <span>
+            <i class="fa-regular fa-image"></i>
             Add Image
           </span>
           <input type="file" name="image" id="input-popup-image-input" accept=".jpeg, .jpg, .png" hidden style="display: none;"/>
@@ -38,6 +39,7 @@ const ImageInputHtml = (img, display) => `<label for="input-popup-image-input">
 const FileInputHtml = (file, display) => `<label for="input-popup-file-input">
           <object data="${file}" type="application/pdf" style="display: ${display};"></object>
           <span>
+            <i class="fa-regular fa-image"></i>
             Add File
           </span>
           <input type="file" name="file" id="input-popup-file-input" accept=".pdf" hidden style="display: none;" />
