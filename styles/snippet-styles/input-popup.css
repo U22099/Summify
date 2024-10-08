@@ -78,6 +78,7 @@
   color: white;
   border-radius: 10px;
   padding: 5px 10px;
+  gap: 10px;
 }
 .input-popup > .body > .footer{
   display: flex;
