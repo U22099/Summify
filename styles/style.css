@@ -64,7 +64,7 @@ body{
   flex-direction: column;
   justify-content: start;
   align-items: start;
-  width: clamp(50vw, 45vw, 30vw);
+  width: clamp(50vw, 45vw, 25vw);
   height: 100vh;
   padding: 8px 8px 30px 8px;
   position: fixed;
@@ -79,7 +79,7 @@ body{
   visibility: hidden;
 }
 .animate-open-side-bar{
-  animation: SLIDELEFT 1s ease-in-out;
+  animation: SLIDELEFT .3s ease-in-out;
 }
 .animate-close-side-bar{
   animation: SCALEOUT .2s ease-in-out;
@@ -229,10 +229,12 @@ body{
 @media (min-width: 718px) {
   .container{
     width: 100%;
-   justify-content: flex-end;
   }
   .main{
-   width: 75vw;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
   }
   .header :first-child{
     visibility: hidden;
@@ -240,7 +242,7 @@ body{
   .side-bar{
     visibility: visible;
     position: normal;
-    width: 30vw;
+    width: 25%;
   }
   .side-bar :first-child > i{
     visibility: hidden;
