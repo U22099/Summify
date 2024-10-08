@@ -40,7 +40,7 @@ const FileInputHtml = (file, display) => `<label for="input-popup-file-input">
           <span>
             Add File
           </span>
-          <input type="file" name="file" id="input-popup-file-input" accept=".jpeg, .jpg, .png" hidden style="display: none;" />
+          <input type="file" name="file" id="input-popup-file-input" accept=".pdf" hidden style="display: none;" />
         </label>`;
         
   export default {PopupHtml, TextInputHtml, ImageInputHtml, FileInputHtml}
