@@ -39,7 +39,7 @@ const ImageInputHtml = (img, display) => `<label for="input-popup-image-input">
 const FileInputHtml = (file, display) => `<label for="input-popup-file-input">
           <object data="${file}" type="application/pdf" style="display: ${display};"></object>
           <span>
-            <i class="fa-regular fa-image"></i>
+            <i class="fa-regular fa-file"></i>
             Add File
           </span>
           <input type="file" name="file" id="input-popup-file-input" accept=".pdf" hidden style="display: none;" />
