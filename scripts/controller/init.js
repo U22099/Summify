@@ -45,11 +45,11 @@ export default class Controller {
       setTimeout(() => { sideBar.style.visibility = "hidden"; }, 200);
     });
   }
-  
-  initPopupClose(){
+
+  initPopupClose() {
     this.view.runAddEventListener("input-popup-container", "click", (e) => {
       const popupElement = this.view.runGetElement(".input-popup");
-      if(e.target === popupElement){
+      if (e.target === popupElement) {
         popupElement.classList.remove("input-popup-close");
         popupElement.classList.toggle("input-popup-close")
         setTimeout(() => this.view.runRemoveElement("input-popup-container", popupElement), 800);
@@ -110,6 +110,16 @@ export default class Controller {
         length: this.view.runGetInput("input-popup-length", "string")
       };
       console.log(input);
+
+      const icon = input.type === "document" ? "file" : input.type;
+
+      const inputTitle = input.data.name || input.data?.slice(20);
+
+      this.view.runInsertHTML("main-container", this.view.getResultPageHtml().resultPageHtml({
+        icon,
+        inputTitle,
+        action: this.action
+      }), "afterbegin");
       //await this.model.init(this.action);
     });
   }

@@ -2,6 +2,7 @@
 @import "utils/style.css";
 @import "fonts/style.css";
 @import "snippet-styles/input-popup.css";
+@import "snippet-styles/result-page.css";
 
 *{
   font-family: 'SF-PRO-NORMAL', sans-serif;

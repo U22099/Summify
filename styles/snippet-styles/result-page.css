@@ -1,0 +1,70 @@
+.result-page-container{
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  flex-direction: column;
+  background: var(--light-mode-background);
+  gap: 8px;
+}
+.result-page-container > button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: clamp(0.7em, 0.9em, 1em);
+}
+.result-page-container > nav{
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  max-width: 90vw;
+  overflow-y: scroll;
+  gap: 8px;
+}
+.result-page-container > nav > button{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: clamp(0.7em, 0.9em, 1em);
+  border-width: 1px;
+  border-radius: 20px;
+}
+.result-page-container > main{
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  gap: 8px;
+}
+.result-page-container > main :first-child{
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  padding: 4px;
+}
+.result-page-container > main :first-child > svg{
+  border: 1px solid var(--border-color-suggestion-light-mode);
+  padding: 12px;
+  border-radius: 10px;
+  width: 25px;
+  height: 25px;
+}
+.result-page-container > main :last-child{
+  display: flex;
+  align-items: start;
+  justify-content: start;
+}
+.result-page-container > main :last-child > p{
+  margin: 0px;
+}
+
+@media (prefers-color-scheme: dark) {
+  body{
+    background: var(--dark-mode-background);
+  }
+  .result-page-container{
+    background: var(--dark-mode-background);
+    color: white;
+  }
+  .result-page-container > main :first-child > svg > path{
+    fill: white;
+  }
+}

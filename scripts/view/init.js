@@ -9,6 +9,7 @@ import { RemoveClassName } from './functions/RemoveClassName.js';
 import { RemoveElement } from './functions/RemoveElement.js';
 import { WriteToElement } from './functions/WriteToElement.js';
 import inputPopUpHtml from './utils/input-popup-html.js';
+import resultPageHtml from './utils/result-page-html.js'
 
 
 export default class View {
@@ -74,5 +75,10 @@ export default class View {
   //returns dynamic html string for input popup
   getInputPopupHtml(){
     return inputPopUpHtml;
+  }
+  
+  //returns dynamic html string for result page
+  getResultPageHtml() {
+    return resultPageHtml;
   }
 }

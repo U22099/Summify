@@ -7,21 +7,22 @@
   --light-mode-input-box: #F9F9F7;
   --border-color-suggestion-dark-mode: #313131;
   --border-color-suggestion-light-mode: #D4CDCD;
-  --clamp: clamp(1.1em, 1.3em, 1.5em);
 }
 
-.card{
+.card {
   width: fit-content;
   height: fit-content;
   border: 2px solid var(--border-color-suggestion-light-mode);
-  border-radius: 7px;
+  border-radius: 8px;
   padding: 10px;
+  color: black;
   background: none;
 }
 
 @media (prefers-color-scheme: dark) {
-  .card{
+  .card {
     border: 2px solid var(--border-color-suggestion-dark-mode);
     color: white;
+    background: none;
   }
 }
