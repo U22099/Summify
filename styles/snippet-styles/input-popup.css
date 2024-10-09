@@ -40,6 +40,7 @@
   margin: 0px auto;
   width: fit-content;
   height: fit-content;
+  cursor: pointer;
 }
 .active-btn {
   background: black;
@@ -79,6 +80,7 @@
   border-radius: 10px;
   padding: 5px 10px;
   gap: 10px;
+  cursor: pointer;
 }
 .input-popup > .body > .footer{
   display: flex;
@@ -93,6 +95,7 @@
   padding: 4px;
   font-size: 1.1em;
   border-radius: 10px; 
+  cursor: pointer;
 }
 .input-popup > .body > .footer > button{
   padding: 5px 15px;

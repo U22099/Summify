@@ -17,6 +17,7 @@
   padding: 10px;
   color: black;
   background: none;
+  cursor: pointer;
 }
 
 @media (prefers-color-scheme: dark) {
