@@ -108,11 +108,15 @@ export default class Controller {
 
   initPopupBtn() {
     this.view.runAddEventListener("input-popup-btn", "click", async () => {
+      const data = this.getInputData();
       const input = {
-        data: this.getInputData(),
+        data,
         type: this.view.runGetElement(".active-btn").innerText.toLowerCase(),
         length: this.view.runGetInput("input-popup-length", "string")
       };
+      
+      console.log(data);
+      console.log(input);
 
       const icon = this.getIcon(input.type);
 

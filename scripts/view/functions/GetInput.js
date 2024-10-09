@@ -7,13 +7,14 @@ export const GetInput = (elementId, type) => {
  if (input) {
    
    // check if 'type' arg is a string 
-   if (type == 'string')
+   if (type === 'string'){
      return input.value; // return the value
-   
+   }
    // check if 'type' arg is file 
-   else if (type == 'file')
+   else if (type === 'file'){
+     console.log(input);
      return input.files[0]; //return the value
-     
+   }
  } else {
    console.error(`Element with the id of ${elementId.toUpperCase()} is not found`);
  } 
