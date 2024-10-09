@@ -1,6 +1,6 @@
 const resultPageHtml = ({icon, inputTitle, action}) => `<div class="result-page-container">
     <button class="card">
-      <i class=${"fa-regular fa-" + icon}></i>
+      <i class="fa-regular fa-" + ${icon}></i>
       ${inputTitle}
     </button>
     <nav>

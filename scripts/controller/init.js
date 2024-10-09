@@ -116,7 +116,7 @@ export default class Controller {
 
       const icon = this.getIcon(input.type);
 
-      const inputTitle = input.data.name || input.data?.padEnd(".", 25).slice(0,25);
+      const inputTitle = input.data.name || input.data?.padEnd(".", 25).slice(0,25) || null;
 
       this.view.runRemoveElement("main", "main-container");
       this.view.runInsertHTML("main", this.view.getResultPageHtml().resultPageHtml({

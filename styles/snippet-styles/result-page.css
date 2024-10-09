@@ -6,7 +6,8 @@
   min-height: 100vh;
   background: var(--light-mode-background);
   gap: 8px;
-  width: 100%;
+  width: 95vw;
+  padding: 10px;
   margin-top: 10px;
 }
 .result-page-container > button {
