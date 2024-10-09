@@ -4,6 +4,21 @@
 @import "snippet-styles/input-popup.css";
 @import "snippet-styles/result-page.css";
 
+
+::-webkit-scrollbar {
+  width: 4px;
+  border-radius: 20px;
+  transition: all 1s linear;
+}
+::-webkit-scrollbar-thumb {
+  cursor: pointer;
+  background: var(--light-mode-navbar);
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+  cursor: pointer;
+}
+
 *{
   font-family: 'SF-PRO-NORMAL', sans-serif;
   margin: 0px;
@@ -206,6 +221,10 @@ body{
 
 
 @media (prefers-color-scheme: dark) {
+  ::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    background: var(--dark-mode-navbar);
+  }
   body{
     background: var(--dark-mode-background);
     color: white;
@@ -232,9 +251,12 @@ body{
   .header :first-child{
     visibility: hidden;
   }
+  .main{
+    width: 75%;
+  }
   .side-bar{
     visibility: visible;
-    position: normal;
+    position: static;
     width: 25%;
   }
   .side-bar :first-child > i{
