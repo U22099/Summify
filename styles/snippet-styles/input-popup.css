@@ -12,10 +12,10 @@
   bottom: 0;
   left: 0;
   right: 0;
-  animation: SCALEIN .5s cubic-bezier(0.163, 1, 0.658, 1);
+  animation: SCALEIN .5s ease-in;
 }
 .input-popup-close{
-  animation: SCALEOUT .5s cubic-bezier(0.163, 1, 0.658, 1);
+  animation: SCALEOUT .5s ease-out;
   animation-fill-mode: forwards;
 }
 .input-popup > .input-popup-body{
