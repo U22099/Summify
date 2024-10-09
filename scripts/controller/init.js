@@ -14,7 +14,7 @@ export default class Controller {
     this.initSideBarClose();
 
     this.view.runAddEventListener("summary", "click", () => {
-      this.view.runInsertHTML("main-container", this.view.getInputPopupHtml().PopupHtml, "beforeend");
+      this.view.runInsertHTML("main-container", this.view.getInputPopupHtml().PopupHtml, "beforeend", false);
       this.action = "summary";
       this.initPopupClose();
       this.initPopupNav();
@@ -22,7 +22,7 @@ export default class Controller {
     });
 
     this.view.runAddEventListener("explanation", "click", () => {
-      this.view.runInsertHTML("main-container", this.view.getInputPopupHtml().PopupHtml, "beforeend");
+      this.view.runInsertHTML("main-container", this.view.getInputPopupHtml().PopupHtml, "beforeend", false);
       this.action = "explanation";
       this.initPopupClose();
       this.initPopupNav();
@@ -119,7 +119,6 @@ export default class Controller {
         length: this.view.runGetInput("input-popup-length", "string")
       };
       
-      console.log(data);
       console.log(input);
 
       const icon = this.getIcon(input.type);
