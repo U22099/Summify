@@ -3,6 +3,8 @@ export default class Controller {
     this.model = model;
     this.view = view;
     this.action = "";
+    this.image;
+    this.file;
   }
 
   init() {
@@ -12,7 +14,7 @@ export default class Controller {
     this.initSideBarClose();
 
     this.view.runAddEventListener("summary", "click", () => {
-      this.view.runInsertHTML("input-popup-container", this.view.getInputPopupHtml().PopupHtml, "afterbegin");
+      this.view.runInsertHTML("main-container", this.view.getInputPopupHtml().PopupHtml, "beforeend");
       this.action = "summary";
       this.initPopupClose();
       this.initPopupNav();
@@ -20,7 +22,7 @@ export default class Controller {
     });
 
     this.view.runAddEventListener("explanation", "click", () => {
-      this.view.runInsertHTML("input-popup-container", this.view.getInputPopupHtml().PopupHtml, "afterbegin");
+      this.view.runInsertHTML("main-container", this.view.getInputPopupHtml().PopupHtml, "beforeend");
       this.action = "explanation";
       this.initPopupClose();
       this.initPopupNav();
@@ -47,8 +49,8 @@ export default class Controller {
   }
 
   initPopupClose() {
-    this.view.runAddEventListener("input-popup-container", "click", (e) => {
-      const popupElement = this.view.runGetElement(".input-popup");
+    this.view.runAddEventListener("input-popup", "click", (e) => {
+      const popupElement = this.view.runGetElement("#input-popup");
       if (e.target === popupElement) {
         this.popupClose(popupElement)
       }
@@ -58,7 +60,7 @@ export default class Controller {
   popupClose(popupElement) {
     popupElement.classList.remove("input-popup-close");
     popupElement.classList.toggle("input-popup-close")
-    setTimeout(() => this.view.runRemoveElement("input-popup-container", popupElement), 800);
+    setTimeout(() => this.view.runRemoveElement("main-container", "input-popup"), 800);
   }
 
   changeActiveBtn(id) {
@@ -89,7 +91,8 @@ export default class Controller {
   imageDisplay(data, display) {
     this.view.runInsertHTML("input-popup-main", this.view.getInputPopupHtml().ImageInputHtml(data, display), "afterbegin");
     this.view.runAddEventListener("input-popup-image-input", "change", async (e) => {
-
+      
+      this.image = e.target.files[0];
       const data = await this.model.runToBase64(e.target.files[0]);
 
       this.imageDisplay(data, "flex");
@@ -100,6 +103,7 @@ export default class Controller {
     this.view.runInsertHTML("input-popup-main", this.view.getInputPopupHtml().FileInputHtml(data, display), "afterbegin");
     this.view.runAddEventListener("input-popup-file-input", "change", async (e) => {
 
+      this.file = e.target.files[0];
       const data = await this.model.runToBase64(e.target.files[0]);
 
       this.fileDisplay(data, "flex");
@@ -120,7 +124,7 @@ export default class Controller {
 
       const icon = this.getIcon(input.type);
 
-      const inputTitle = input.data.name || input.data?.padEnd(".", 25).slice(0,25) || null;
+      const inputTitle = input.data.name || input.data?.slice(0,25) || "Document";
 
       this.view.runRemoveElement("main", "main-container");
       this.view.runInsertHTML("main", this.view.getResultPageHtml().resultPageHtml({
@@ -151,9 +155,9 @@ export default class Controller {
       case "text":
         return this.view.runGetInput("input-popup-text-input", "string");
       case "image":
-        return this.view.runGetInput("input-popup-image-input", "file");
+        return this.image;
       case "document":
-        return this.view.runGetInput("input-popup-file-input", "file");
+        return this.file;
     }
   }
 }

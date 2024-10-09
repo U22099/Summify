@@ -21,7 +21,8 @@
   align-items: center;
   justify-content: start;
   max-width: 90vw;
-  overflow-y: scroll;
+  overflow: hidden;
+  overflow-x: scroll;
   gap: 8px;
   text-transform: capitalize;
 }
@@ -62,12 +63,10 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  body{
-    background: var(--dark-mode-background);
-  }
   .result-page-container{
     background: var(--dark-mode-background);
     color: white;
+    width: 75%;
   }
   .result-page-container > main :first-child > svg > path{
     fill: white;

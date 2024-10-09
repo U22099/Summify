@@ -1,6 +1,6 @@
-const PopupHtml = `<div class="input-popup">
-    <div class="body">
-      <nav class="nav">
+const PopupHtml = `<div class="input-popup" id="input-popup">
+    <div class="input-popup-body">
+      <nav class="input-popup-nav">
         <p id="input-popup-text" class="active-btn">
           Text
         </p>
@@ -11,11 +11,11 @@ const PopupHtml = `<div class="input-popup">
           Document
         </p>
       </nav>
-      <main class="main" id="input-popup-main">
+      <main class="input-popup-main" id="input-popup-main">
         <textarea type="text" placeholder="Paste in anything" id="input-popup-text-input"></textarea>
       </main>
-      <footer class="footer">
-        <select name="length" id="input-popup-length">
+      <footer class="input-popup-footer">
+        <select name="input-popup-length" id="input-popup-length">
           <option value="short">Short</option>
           <option value="medium">Medium</option>
           <option value="long">Long</option>
