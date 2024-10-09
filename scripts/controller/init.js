@@ -114,7 +114,7 @@ export default class Controller {
         length: this.view.runGetInput("input-popup-length", "string")
       };
 
-      const icon = input.type === "document" ? "file" : input.type;
+      const icon = this.getIcon(input.type);
 
       const inputTitle = input.data.name || input.data?.padEnd(".", 25).slice(0,25);
 
@@ -127,6 +127,17 @@ export default class Controller {
       this.popupClose(this.view.runGetElement(".input-popup"));
       //await this.model.init(this.action);
     });
+  }
+  
+  getIcon(type){
+    switch(type){
+      case "text":
+        return "file";
+      case "image":
+        return "image";
+      case "document":
+        return "file";
+    }
   }
 
   getInputData() {

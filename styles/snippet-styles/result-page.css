@@ -6,6 +6,8 @@
   min-height: 100vh;
   background: var(--light-mode-background);
   gap: 8px;
+  width: 100%;
+  margin-top: 10px;
 }
 .result-page-container > button {
   display: flex;
