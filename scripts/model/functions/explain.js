@@ -18,7 +18,7 @@ export async function TextExplanation(text, length) {
     const index = getValue("currentIndex");
     const history = await getData();
     history[index].inputData = {
-      title: text.padEnd(".", 20).slice(0, 20),
+      title: text.padEnd(".", 30).slice(0, 30),
       type: "text",
       data: text
     };

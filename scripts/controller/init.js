@@ -50,7 +50,7 @@ export default class Controller {
     this.view.runAddEventListener("input-popup-container", "click", (e) => {
       const popupElement = this.view.runGetElement(".input-popup");
       if (e.target === popupElement) {
-        this.popupClose()
+        this.popupClose(popupElement)
       }
     })
   }
@@ -113,17 +113,17 @@ export default class Controller {
         type: this.view.runGetElement(".active-btn").innerText.toLowerCase(),
         length: this.view.runGetInput("input-popup-length", "string")
       };
-      console.log(input);
 
       const icon = input.type === "document" ? "file" : input.type;
 
-      const inputTitle = input.data.name || input.data?.slice(20);
+      const inputTitle = input.data.name || input.data?.padEnd(".", 25).slice(0,25);
 
-      this.view.runInsertHTML("main-container", this.view.getResultPageHtml().resultPageHtml({
+      this.view.runRemoveElement("main", "main-container");
+      this.view.runInsertHTML("main", this.view.getResultPageHtml().resultPageHtml({
         icon,
         inputTitle,
         action: this.action
-      }), "afterbegin");
+      }), "beforeend", false);
       this.popupClose(this.view.runGetElement(".input-popup"));
       //await this.model.init(this.action);
     });

@@ -3,6 +3,7 @@
   justify-content: start;
   align-items: start;
   flex-direction: column;
+  min-height: 100vh;
   background: var(--light-mode-background);
   gap: 8px;
 }
@@ -19,6 +20,7 @@
   max-width: 90vw;
   overflow-y: scroll;
   gap: 8px;
+  text-transform: capitalize;
 }
 .result-page-container > nav > button{
   display: flex;
