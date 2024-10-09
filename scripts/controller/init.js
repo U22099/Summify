@@ -14,7 +14,7 @@ export default class Controller {
     this.initSideBarClose();
 
     this.view.runAddEventListener("summary", "click", () => {
-      this.view.runInsertHTML("main-container", this.view.getInputPopupHtml().PopupHtml, "beforeend", false);
+      this.view.runInsertHTML("input-popup-container", this.view.getInputPopupHtml().PopupHtml, "afterbegin");
       this.action = "summary";
       this.initPopupClose();
       this.initPopupNav();
@@ -22,7 +22,7 @@ export default class Controller {
     });
 
     this.view.runAddEventListener("explanation", "click", () => {
-      this.view.runInsertHTML("main-container", this.view.getInputPopupHtml().PopupHtml, "beforeend", false);
+      this.view.runInsertHTML("input-popup-container", this.view.getInputPopupHtml().PopupHtml, "afterbegin");
       this.action = "explanation";
       this.initPopupClose();
       this.initPopupNav();
@@ -50,7 +50,7 @@ export default class Controller {
 
   initPopupClose() {
     this.view.runAddEventListener("input-popup", "click", (e) => {
-      const popupElement = this.view.runGetElement("#input-popup");
+      const popupElement = this.view.runGetElement(".input-popup-body");
       if (e.target === popupElement) {
         this.popupClose(popupElement)
       }
@@ -60,7 +60,7 @@ export default class Controller {
   popupClose(popupElement) {
     popupElement.classList.remove("input-popup-close");
     popupElement.classList.toggle("input-popup-close")
-    setTimeout(() => this.view.runRemoveElement("main-container", "input-popup"), 800);
+    setTimeout(() => this.view.runRemoveElement("input-popup-container", "input-popup"), 800);
   }
 
   changeActiveBtn(id) {
