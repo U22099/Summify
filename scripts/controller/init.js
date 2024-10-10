@@ -150,16 +150,25 @@ export default class Controller {
   }
   
   async getResult(input){
-    console.log("called getResult");
-    const response = input.type === "text" ? 
-    await this.model.runTextSummary(input.data, input.length) 
-    : 
-    ["image", "document"].includes(input.type) ? 
-    await this.model.runFileSummary(input.data, input.length) 
-    : null
-    
-    console.log(response);
-    return response;
+    if(this.action === "summary"){
+      const response = input.type === "text" ? 
+      await this.model.runTextSummary(input.data, input.length) 
+      : 
+      ["image", "document"].includes(input.type) ? 
+      await this.model.runFileSummary(input.data, input.length) 
+      : null;
+      
+      return response;
+    } else {
+      const response = input.type === "text" ? 
+      await this.model.runTextExplanation(input.data, input.length) 
+      : 
+      ["image", "document"].includes(input.type) ? 
+      await this.model.runFileExplanation(input.data, input.length) :
+        null;
+        
+      return response;
+    }
   }
   
   getIcon(type){
