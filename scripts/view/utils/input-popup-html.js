@@ -31,7 +31,7 @@ const ImageInputHtml = (img, display) => `<label for="input-popup-image-input">
           <img src="${img}" alt="" style="display: ${display};"/>
           <span>
             <i class="fa-regular fa-image"></i>
-            Add Image
+            <span>Add Image</span>
           </span>
           <input type="file" name="image" id="input-popup-image-input" accept=".jpeg, .jpg, .png" hidden style="display: none;"/>
         </label>`;
@@ -40,7 +40,7 @@ const FileInputHtml = (file, display) => `<label for="input-popup-file-input">
           <object data="${file}" type="application/pdf" style="display: ${display};"></object>
           <span>
             <i class="fa-regular fa-file"></i>
-            Add File
+            <span>Add File</span>
           </span>
           <input type="file" name="file" id="input-popup-file-input" accept=".pdf" hidden style="display: none;" />
         </label>`;

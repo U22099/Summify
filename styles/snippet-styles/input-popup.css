@@ -12,6 +12,7 @@
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 20;
   animation: SCALEIN .5s ease-in;
 }
 .input-popup-close{
@@ -80,6 +81,8 @@
   border-radius: 10px;
   padding: 5px 10px;
   gap: 10px;
+  margin: 0px auto;
+  gap: 5px;
   cursor: pointer;
 }
 .input-popup > .input-popup-body > footer{
@@ -95,6 +98,7 @@
   padding: 4px;
   font-size: 1.1em;
   border-radius: 10px; 
+  color: black;
   cursor: pointer;
 }
 .input-popup > .input-popup-body > footer > button{

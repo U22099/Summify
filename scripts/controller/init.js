@@ -49,8 +49,8 @@ export default class Controller {
   }
 
   initPopupClose() {
-    this.view.runAddEventListener("input-popup", "click", (e) => {
-      const popupElement = this.view.runGetElement(".input-popup-body");
+    this.view.runAddEventListener("input-popup-container", "click", (e) => {
+      const popupElement = this.view.runGetElement(".input-popup");
       if (e.target === popupElement) {
         this.popupClose(popupElement)
       }
