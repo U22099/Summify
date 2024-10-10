@@ -34,6 +34,7 @@ export async function TextSummary(text, length) {
       }
     ];
     await saveData(history);
+    console.log(response);
     return response;
   } catch (e) {
     console.log(e)

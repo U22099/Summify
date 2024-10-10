@@ -37,5 +37,4 @@ const getData = (objStore = "History", key = 1) => {
         }
     });
 }
-
 export { saveData, getData }

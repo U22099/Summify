@@ -1,4 +1,4 @@
-export const WriteToElement = (elementId, text) => {
+export const StreamToElement = (elementId, text) => {
   
   // get selected element and assign it to a variable 
   const element = document.getElementById(elementId);

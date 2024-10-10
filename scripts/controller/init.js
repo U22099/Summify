@@ -121,8 +121,6 @@ export default class Controller {
         type: this.view.runGetElement(".active-btn").innerText.toLowerCase(),
         length: this.view.runGetInput("input-popup-length", "string")
       };
-      
-      console.log(input);
 
       const icon = this.getIcon(input.type);
 
@@ -135,23 +133,32 @@ export default class Controller {
         action: `${this.action[0].toUpperCase()}${this.action.slice(1)}`
       }), "beforeend", false);
       this.popupClose(this.view.runGetElement(".input-popup"));
-      await this.runAction()
+      await this.runAction(input);
     });
   }
   
-  runAction(){
+  async runAction(input){
     await this.model.init(this.action);
     const result = await this.getResult(input);
-    this.displayResult(result);
+    console.log(result);
+    await this.displayResult(result);
   }
   
-  displayResult(result){
+  async displayResult(result){
     this.view.runStreamToElement("result-output", result);
-    this.updateHistory();
+    await this.updateHistory();
   }
   
   async getResult(input){
-    const response = input.type === "text" ? await this.model.runTextSummary(input.data, input.length) : ["image", "document"].includes(input.type) ? await this.model.runTextSummary(input.data, input.length) : null
+    console.log("called getResult");
+    const response = input.type === "text" ? 
+    await this.model.runTextSummary(input.data, input.length) 
+    : 
+    ["image", "document"].includes(input.type) ? 
+    await this.model.runFileSummary(input.data, input.length) 
+    : null
+    
+    console.log(response);
     return response;
   }
   
@@ -182,7 +189,9 @@ export default class Controller {
   async updateHistory(){
     const history = await this.model.getHistory();
     history.forEach((x, i) => {
-      this.view.runInsertHTML("side-bar", this.view.getHistoryHtml().historyHtml(history.action, history.inputData.title), "beforeend", false);
+      this.view.runInsertHTML("side-bar", this.view.getHistoryHtml().historyHtml(
+        `${history.action[0].toUpperCase()}${history.action.slice(1)}`
+        , history.inputData.title), "beforeend", false);
     })
   }
 }

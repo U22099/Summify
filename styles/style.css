@@ -161,6 +161,7 @@ body{
   width: 100%;
   font-size: 0.9em;
   justify-content: start;
+  flex-direction: column;
   display: flex;
   align-items: center;
   text-align: start;
@@ -168,6 +169,9 @@ body{
   border: none;
   animation-delay: 1s;
   animation: SLIDEBOTTOM 1s ease-in;
+}
+.side-bar > button > span{
+ font-family: 'SF-PRO-BOLD', sans-serif;
 }
 .section{
   display: flex;
