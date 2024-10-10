@@ -8,8 +8,10 @@ import { insertHTML } from './functions/InsertHTML.js';
 import { RemoveClassName } from './functions/RemoveClassName.js';
 import { RemoveElement } from './functions/RemoveElement.js';
 import { WriteToElement } from './functions/WriteToElement.js';
+import { StreamToElement } from './functions/StreamToElement.js';
 import inputPopUpHtml from './utils/input-popup-html.js';
-import resultPageHtml from './utils/result-page-html.js'
+import resultPageHtml from './utils/result-page-html.js';
+import historyHtml from './utils/history-html.js';
 
 
 export default class View {
@@ -67,6 +69,10 @@ export default class View {
     WriteToElement(elementId, text)
   }
   
+  runStreamToElement(elementId, text) {
+    StreamToElement(elementId, text)
+  }
+  
   //returns element
   runGetElement(identifier){
     return GetElement(identifier);
@@ -80,5 +86,10 @@ export default class View {
   //returns dynamic html string for result page
   getResultPageHtml() {
     return resultPageHtml;
+  }
+  
+  //returns dynamic html string for history navbar
+  getHistoryHtml() {
+    return historyHtml;
   }
 }

@@ -52,14 +52,12 @@
   display: flex;
   justify-content: start;
   align-items: center;
-  width: 100%;
 }
 .input-popup > .input-popup-body > main > label{
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   flex-direction: column;
-  width: 100%;
   gap: 10px;
 }
 .input-popup > .input-popup-body > main > textarea,

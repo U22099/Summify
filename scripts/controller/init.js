@@ -113,6 +113,9 @@ export default class Controller {
   initPopupBtn() {
     this.view.runAddEventListener("input-popup-btn", "click", async () => {
       const data = this.getInputData();
+      
+      if(!data) return null;
+      
       const input = {
         data,
         type: this.view.runGetElement(".active-btn").innerText.toLowerCase(),
@@ -132,8 +135,24 @@ export default class Controller {
         action: `${this.action[0].toUpperCase()}${this.action.slice(1)}`
       }), "beforeend", false);
       this.popupClose(this.view.runGetElement(".input-popup"));
-      //await this.model.init(this.action);
+      await this.runAction()
     });
+  }
+  
+  runAction(){
+    await this.model.init(this.action);
+    const result = await this.getResult(input);
+    this.displayResult(result);
+  }
+  
+  displayResult(result){
+    this.view.runStreamToElement("result-output", result);
+    this.updateHistory();
+  }
+  
+  async getResult(input){
+    const response = input.type === "text" ? await this.model.runTextSummary(input.data, input.length) : ["image", "document"].includes(input.type) ? await this.model.runTextSummary(input.data, input.length) : null
+    return response;
   }
   
   getIcon(type){
@@ -158,5 +177,12 @@ export default class Controller {
       case "document":
         return this.file;
     }
+  }
+  
+  async updateHistory(){
+    const history = await this.model.getHistory();
+    history.forEach((x, i) => {
+      this.view.runInsertHTML("side-bar", this.view.getHistoryHtml().historyHtml(history.action, history.inputData.title), "beforeend", false);
+    })
   }
 }

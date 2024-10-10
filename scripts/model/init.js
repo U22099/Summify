@@ -15,14 +15,18 @@ export default class Model {
   //initialise a new document history
   async init(action){
     const history = await getData();
-    storeValue("currentIndex", history.length);
+    storeValue("currentIndex", history.length || 1);
     history.push({
       action,
     });
     await saveData();
   }
   
-  //Destroy history object
+  async getHistory(){
+    return await getData();
+  }
+  
+  //Destroy history data
   async destroy(){
     storeValue("currentIndex", null);
     await saveData([]);
