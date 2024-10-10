@@ -14,6 +14,7 @@ export const StreamToElement = (elementId, text) => {
 }
 
 function stream(element, text){
+  element.textContent = "";
   let index = 0;
   const interval = setInterval(() => {
     if (index < text.length) {
@@ -22,5 +23,5 @@ function stream(element, text){
     } else {
       clearInterval(interval);
     }
-  }, 50);
+  }, 5);
 }

@@ -20,7 +20,7 @@ const resultPageHtml = ({icon, inputTitle, action}) => `<div class="result-page-
       </section>
       <section>
         <p id="result-output">
-        Loading...
+        Reading...
         </p>
       </section>
     </main>

@@ -52,6 +52,7 @@
   display: flex;
   justify-content: start;
   align-items: center;
+  width: 100%;
 }
 .input-popup > .input-popup-body > main > label{
   display: flex;

@@ -58,6 +58,7 @@ body{
   align-items: start;
   text-align: center;
   margin: 0px auto;
+  width: 100%;
 }
 .header{
   display: flex;
