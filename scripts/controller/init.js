@@ -28,6 +28,7 @@ export default class Controller {
       this.initPopupNav();
       this.initPopupBtn();
     });
+    this.updateHistory();
   }
 
   initSideBarOpen() {
@@ -140,7 +141,6 @@ export default class Controller {
   async runAction(input){
     await this.model.init(this.action);
     const result = await this.getResult(input);
-    console.log(result);
     await this.displayResult(result);
   }
   
@@ -189,9 +189,12 @@ export default class Controller {
   async updateHistory(){
     const history = await this.model.getHistory();
     history.forEach((x, i) => {
-      this.view.runInsertHTML("side-bar", this.view.getHistoryHtml().historyHtml(
-        `${history.action[0].toUpperCase()}${history.action.slice(1)}`
-        , history.inputData.title), "beforeend", false);
+      const htmlText = this.view.getHistoryHtml().historyHtml(
+        `${history[x].action[0].toUpperCase()}${history[x].action.slice(1)}`
+        , history[x].inputData.title);
+        
+      console.log(htmlText);
+      this.view.runInsertHTML("side-bar", htmlText, "beforeend", false);
     })
   }
 }

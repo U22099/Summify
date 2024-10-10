@@ -15,7 +15,6 @@ export default class Model {
   //initialise a new document history
   async init(action){
     const history = await getData() || [];
-    console.log(history);
     storeValue("currentIndex", history.length || 1);
     history.push({
       action
@@ -24,7 +23,7 @@ export default class Model {
   }
   
   async getHistory(){
-    return await getData();
+    return await getData() || [];
   }
   
   //Destroy history data
@@ -40,7 +39,6 @@ export default class Model {
   
   //gets summary for text
   async runTextSummary(text, length) {
-    console.log("called")
     return await TextSummary(text, length);
   }
 
