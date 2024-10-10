@@ -129,7 +129,8 @@ export default class Controller {
       this.view.runInsertHTML("main", this.view.getResultPageHtml().resultPageHtml({
         icon,
         inputTitle,
-        action: this.action
+        action: `${this.action[0].toUpperCase()}${this.action.slice(1, this.
+        action.length - 1)}`
       }), "beforeend", false);
       this.popupClose(this.view.runGetElement(".input-popup"));
       //await this.model.init(this.action);
