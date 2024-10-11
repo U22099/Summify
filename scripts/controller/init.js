@@ -299,29 +299,16 @@ export default class Controller {
   }
 
   async flashCardInit() {
-    const data = await this.getFlashCards();
-    console.log(JSON.parse(data).length);
-    if (!data) return null
-    JSON.parse(data).forEach((x, i) => {
-      this.view.runInsertHTML("flash-card-page-container", this.view.getResultHtml().flashCardSnippet(x.question, x.answer), "beforeend", false);
-      Array.from(this.view.runGetElement(".flash-card", true)).forEach(x => {
-        x.addEventListener("click", (e) => {
-          e.target.classList.remove("flip");
-          e.target.classList.add("flip");
+    Array.from(this.view.runGetElement(".flash-card", true)).forEach(x => {
+      x.addEventListener("click", (e) => {
+        e.target.classList.toggle("flip");
 
-          const questionElement = e.target.querySelector("#q");
-          const answerElement = e.target.querySelector("#a");
-          /*setTimeout(() => {
-            if (questionElement.classList.includes("hide")) {
-              questionElement.classList.remove("hide")
-              answerElement.classList.add("hide");
-            } else {
-              answerElement.classList.remove("hide")
-              questionElement.classList.add("hide");
-            }
-          }, 500);*/
-          e.target.classList.remove("flip");
-        });
+        const questionElement = e.target.querySelector("#q");
+        const answerElement = e.target.querySelector("#a");
+
+        questionElement.classList.toggle("hide");
+        answerElement.classList.toggle("hide");
+        e.target.classList.toggle("flip");
       });
     });
   }
