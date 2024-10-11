@@ -1,7 +1,9 @@
-export const GetElement = (identifier) => {
+export const GetElement = (identifier, all) => {
 
  // get the element with the id
- const element = document.querySelector(identifier);
+ let element = document.querySelector(identifier)
+ if(all)
+    element = document.querySelectorAll(identifier);
  
  // check if selected element is valid 
  if (element) {

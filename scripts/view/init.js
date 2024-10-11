@@ -74,8 +74,8 @@ export default class View {
   }
   
   //returns element
-  runGetElement(identifier){
-    return GetElement(identifier);
+  runGetElement(identifier, all=false){
+    return GetElement(identifier, all);
   }
   
   //returns dynamic html string for input popup

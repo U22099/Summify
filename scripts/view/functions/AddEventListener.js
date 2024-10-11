@@ -1,7 +1,7 @@
 export const AddEventListener = (elementId, type, callbackFunc) => {
   
   // set the element with the inputed id in a variable 
-  const element = document.getElementById(elementId)
+  const element = document.getElementById(elementId) || elementId;
   
   // checks if element with the inputed id is not found and then log an error to the console 
   if (!element)  {

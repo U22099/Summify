@@ -32,25 +32,34 @@ export default class Controller {
       await this.model.destroy();
       await this.updateHistory();
     });
+    this.initHistoryButton();
     this.updateHistory();
   }
 
   initSideBarOpen() {
     this.view.runAddEventListener("open-nav", "click", () => {
-      const sideBar = this.view.runGetElement(".side-bar")
-      sideBar.classList.remove("animate-close-side-bar");
-      sideBar.classList.toggle("animate-open-side-bar");
-      sideBar.style.visibility = "visible";
+      this.sideBarOpen();
     });
+  }
+
+  sideBarOpen() {
+    const sideBar = this.view.runGetElement(".side-bar")
+    sideBar.classList.remove("animate-close-side-bar");
+    sideBar.classList.toggle("animate-open-side-bar");
+    sideBar.style.visibility = "visible";
   }
 
   initSideBarClose() {
     this.view.runAddEventListener("close-nav", "click", () => {
-      const sideBar = this.view.runGetElement(".side-bar")
-      sideBar.classList.remove("animate-open-side-bar");
-      sideBar.classList.toggle("animate-close-side-bar");
-      setTimeout(() => { sideBar.style.visibility = "hidden"; }, 200);
+      this.sideBarClose();
     });
+  }
+
+  sideBarClose() {
+    const sideBar = this.view.runGetElement(".side-bar")
+    sideBar.classList.remove("animate-open-side-bar");
+    sideBar.classList.toggle("animate-close-side-bar");
+    setTimeout(() => { sideBar.style.visibility = "hidden"; }, 200);
   }
 
   initPopupClose() {
@@ -96,7 +105,7 @@ export default class Controller {
   imageDisplay(data, display) {
     this.view.runInsertHTML("input-popup-main", this.view.getInputPopupHtml().ImageInputHtml(data, display), "afterbegin");
     this.view.runAddEventListener("input-popup-image-input", "change", async (e) => {
-      
+
       this.image = e.target.files[0];
       const data = await this.model.runToBase64(e.target.files[0]);
 
@@ -118,9 +127,9 @@ export default class Controller {
   initPopupBtn() {
     this.view.runAddEventListener("input-popup-btn", "click", async () => {
       const data = this.getInputData();
-      
-      if(!data) return null;
-      
+
+      if (!data) return null;
+
       const input = {
         data,
         type: this.view.runGetElement(".active-btn").innerText.toLowerCase(),
@@ -129,7 +138,7 @@ export default class Controller {
 
       const icon = this.getIcon(input.type);
 
-      const inputTitle = input.data.name || input.data?.slice(0,25) || "Document";
+      const inputTitle = input.data.name || input.data?.slice(0, 25) || "Document";
 
       this.view.runRemoveElement("main", "main-container");
       this.view.runInsertHTML("main", this.view.getResultPageHtml().resultPageHtml({
@@ -141,43 +150,38 @@ export default class Controller {
       await this.runAction(input);
     });
   }
-  
-  async runAction(input){
+
+  async runAction(input) {
     await this.model.init(this.action);
     const result = await this.getResult(input);
-    await this.displayResult(result);
+    await this.displayResult(this.model.markdownToHtml(result));
   }
-  
-  async displayResult(result){
-    console.log(result);
+
+  async displayResult(result) {
     this.view.runStreamToElement("result-output", result);
     await this.updateHistory();
   }
-  
-  async getResult(input){
-    if(this.action === "summary"){
-      const response = input.type === "text" ? 
-      await this.model.runTextSummary(input.data, input.length) 
-      : 
-      ["image", "document"].includes(input.type) ? 
-      await this.model.runFileSummary(input.data, input.length) 
-      : null;
-      
+
+  async getResult(input) {
+    if (this.action === "summary") {
+      const response = input.type === "text" ?
+        await this.model.runTextSummary(input.data, input.length) : ["image", "document"].includes(input.type) ?
+        await this.model.runFileSummary(input.data, input.length) :
+        null;
+
       return response;
     } else {
-      const response = input.type === "text" ? 
-      await this.model.runTextExplanation(input.data, input.length) 
-      : 
-      ["image", "document"].includes(input.type) ? 
-      await this.model.runFileExplanation(input.data, input.length) :
+      const response = input.type === "text" ?
+        await this.model.runTextExplanation(input.data, input.length) : ["image", "document"].includes(input.type) ?
+        await this.model.runFileExplanation(input.data, input.length) :
         null;
-        
+
       return response;
     }
   }
-  
-  getIcon(type){
-    switch(type){
+
+  getIcon(type) {
+    switch (type) {
       case "text":
         return "file";
       case "image":
@@ -199,23 +203,48 @@ export default class Controller {
         return this.file;
     }
   }
-  
-  async updateHistory(){
+
+  async updateHistory() {
     const history = await this.model.getHistory();
-    try{
-      if(history){
+    try {
+      if (history) {
         history.forEach((x, i) => {
           const htmlText = this.view.getHistoryHtml().historyHtml(
-            `${x?.action[0].toUpperCase()}${x?.action.slice(1)}`
-            , x?.inputData?.title);
-            
+            `${x?.action[0].toUpperCase()}${x?.action.slice(1)}`, x?.inputData?.title, i);
+
           this.view.runInsertHTML("side-bar", htmlText, "beforeend", false);
         })
       } else {
         this.view.runInsertHTML("side-bar", "", "afterbegin");
       }
-    } catch(e){
+    } catch (e) {
       console.log(e.message);
     }
+  }
+
+  initHistoryButton() {
+    const btns = this.view.runGetElement(".history-btn", all);
+    btns.forEach((x, i) => {
+      this.view.runAddEventListener(x, "click", async (e) => {
+        const index = e.target.childNodes[0].value;
+        await this.showHistoryResult(index);
+        this.sideBarClose();
+      })
+    })
+  }
+
+  async showHistoryResult(index) {
+    const history = await this.model.getHistory();
+    this.showResultPage(history, index);
+    this.view.runWriteToElement("result-output", result);
+  }
+
+  showResultPage(history, index) {
+    this.view.runRemoveElement("main", "main-container");
+    this.view.runInsertHTML("main", this.view.getResultPageHtml().resultPageHtml({
+      icon: this.getIcon(history[index]?.inputData?.type),
+      inputTitle: history[index]?.inputData?.title,
+      action: `${history[index]?.action[0].toUpperCase()}${history[index]?.action.slice(1)}`
+    }), "beforeend", false);
   }
 }
