@@ -746,6 +746,7 @@ This documentation will be updated throughout the development process to provide
         Reading...
         </p> 
         </section>`,dR=()=>`<div id="flash-card-page-container" class="flash-card-page-container">
+<p>Loading...</p>
   </div>`,fR=(a,n)=>`<div class="card flash-card">
       <p id="q" class="">${a}</p>
       <p id="a" class="hide">${n}</p>
