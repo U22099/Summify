@@ -4,6 +4,9 @@ import { VitePWA } from 'vite-plugin-pwa';
 export default defineConfig({
   base: '/Summify/',
   plugins: [VitePWA({
+  	  workbox: {
+        maximumFileSizeToCacheInBytes: 10485760
+      },
       registerType: 'autoUpdate',
       manifest: {
         name: 'Summify AI Content Summariser',
