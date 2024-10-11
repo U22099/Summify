@@ -18,7 +18,7 @@ export async function TextExplanation(text, length) {
     const index = getValue("currentIndex");
     const history = await getData();
     history[index].inputData = {
-      title: text.padEnd(".", 30).slice(0, 30),
+      title: text.slice(0, 30),
       type: "text",
       data: text
     };
@@ -77,7 +77,7 @@ export async function FileExplanation(file, length) {
     history[index].chat = [
       {
         role: "user",
-        parts: [{ filePart }, { text }]
+        parts: [{ filePart }]
       },
       {
         role: "model",
