@@ -17,8 +17,9 @@
     "@google/generative-ai": "^0.20.0",
     "@vite-pwa/assets-generator": "^0.2.6",
     "gh-pages": "^6.1.1",
-    "markdown-parser-html": "^2.0.2",
+    "highlight.js": "^11.10.0",
     "pdfmake": "^0.2.13",
+    "remarkable": "^2.0.1",
     "vite-plugin-pwa": "^0.20.5"
   }
 }
