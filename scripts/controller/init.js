@@ -145,6 +145,7 @@ export default class Controller {
   }
   
   async displayResult(result){
+    console.log(result);
     this.view.runStreamToElement("result-output", result);
     await this.updateHistory();
   }
@@ -197,13 +198,18 @@ export default class Controller {
   
   async updateHistory(){
     const history = await this.model.getHistory();
-    history.forEach((x, i) => {
-      const htmlText = this.view.getHistoryHtml().historyHtml(
-        `${history[x].action[0].toUpperCase()}${history[x].action.slice(1)}`
-        , history[x].inputData.title);
-        
-      console.log(htmlText);
-      this.view.runInsertHTML("side-bar", htmlText, "beforeend", false);
-    })
+    console.log(history);
+    try{
+      history.forEach((x, i) => {
+        const htmlText = this.view.getHistoryHtml().historyHtml(
+          `${x?.action[0].toUpperCase()}${x?.action.slice(1)}`
+          , x?.inputData?.title);
+          
+        console.log(htmlText);
+        this.view.runInsertHTML("side-bar", htmlText, "beforeend", false);
+      })
+    } catch(e){
+      console.log(e.message);
+    }
   }
 }

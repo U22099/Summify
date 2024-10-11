@@ -78,7 +78,7 @@ export async function FileSummary(file, length) {
     history[index].chat = [
       {
         role: "user",
-        parts: [{ filePart }, { text }]
+        parts: [{ filePart }]
       },
       {
         role: "model",
@@ -88,6 +88,7 @@ export async function FileSummary(file, length) {
     await saveData(history);
     return response;
   } catch (e) {
+    console.log("Error occured")
     console.log(e)
     return false;
   }

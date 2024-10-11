@@ -164,7 +164,7 @@ body{
   justify-content: start;
   flex-direction: column;
   display: flex;
-  align-items: center;
+  align-items: start;
   text-align: start;
   background: white;
   border: none;

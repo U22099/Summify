@@ -59,6 +59,7 @@
   justify-content: start;
   align-items: center;
   flex-direction: column;
+  width: 100%;
   gap: 10px;
 }
 .input-popup > .input-popup-body > main > textarea,
