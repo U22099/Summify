@@ -28,6 +28,10 @@ export default class Controller {
       this.initPopupNav();
       this.initPopupBtn();
     });
+    this.view.runAddEventListener("clear-history", "click", async () => {
+      await this.model.destroy();
+      await this.updateHistory();
+    });
     this.updateHistory();
   }
 
