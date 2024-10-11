@@ -3,7 +3,7 @@
 @import "fonts/style.css";
 @import "snippet-styles/input-popup.css";
 @import "snippet-styles/result-page.css";
-
+@import "snippet-styles/flash-card.css";
 
 ::-webkit-scrollbar {
   width: 8px;
@@ -23,7 +23,6 @@
   font-family: 'SF-PRO-NORMAL', sans-serif;
   margin: 0px;
   border: none;
-  word-break: break-all;
 }
 *:focus{
   outline: none;
@@ -156,25 +155,23 @@ body{
   width: 24px;
   height: 24px;
 }
-.side-bar :last-child{
- display: flex;
- flex-direction: column;
- gap: 16px;
+.side-bar > div > p{
+  width: 100%;
 }
-.side-bar :last-child > button{
+.side-bar > button{
   width: 100%;
   font-size: 0.9em;
   justify-content: start;
   flex-direction: column;
   display: flex;
-  align-items: start;
+  align-items: center;
   text-align: start;
   background: white;
   border: none;
   animation-delay: 1s;
   animation: SLIDEBOTTOM 1s ease-in;
 }
-.side-bar :last-child > button > span{
+.side-bar > button > span{
  font-family: 'SF-PRO-BOLD', sans-serif;
 }
 .section{
@@ -251,7 +248,7 @@ body{
     background: var(--dark-mode-input-box);
     color: white;
   }
-  .side-bar :last-child > button{
+  .side-bar > button{
     background: var(--dark-mode-input-box);
     border: none;
   }

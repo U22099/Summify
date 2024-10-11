@@ -4,7 +4,7 @@ const resultPageHtml = ({icon, inputTitle, action}) => `<section class="result-p
       ${inputTitle}
     </button>
     <nav>
-      <button class="card active-btn" id=${action.toLowerCase()}>
+      <button class="card active-btn" id="run-action">
         ${action}
       </button>
       <button class="card" id="flash-card">

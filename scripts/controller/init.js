@@ -167,6 +167,7 @@ export default class Controller {
 
   async displayResult(result) {
     this.view.runWriteToElement("result-output", result);
+    this.resultPageInit();
     await this.updateHistory();
   }
 
@@ -241,11 +242,12 @@ export default class Controller {
     btns.forEach((x, i) => {
       this.view.runAddEventListener(x, "click", async (e) => {
         const index = e.target.querySelector("input").value;
+        this.model.runStoreValue("currentIndex", index);
         await this.showHistoryResult(index);
         this.sideBarClose();
       })
     })
- }
+  }
 
   async showHistoryResult(index) {
     const history = await this.model.getHistory();
@@ -265,5 +267,65 @@ export default class Controller {
       inputTitle: history?.inputData?.title,
       action: `${history?.action[0].toUpperCase()}${history?.action.slice(1)}`
     }), "beforeend", false);
+    this.resultPageInit();
+  }
+  
+  resultPageInit() {
+
+    this.view.runAddEventListener("run-action", "click", async () => {
+      const history = await this.getHistory();
+      const index = this.model.getStoredValue("currentIndex");
+      this.view.runInsertHTML("result-main-container", this.view.getResultHtml().homeHtml, "afterbegin");
+      this.view.runWriteToElement("result-output", this.model.runMarkdownToHtml(history[index].outputData));
+    })
+
+    this.view.runAddEventListener("flash-card", "click", async () => {
+      this.view.runInsertHTML("result-main-container", this.view.getResultHtml().flashCardHtml, "afterbegin");
+      await this.flashCardInit();
+    });
+
+    this.view.runAddEventListener("chat", "click", () => {
+      this.view.runInsertHTML("result-main-container", this.view.getResultHtml().chatHtml, "afterbegin");
+    });
+  }
+
+  async flashCardInit() {
+    const data = await this.getFlashCards();
+    if (!data) return null
+    data.forEach(x => {
+      this.view.runInsertHTML("flash-card-page-container", this.view.getResultHtml().flashCardSnippet(x.q, x.a), "beforeend", false);
+      this.view.runAddEventListener("flash-card", "click", (e) => {
+        e.target.classList.remove("flip");
+        e.target.classList.toggld("flip");
+        
+        setTimeout(() => {
+          const questionElement = this.view.runGetElement("#q");
+          const answerElement = this.view.runGetElement("#a");
+          if (questionElement.classList.includes("hide")) {
+            questionElement.classList.remove("hide")
+            answerElement.classList.add("hide");
+          } else {
+            answerElement.classList.remove("hide")
+            questionElement.classList.add("hide");
+          }
+        }, 500);
+      })
+    });
+  }
+
+  async getFlashCards() {
+    const history = await this.model.getHistory();
+    const index = this.model.getStoredValue("currentIndex");
+    if (history[index].inputData.type === "text") {
+      const prompt = `
+      Document:
+      ${history[index].inputData.data}\n\n
+      Summary:
+      ${history[index].outputData}
+      `;
+      return await this.model.runGenerateFlashCardsForText(prompt);
+    } else {
+      return await this.model.runGenerateFlashCardsForFile(history[index].inputData.data);
+    }
   }
 }

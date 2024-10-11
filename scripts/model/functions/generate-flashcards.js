@@ -33,9 +33,9 @@ export async function GenerateFlashCardsForText(text) {
       responseMimeType: "application/json",
       responseSchema: schema,
     },
-    systemInstruction: "You are an expert at flashcards generator, good at giving concise and meaningful flashcards Q&As from documents.",
+    systemInstruction: "You are an expert at flashcards generator, good at giving concise and meaningful flashcards Q&As from joint documents containing the document and its summary read by the user.",
   });
-  const prompt = "Generate flashcards of questions and answers from the document below: ";
+  const prompt = "Generate flashcards of questions and answers from the joint documents containing the document and its summary read by the user, below: ";
 
   try {
     const generatedContent = await model.generateContent(prompt + "\n" + text);

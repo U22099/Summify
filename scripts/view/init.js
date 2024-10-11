@@ -12,6 +12,7 @@ import { StreamToElement } from './functions/StreamToElement.js';
 import inputPopUpHtml from './utils/input-popup-html.js';
 import pageHtml from './utils/page-html.js';
 import historyHtml from './utils/history-html.js';
+import resultHtml from './utils/result-html.js';
 
 
 export default class View {
@@ -91,5 +92,10 @@ export default class View {
   //returns dynamic html string for history navbar
   getHistoryHtml() {
     return historyHtml;
+  }
+  
+  //returns dynamic html string for flash card page
+  getResultHtml() {
+    return resultHtml;
   }
 }

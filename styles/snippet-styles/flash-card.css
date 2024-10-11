@@ -1,0 +1,31 @@
+.flash-card-page-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding: 10px;
+  margin: 30px auto;
+  gap: 10px;
+}
+
+.flash-card-page-container > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: clamp(90vw, 80vw, 40vw);
+  padding: 50px 0px;
+}
+
+.flash-card-page-container > div > h1{
+  font-size: var(--clamp);
+}
+
+.flip{
+  animation: FLIP .8s ease;
+}
+
+.hide{
+  visibility: hidden;
+  display: none;
+}
