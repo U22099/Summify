@@ -302,6 +302,7 @@ export default class Controller {
     const data = await this.getFlashCards();
     console.log(JSON.parse(data).length);
     if (!data) return null
+    this.view.runInsertHTML("flash-card-page-container", "", "beforeend");
     JSON.parse(data).forEach((x,i) => {
       this.view.runInsertHTML("flash-card-page-container", this.view.getResultHtml().flashCardSnippet(x.question, x.answer), "beforeend", false);});
     Array.from(this.view.runGetElement(".flash-card", true)).forEach(x => {
@@ -323,6 +324,9 @@ export default class Controller {
   async getFlashCards() {
     const history = await this.model.getHistory();
     const index = this.model.getStoredValue("currentIndex");
+    if(history[index].flashcards.length){
+      return history[index].flashcards;
+    }
     if (history[index].inputData.type === "text") {
       const prompt = `
       Document:
