@@ -10,7 +10,7 @@ import { RemoveElement } from './functions/RemoveElement.js';
 import { WriteToElement } from './functions/WriteToElement.js';
 import { StreamToElement } from './functions/StreamToElement.js';
 import inputPopUpHtml from './utils/input-popup-html.js';
-import resultPageHtml from './utils/result-page-html.js';
+import pageHtml from './utils/page-html.js';
 import historyHtml from './utils/history-html.js';
 
 
@@ -84,8 +84,8 @@ export default class View {
   }
   
   //returns dynamic html string for result page
-  getResultPageHtml() {
-    return resultPageHtml;
+  getPageHtml() {
+    return pageHtml;
   }
   
   //returns dynamic html string for history navbar

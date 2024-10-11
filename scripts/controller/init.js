@@ -28,6 +28,11 @@ export default class Controller {
       this.initPopupNav();
       this.initPopupBtn();
     });
+    this.view.runAddEventListener("new-chat", "click", async () => {
+      this.view.runRemoveElement("main", this.view.runGetElement(".result-page-container"));
+      this.view.runInsertHTML("main", this.view.getPageHtml().initPageHtml(), "beforeend", false);
+      await this.init();
+    })
     this.view.runAddEventListener("clear-history", "click", async () => {
       await this.model.destroy();
       await this.updateHistory();
@@ -141,7 +146,7 @@ export default class Controller {
       const inputTitle = input.data.name || input.data?.slice(0, 25) || "Document";
 
       this.view.runRemoveElement("main", "main-container");
-      this.view.runInsertHTML("main", this.view.getResultPageHtml().resultPageHtml({
+      this.view.runInsertHTML("main", this.view.getPageHtml().resultPageHtml({
         icon,
         inputTitle,
         action: `${this.action[0].toUpperCase()}${this.action.slice(1)}`
@@ -210,8 +215,8 @@ export default class Controller {
 
   async updateHistory() {
     const history = await this.model.getHistory();
-    console.log(history)
     try {
+      this.view.runInsertHTML("history", "", "afterbegin");
       if (history.length) {
         history.forEach((x, i) => {
           const htmlText = this.view.getHistoryHtml().historyHtml(
@@ -219,6 +224,7 @@ export default class Controller {
 
           this.view.runInsertHTML("history", htmlText, "beforeend", false);
         })
+        this.initHistoryButton();
       } else {
         this.view.runInsertHTML("history", "", "afterbegin");
       }
@@ -251,7 +257,7 @@ export default class Controller {
 
   showResultPage(history, container) {
     this.view.runRemoveElement("main", container);
-    this.view.runInsertHTML("main", this.view.getResultPageHtml().resultPageHtml({
+    this.view.runInsertHTML("main", this.view.getPageHtml().resultPageHtml({
       icon: this.getIcon(history?.inputData?.type),
       inputTitle: history?.inputData?.title,
       action: `${history?.action[0].toUpperCase()}${history?.action.slice(1)}`
