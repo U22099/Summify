@@ -10,6 +10,7 @@ const homeHtml = ` <section class="first-child">
         </section>`;
 
 const flashCardHtml = () => `<div id="flash-card-page-container" class="flash-card-page-container">
+<p>Loading...</p>
   </div>`;
   
 const flashCardSnippet = (question, answer) => `<div class="card flash-card">
