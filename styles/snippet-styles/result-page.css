@@ -61,6 +61,22 @@
   width: 100%;
   word-break: break-all;
 }
+.result-page-container :nth-child(3) {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  padding-left: 10px;
+  gap: 10px;
+}
+.result-page-container :nth-child(3) > i {
+  background: var(--light-mode-navbar);
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: var(--clamp);
+}
 .result-page-container > main > .last-child > *{
   margin: 0px;
   padding: 0px;
@@ -82,5 +98,8 @@
   }
   .result-page-container > main > .first-child > svg > path{
     fill: white;
+  }
+  .result-page-container :nth-child(3) > i {
+    background: var(--dark-mode-navbar);
   }
 }

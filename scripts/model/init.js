@@ -10,6 +10,7 @@ import speechToText from './utils/speech-to-text.js';
 import textToPdf from './utils/text-to-pdf.js';
 import toBase64 from './utils/to-base-64.js';
 import markdownToHtml from './utils/markdown-to-html.js';
+import copyToClipboard from './utils/copy-to-clipboard.js';
 
 export default class Model {
   
@@ -108,5 +109,9 @@ export default class Model {
   
   runMarkdownToHtml(markdown){
     return markdownToHtml(markdown);
+  }
+  
+  runCopyToClipboard(text){
+    copyToClipboard(text);
   }
 }
