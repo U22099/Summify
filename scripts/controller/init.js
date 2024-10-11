@@ -7,7 +7,7 @@ export default class Controller {
     this.file;
   }
 
-  init() {
+  async init() {
 
     this.initSideBarOpen();
 
@@ -32,8 +32,8 @@ export default class Controller {
       await this.model.destroy();
       await this.updateHistory();
     });
+    await this.updateHistory();
     this.initHistoryButton();
-    this.updateHistory();
   }
 
   initSideBarOpen() {
@@ -154,11 +154,11 @@ export default class Controller {
   async runAction(input) {
     await this.model.init(this.action);
     const result = await this.getResult(input);
-    await this.displayResult(this.model.markdownToHtml(result));
+    await this.displayResult(this.model.runMarkdownToHtml(result));
   }
 
   async displayResult(result) {
-    this.view.runStreamToElement("result-output", result);
+    this.view.runWriteToElement("result-output", result);
     await this.updateHistory();
   }
 
@@ -188,6 +188,8 @@ export default class Controller {
         return "image";
       case "document":
         return "file";
+      default:
+        return "file";
     }
   }
 
@@ -201,21 +203,24 @@ export default class Controller {
         return this.image;
       case "document":
         return this.file;
+      default:
+        return this.file;
     }
   }
 
   async updateHistory() {
     const history = await this.model.getHistory();
+    console.log(history)
     try {
-      if (history) {
+      if (history.length) {
         history.forEach((x, i) => {
           const htmlText = this.view.getHistoryHtml().historyHtml(
             `${x?.action[0].toUpperCase()}${x?.action.slice(1)}`, x?.inputData?.title, i);
 
-          this.view.runInsertHTML("side-bar", htmlText, "beforeend", false);
+          this.view.runInsertHTML("history", htmlText, "beforeend", false);
         })
       } else {
-        this.view.runInsertHTML("side-bar", "", "afterbegin");
+        this.view.runInsertHTML("history", "", "afterbegin");
       }
     } catch (e) {
       console.log(e.message);
@@ -223,10 +228,10 @@ export default class Controller {
   }
 
   initHistoryButton() {
-    const btns = this.view.runGetElement(".history-btn", all);
+    const btns = this.view.runGetElement(".history-btn", true);
     btns.forEach((x, i) => {
       this.view.runAddEventListener(x, "click", async (e) => {
-        const index = e.target.childNodes[0].value;
+        const index = e.target.querySelector("input").value;
         await this.showHistoryResult(index);
         this.sideBarClose();
       })
@@ -235,16 +240,21 @@ export default class Controller {
 
   async showHistoryResult(index) {
     const history = await this.model.getHistory();
-    this.showResultPage(history, index);
-    this.view.runWriteToElement("result-output", result);
+    const resultPage = this.view.runGetElement(".result-page-container");
+    if(!resultPage){
+      this.showResultPage(history[index], "main-container");
+    } else {
+      this.showResultPage(history[index], resultPage);
+    }
+    this.view.runWriteToElement("result-output", history[index].outputData);
   }
 
-  showResultPage(history, index) {
-    this.view.runRemoveElement("main", "main-container");
+  showResultPage(history, container) {
+    this.view.runRemoveElement("main", container);
     this.view.runInsertHTML("main", this.view.getResultPageHtml().resultPageHtml({
-      icon: this.getIcon(history[index]?.inputData?.type),
-      inputTitle: history[index]?.inputData?.title,
-      action: `${history[index]?.action[0].toUpperCase()}${history[index]?.action.slice(1)}`
+      icon: this.getIcon(history?.inputData?.type),
+      inputTitle: history?.inputData?.title,
+      action: `${history?.action[0].toUpperCase()}${history?.action.slice(1)}`
     }), "beforeend", false);
   }
 }

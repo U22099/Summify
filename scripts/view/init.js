@@ -74,7 +74,7 @@ export default class View {
   }
   
   //returns element
-  runGetElement(identifier, all=false){
+  runGetElement(identifier, all = false){
     return GetElement(identifier, all);
   }
   

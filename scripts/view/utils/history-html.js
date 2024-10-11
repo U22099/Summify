@@ -1,7 +1,7 @@
 const historyHtml = (action, title, id) => {
   return `
       <button class="card history-btn">
-        <input value="${id}" hidden styles="display: none;"/>
+          <input value="${id}" hidden style="display: none;"/>
         <span>${action}</span>
       ${title}
       </button>

@@ -9,6 +9,6 @@ export const WriteToElement = (elementId, text) => {
     console.error(`Element with the id of ${elementId.toUpperCase()} is not found`);
   else 
    // set the value of the 'text' arg as the text content of the selected element 
-   element.textContent = text;
+   element.innerHTML = text;
    
 }
