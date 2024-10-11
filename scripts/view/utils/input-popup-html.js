@@ -79,7 +79,7 @@ The project will be structured using a combination of components and modules, wi
 
 This documentation will be updated throughout the development process to provide a comprehensive overview of Summify. 
         </textarea> 
-        <i class="fa-regular fa-microphone"></i>
+        <i class="fa-regular fa-microphone" id="mic"e></i>
       </main>
       <footer class="input-popup-footer">
         <select name="input-popup-length" id="input-popup-length">
@@ -102,7 +102,7 @@ Summify is an AI-powered content summarizer that leverages the capabilities of t
 **Features**
 
 * **Text Summarization/Explanation:**  Users can paste or type in text content to generate a summary.
-* **PDF Summarization/Explanation:**  Users can upload PDF documents for summarization.
+* **PDF Summarization/Explanation:**  Users can upload PDF documents for summarization.out 
 * **Image Summarization/Explanation:** Users can upload images for summarization, leveraging the Gemini API's image understanding capabilities.
 * **Flash Cards:**  Based on the input document, the application generates flash cards with key points, promoting learning and knowledge retention.
 * **Chat Interface:** Users can engage in a conversational chat interface to ask further questions about the summarized content.
@@ -159,7 +159,7 @@ The project will be structured using a combination of components and modules, wi
 
 This documentation will be updated throughout the development process to provide a comprehensive overview of Summify. 
 </textarea>
-        <i class="fa-regular fa-microphone"></i>`;
+        <i class="fa-regular fa-microphone" id="mic"ee></i>`;
 
 const ImageInputHtml = (img, display) => `<label for="input-popup-image-input">
           <img src="${img}" alt="" style="display: ${display};"/>

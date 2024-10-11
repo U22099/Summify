@@ -93,6 +93,12 @@ export default class Controller {
   }
 
   initPopupNav() {
+    
+    this.view.runAddEventListener("mic", "click", () => {
+      this.model.runSpeechToText((text) => {
+        document.getElementById("input-popup-text-input").value += text;
+      });
+    });
 
     this.view.runAddEventListener("input-popup-text", "click", () => {
       this.changeActiveBtn("input-popup-text");
