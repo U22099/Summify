@@ -212,7 +212,7 @@ export default class Controller {
           this.view.runInsertHTML("side-bar", htmlText, "beforeend", false);
         })
       } else {
-        this.view.runInsertHTML("side-bar", "", "beforeend");
+        this.view.runInsertHTML("side-bar", "", "afterbegin");
       }
     } catch(e){
       console.log(e.message);
