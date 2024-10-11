@@ -1,3 +1,12 @@
+.flip{
+  animation: FLIP .8s ease;
+}
+
+.hide{
+  display: none;
+  visibility: hidden;
+}
+
 .flash-card-page-container{
   display: flex;
   flex-direction: column;
@@ -12,20 +21,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   text-align: center;
   width: clamp(90vw, 80vw, 40vw);
-  padding: 50px 0px;
+  padding: 50px 10px;
 }
 
 .flash-card-page-container > div > h1{
   font-size: var(--clamp);
-}
-
-.flip{
-  animation: FLIP .8s ease;
-}
-
-.hide{
-  visibility: hidden;
-  display: none;
 }
