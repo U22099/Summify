@@ -1,4 +1,4 @@
-const resultPageHtml = ({icon, inputTitle, action}) => `<div class="result-page-container">
+const resultPageHtml = ({icon, inputTitle, action}) => `<section class="result-page-container" id="result-page-container">
     <button class="card">
       <i class="fa-regular fa-${icon}"></i>
       ${inputTitle}
@@ -26,7 +26,7 @@ const resultPageHtml = ({icon, inputTitle, action}) => `<div class="result-page-
     </main>
     <footer>
     </footer>
-  </div>`;
+  </section>`;
   
 const initPageHtml = () => `<section class="section" id="main-container">
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">

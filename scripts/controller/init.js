@@ -29,8 +29,11 @@ export default class Controller {
       this.initPopupBtn();
     });
     this.view.runAddEventListener("new-chat", "click", async () => {
-      this.view.runRemoveElement("main", this.view.runGetElement(".result-page-container"));
-      this.view.runInsertHTML("main", this.view.getPageHtml().initPageHtml(), "beforeend", false);
+      const page = this.view.runGetElement("#main-container")
+      if(!page){
+        this.view.runRemoveElement("main", "result-page-container");
+        this.view.runInsertHTML("main", this.view.getPageHtml().initPageHtml(), "beforeend", false);
+      }
       await this.init();
     })
     this.view.runAddEventListener("clear-history", "click", async () => {
@@ -246,11 +249,11 @@ export default class Controller {
 
   async showHistoryResult(index) {
     const history = await this.model.getHistory();
-    const resultPage = this.view.runGetElement(".result-page-container");
+    const resultPage = this.view.runGetElement("#result-page-container");
     if(!resultPage){
       this.showResultPage(history[index], "main-container");
     } else {
-      this.showResultPage(history[index], resultPage);
+      this.showResultPage(history[index], "result-page-container");
     }
     this.view.runWriteToElement("result-output", history[index].outputData);
   }
