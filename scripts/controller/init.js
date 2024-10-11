@@ -202,16 +202,18 @@ export default class Controller {
   
   async updateHistory(){
     const history = await this.model.getHistory();
-    console.log(history);
     try{
-      history.forEach((x, i) => {
-        const htmlText = this.view.getHistoryHtml().historyHtml(
-          `${x?.action[0].toUpperCase()}${x?.action.slice(1)}`
-          , x?.inputData?.title);
-          
-        console.log(htmlText);
-        this.view.runInsertHTML("side-bar", htmlText, "beforeend", false);
-      })
+      if(history){
+        history.forEach((x, i) => {
+          const htmlText = this.view.getHistoryHtml().historyHtml(
+            `${x?.action[0].toUpperCase()}${x?.action.slice(1)}`
+            , x?.inputData?.title);
+            
+          this.view.runInsertHTML("side-bar", htmlText, "beforeend", false);
+        })
+      } else {
+        this.view.runInsertHTML("side-bar", "", "beforeend");
+      }
     } catch(e){
       console.log(e.message);
     }
