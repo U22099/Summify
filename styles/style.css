@@ -23,6 +23,7 @@
   font-family: 'SF-PRO-NORMAL', sans-serif;
   margin: 0px;
   border: none;
+  word-break: break-all;
 }
 *:focus{
   outline: none;

@@ -59,6 +59,7 @@
   flex-direction: column;
   gap: 5px;
   width: 100%;
+  word-break: break-all;
 }
 .result-page-container > main :last-child > *{
   margin: 0px;
