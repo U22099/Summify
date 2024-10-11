@@ -30,7 +30,7 @@ export default class Controller {
     });
     this.view.runAddEventListener("new-chat", "click", async () => {
       const page = this.view.runGetElement("#main-container")
-      if(!page){
+      if (!page) {
         this.view.runRemoveElement("main", "result-page-container");
         this.view.runInsertHTML("main", this.view.getPageHtml().initPageHtml(), "beforeend", false);
       }
@@ -250,12 +250,12 @@ export default class Controller {
   async showHistoryResult(index) {
     const history = await this.model.getHistory();
     const resultPage = this.view.runGetElement("#result-page-container");
-    if(!resultPage){
+    if (!resultPage) {
       this.showResultPage(history[index], "main-container");
     } else {
       this.showResultPage(history[index], "result-page-container");
     }
-    this.view.runWriteToElement("result-output", history[index].outputData);
+    this.view.runWriteToElement("result-output", this.view.runMarkdownToHtml(history[index].outputData));
   }
 
   showResultPage(history, container) {
