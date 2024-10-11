@@ -245,7 +245,7 @@ export default class Controller {
         this.sideBarClose();
       })
     })
-  }
+ }
 
   async showHistoryResult(index) {
     const history = await this.model.getHistory();
@@ -255,7 +255,7 @@ export default class Controller {
     } else {
       this.showResultPage(history[index], "result-page-container");
     }
-    this.view.runWriteToElement("result-output", this.view.runMarkdownToHtml(history[index].outputData));
+    this.view.runWriteToElement("result-output", this.model.runMarkdownToHtml(history[index].outputData));
   }
 
   showResultPage(history, container) {

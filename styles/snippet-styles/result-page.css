@@ -57,15 +57,22 @@
   align-items: start;
   justify-content: start;
   flex-direction: column;
+  gap: 5px;
   width: 100%;
 }
 .result-page-container > main :last-child > *{
   margin: 0px;
+  padding: 0px;
   text-align: start;
   font-family: 'SF-PRO-NORMAL';
-  font-size: clamp(1em, 1.1em, 1.2em);
+  font-size: clamp(0.8em, 0.9em, 1em);
 }
-
+.result-page-container > main :last-child > h1{
+  text-decoration: underline;
+}
+.result-page-container > main :last-child > a{
+  color: goldenrod;
+}
 @media (prefers-color-scheme: dark) {
   .result-page-container{
     background: var(--dark-mode-background);
