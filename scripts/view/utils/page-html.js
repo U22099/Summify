@@ -12,10 +12,10 @@ const resultPageHtml = ({ icon, inputTitle, action }) => `<section class="result
       <button class="card" id="chat">
         Chat with AI </button>
     </nav>
-        <section class="icons">
-      <i class="fa-regular fa-copy"></i>
-      <i class="fa-regular fa-copy"></i>
-      <i class="fa-regular fa-copy"></i>
+    <section class="icons">
+      <i class="fa-regular fa-copy" id="copy"></i>
+      <i class="fa-regular fa-volume-up" id="speak"></i>
+      <i class="fa-regular fa-copy" id="download"></i>
     </section>
     <main id="result-main-container">
       <section class="first-child">

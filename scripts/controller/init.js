@@ -168,6 +168,7 @@ export default class Controller {
   async displayResult(result) {
     this.view.runWriteToElement("result-output", result);
     this.resultPageInit();
+    this.utilsInit();
     await this.updateHistory();
   }
 
@@ -268,6 +269,7 @@ export default class Controller {
       action: `${history?.action[0].toUpperCase()}${history?.action.slice(1)}`
     }), "beforeend", false);
     this.resultPageInit();
+    this.utilsInit();
   }
 
   resultPageInit() {
@@ -303,8 +305,9 @@ export default class Controller {
     console.log(JSON.parse(data).length);
     if (!data) return null
     this.view.runInsertHTML("flash-card-page-container", "", "beforeend");
-    JSON.parse(data).forEach((x,i) => {
-      this.view.runInsertHTML("flash-card-page-container", this.view.getResultHtml().flashCardSnippet(x.question, x.answer), "beforeend", false);});
+    JSON.parse(data).forEach((x, i) => {
+      this.view.runInsertHTML("flash-card-page-container", this.view.getResultHtml().flashCardSnippet(x.question, x.answer), "beforeend", false);
+    });
     Array.from(this.view.runGetElement(".flash-card", true)).forEach(x => {
       x.addEventListener("click", (e) => {
         const element = e.target;
@@ -324,7 +327,7 @@ export default class Controller {
   async getFlashCards() {
     const history = await this.model.getHistory();
     const index = this.model.getStoredValue("currentIndex");
-    if(history[index].flashcards.length){
+    if (history[index].flashcards.length) {
       return history[index].flashcards;
     }
     if (history[index].inputData.type === "text") {
@@ -338,5 +341,22 @@ export default class Controller {
     } else {
       return await this.model.runGenerateFlashCardsForFile(history[index].inputData.data);
     }
+  }
+
+  utilsInit() {
+    const history = await this.getHistory();
+    const index = this.getStoredValue("currentIndex");
+
+    this.view.runAddEventListener("copy", "click", async () => {
+      this.model.runCopyToClipboard(history[index].outputData);
+    });
+
+    this.view.runAddEventListener("speak", "click", () => {
+      this.model.runTextToSpeech(history[index].outputData);
+    });
+    
+    this.view.runAddEventListener("download", "click", async () => {
+      await this.model.runTextToPdf(history[index].outputData);
+    })
   }
 }
