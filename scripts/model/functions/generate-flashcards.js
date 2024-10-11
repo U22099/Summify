@@ -35,7 +35,7 @@ export async function GenerateFlashCardsForText(text) {
     },
     systemInstruction: "You are an expert at flashcards generator, good at giving concise and meaningful flashcards Q&As from joint documents containing the document and its summary read by the user.",
   });
-  const prompt = "Generate flashcards of questions and answers from the joint documents containing the document and its summary read by the user, below: ";
+  const prompt = "Generate 20 flashcards of questions and answers from the joint documents containing the document and its summary read by the user, below: ";
 
   try {
     const generatedContent = await model.generateContent(prompt + "\n" + text);
@@ -63,7 +63,7 @@ export async function GenerateFlashCardsForFile(file) {
     },
     systemInstruction: "You are an expert at flashcards generator, good at giving concise and meaningful flashcards Q&As from documents.",
   });
-  const prompt = "Generate flashcards of questions and answers from the document in the file";
+  const prompt = "Generate 20 flashcards of questions and answers from the document in the file";
 
   async function fileToGenerativePart(file) {
     const base64 = await toBase64(file);

@@ -299,16 +299,23 @@ export default class Controller {
   }
 
   async flashCardInit() {
+    const data = await this.getFlashCards();
+    console.log(JSON.parse(data).length);
+    if (!data) return null
+    JSON.parse(data).forEach((x,i) => {
+      this.view.runInsertHTML("flash-card-page-container", this.view.getResultHtml().flashCardSnippet(x.question, x.answer), "beforeend", false);});
     Array.from(this.view.runGetElement(".flash-card", true)).forEach(x => {
       x.addEventListener("click", (e) => {
-        e.target.classList.toggle("flip");
+        const element = e.target;
+        element.classList.remove("flip");
+        element.classList.add("flip");
 
-        const questionElement = e.target.querySelector("#q");
-        const answerElement = e.target.querySelector("#a");
+        const questionElement = element.querySelector("#q");
+        const answerElement = element.querySelector("#a");
 
         questionElement.classList.toggle("hide");
         answerElement.classList.toggle("hide");
-        e.target.classList.toggle("flip");
+        element.classList.remove("flip");
       });
     });
   }

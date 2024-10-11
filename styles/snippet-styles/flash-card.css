@@ -12,7 +12,6 @@
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  padding: 10px;
   margin: 30px auto;
   gap: 10px;
 }
@@ -24,9 +23,10 @@
   flex-direction: column;
   text-align: center;
   width: clamp(90vw, 80vw, 40vw);
-  padding: 50px 10px;
+  padding: 10px 5px;
 }
 
-.flash-card-page-container > div > h1{
+.flash-card-page-container > div > p{
+  margin: 0px;
   font-size: var(--clamp);
 }
