@@ -20,8 +20,29 @@
   cursor: pointer;
 }
 
+.toast {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  margin: 0px auto;
+  align-self: center;
+  gap: 10px;
+  border: 2px solid var(--border-color-suggestion-light-mode);
+  border-radius: 8px;
+  padding: 10px;
+  color: black;
+  background: none;
+  cursor: pointer;
+  position: fixed;
+  bottom: calc(100% - 100px);
+  visibility: hidden;
+}
+
 @media (prefers-color-scheme: dark) {
-  .card {
+
+  .card,
+  .toast {
     border: 2px solid var(--border-color-suggestion-dark-mode);
     color: white;
     background: none;
