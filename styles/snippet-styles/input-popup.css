@@ -51,8 +51,22 @@
 .input-popup > .input-popup-body > main{
   display: flex;
   justify-content: start;
+  flex-direction: column;
   align-items: center;
   width: 100%;
+}
+.input-popup > .input-popup-body > main > i{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  align-self: end;
+  background: var(--light-mode-navbar);
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: var(--clamp);
+  margin: 5px 0px;
 }
 .input-popup > .input-popup-body > main > label{
   display: flex;
@@ -119,6 +133,9 @@
   .active-btn{
     background: white !important;
     color: black !important;
+  }
+  .input-popup > .input-popup-body > main > i{
+    background: var(--dark-mode-navbar);
   }
   .input-popup > .input-popup-body > main > textarea{
     background: black;

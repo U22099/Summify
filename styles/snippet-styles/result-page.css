@@ -61,7 +61,7 @@
   width: 100%;
   word-break: break-all;
 }
-.result-page-container :nth-child(3) {
+.result-page-container > .icons{
   display: flex;
   justify-content: start;
   align-items: center;
@@ -69,7 +69,7 @@
   padding-left: 10px;
   gap: 10px;
 }
-.result-page-container :nth-child(3) > i {
+.result-page-container > .icons > i{
   background: var(--light-mode-navbar);
   width: 20px;
   height: 20px;
@@ -99,7 +99,7 @@
   .result-page-container > main > .first-child > svg > path{
     fill: white;
   }
-  .result-page-container :nth-child(3) > i {
+  .result-page-container > .icons > i{
     background: var(--dark-mode-navbar);
   }
 }

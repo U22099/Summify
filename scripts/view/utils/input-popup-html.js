@@ -78,7 +78,8 @@ The project will be structured using a combination of components and modules, wi
 7. **Deployment:**  Deploy the application to a web server.
 
 This documentation will be updated throughout the development process to provide a comprehensive overview of Summify. 
-        </textarea>
+        </textarea> 
+        <i class="fa-regular fa-microphone"></i>
       </main>
       <footer class="input-popup-footer">
         <select name="input-popup-length" id="input-popup-length">
@@ -157,7 +158,8 @@ The project will be structured using a combination of components and modules, wi
 7. **Deployment:**  Deploy the application to a web server.
 
 This documentation will be updated throughout the development process to provide a comprehensive overview of Summify. 
-</textarea>`;
+</textarea>
+        <i class="fa-regular fa-microphone"></i>`;
 
 const ImageInputHtml = (img, display) => `<label for="input-popup-image-input">
           <img src="${img}" alt="" style="display: ${display};"/>

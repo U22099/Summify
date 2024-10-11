@@ -168,7 +168,7 @@ export default class Controller {
   async displayResult(result) {
     this.view.runWriteToElement("result-output", result);
     this.resultPageInit();
-    this.utilsInit();
+    await this.utilsInit();
     await this.updateHistory();
   }
 
@@ -255,6 +255,7 @@ export default class Controller {
     const resultPage = this.view.runGetElement("#result-page-container");
     if (!resultPage) {
       this.showResultPage(history[index], "main-container");
+      await this.utilsInit();
     } else {
       this.showResultPage(history[index], "result-page-container");
     }
@@ -269,7 +270,6 @@ export default class Controller {
       action: `${history?.action[0].toUpperCase()}${history?.action.slice(1)}`
     }), "beforeend", false);
     this.resultPageInit();
-    this.utilsInit();
   }
 
   resultPageInit() {
@@ -343,9 +343,9 @@ export default class Controller {
     }
   }
 
-  utilsInit() {
-    const history = await this.getHistory();
-    const index = this.getStoredValue("currentIndex");
+  async utilsInit() {
+    const history = await this.model.getHistory();
+    const index = this.model.getStoredValue("currentIndex");
 
     this.view.runAddEventListener("copy", "click", async () => {
       this.model.runCopyToClipboard(history[index].outputData);
