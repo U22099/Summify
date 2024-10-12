@@ -1,9 +1,9 @@
 import pdfMake from "pdfmake/build/pdfmake";
 import * as pdfFonts from "pdfmake/build/vfs_fonts";
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 
 export default function textToPdf(text, {title, subject, keywords}){
+  pdfMake.vfs = pdfFonts.pdfMake.vfs;
   const docDefinition = {
     info: {
       title,
