@@ -89,7 +89,7 @@ export default class Model {
   
   //converts speech to text
   runSpeechToText(callback){
-    speechToText(callback);
+    return speechToText(callback);
   }
   
   //converts text to pdf

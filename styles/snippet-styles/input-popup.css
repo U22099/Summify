@@ -57,7 +57,7 @@
 }
 .input-popup > .input-popup-body > main > i{
   display: flex;
-  justify-content: end;
+  justify-content: center;
   align-items: center;
   align-self: end;
   background: var(--light-mode-navbar);

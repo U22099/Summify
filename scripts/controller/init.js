@@ -5,6 +5,7 @@ export default class Controller {
     this.action = "";
     this.image;
     this.file;
+    this.recognition;
   }
 
   async init() {
@@ -94,9 +95,16 @@ export default class Controller {
 
   initPopupNav() {
     
-    this.view.runAddEventListener("mic", "click", () => {
-      this.model.runSpeechToText((text) => {
-        document.getElementById("input-popup-text-input").value += text;
+    this.view.runAddEventListener("mic", "click", (e) => {
+      if(e.target.classList.contains("active-btn")){
+        this.recognition.stop();
+        e.target.classList.remove("mic-on");
+        return;
+      }
+      e.target.classList.add("active-btn");
+      document.getElementById("input-popup-text-input").value = "";
+      this.recognition = this.model.runSpeechToText((text) => {
+        document.getElementById("input-popup-text-input").value = text;
       });
     });
 
