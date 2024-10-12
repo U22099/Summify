@@ -97,8 +97,8 @@ export default class Controller {
     
     this.view.runAddEventListener("mic", "click", (e) => {
       if(e.target.classList.contains("active-btn")){
-        this.recognition.stop();
-        e.target.classList.remove("mic-on");
+        this.recognition?.stop();
+        e.target.classList.remove("active-btn");
         return;
       }
       e.target.classList.add("active-btn");
@@ -109,7 +109,7 @@ export default class Controller {
     });
 
     this.view.runAddEventListener("input-popup-text", "click", () => {
-      this.changeActiveBtn("input-popup-text");
+      this.changeActiveBtn("input-popup-text");u
       this.view.runInsertHTML("input-popup-main", this.view.getInputPopupHtml().TextInputHtml, "afterbegin");
     });
 
