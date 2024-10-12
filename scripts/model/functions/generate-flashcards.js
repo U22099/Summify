@@ -86,9 +86,10 @@ export async function GenerateFlashCardsForFile(file) {
     const history = await getData();
     history[index].flashcards = response;
     await saveData(history);
+    console.log(response)
     return response;
   } catch (e) {
-    console.log(e)
+    console.log(e.message)
     return false;
   }
 }

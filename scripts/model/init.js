@@ -21,7 +21,15 @@ export default class Model {
     const history = await getData() || [];
     storeValue("currentIndex", history.length || 0);
     history.push({
-      action
+      action,
+      inputData: {
+        title: null,
+        type: null,
+        data: null
+      },
+      outputData: null,
+      chat: [],
+      flashcards: []
     });
     await saveData(history);
   }

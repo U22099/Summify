@@ -22,11 +22,20 @@
   justify-content: center;
   flex-direction: column;
   text-align: center;
+  gap: 10px;
+}
+
+.flash-card-page-container > div > div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
   width: clamp(90vw, 80vw, 40vw);
   padding: 10px 5px;
 }
 
-.flash-card-page-container > div > p{
+.flash-card-page-container > div > div > p{
   margin: 0px;
   font-size: var(--clamp);
 }

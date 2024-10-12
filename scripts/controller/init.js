@@ -344,8 +344,8 @@ export default class Controller {
     const index = this.model.getStoredValue("currentIndex");
     if (history[index].flashcards.length) {
       return history[index].flashcards;
-    }
-    if (history[index].inputData.type === "text") {
+    } else if (history[index].inputData.type === "text") {
+      console.log("text")
       const prompt = `
       Document:
       ${history[index].inputData.data}\n\n
@@ -354,6 +354,7 @@ export default class Controller {
       `;
       return await this.model.runGenerateFlashCardsForText(prompt);
     } else {
+      console.log("called");
       return await this.model.runGenerateFlashCardsForFile(history[index].inputData.data);
     }
   }

@@ -14,8 +14,14 @@ const flashCardHtml = () => `<div id="flash-card-page-container" class="flash-ca
   </div>`;
   
 const flashCardSnippet = (question, answer) => `<div class="card flash-card">
-      <p id="q" class="">${question}</p>
-      <p id="a" class="hide">${answer}</p>
+      <div id="q" class="">
+        <h1>Question</h1>
+        <p>${question}</p>
+      </div>
+      <div id="a" class="hide">
+        <h1>Answer</h1>
+        <p>${answer}</p>
+      </div>
     </div>`;
 
 const chatHtml = ``
