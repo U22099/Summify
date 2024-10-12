@@ -61,6 +61,13 @@
   width: 100%;
   word-break: break-all;
 }
+.result-page-container > .last-child > img,
+.result-page-container > .last-child > object{
+  border-radius: 10px;
+  width: 70vw;
+  height: 50vh;
+  margin: 0px auto;
+}
 .result-page-container > .icons{
   display: flex;
   justify-content: start;

@@ -325,7 +325,7 @@ export default class Controller {
     Array.from(this.view.runGetElement(".flash-card", true)).forEach(x => {
       x.addEventListener("click", (e) => {
         const element = e.target;
-        console.log(e.targst.classList)
+        console.log(element.classList)
         element.classList.remove("flip");
         element.classList.add("flip");
 
@@ -362,9 +362,12 @@ export default class Controller {
     const history = await this.model.getHistory();
     const index = this.model.getStoredValue("currentIndex");
 
+    const currentHistory = history[index];
+    const markdown = currentHistory.outputData;
+    const data = this.model.runMarkdownToText(markdown);
     this.view.runAddEventListener("copy", "click", (e) => {
       e.target.classList.add("active-btn");
-      this.model.runCopyToClipboard(history[index].outputData);
+      this.model.runCopyToClipboard(data);
       e.target.classList.remove("active-btn");
     });
 
@@ -374,14 +377,48 @@ export default class Controller {
         this.model.runTextToSpeech();
       } else {
         e.target.classList.add("active-btn");
-        this.model.runTextToSpeech(history[index].outputData);
+        this.model.runTextToSpeech(data);
       }
     });
     
     this.view.runAddEventListener("download", "click", async (e) => {
       e.target.classList.add("active-btn");
-      await this.model.runTextToPdf(history[index].outputData);
+      await this.model.runTextToPdf(data);
       e.target.classList.remove("active-btn");
+    });
+    
+    this.view.runAddEventListener("output-switch", "click", (e) => {
+      if(e.target.classList.contains("active-btn")){
+        e.target.classList.remove("active-btn");
+        this.view.runWriteToElement("result-output", this.model.runMarkdownToHtml(markdown));
+      } else {
+        e.target.classList.add("active-btn");
+        if(currentHistory.inputData.type === "file"){
+          const fileData = currentHistory.inputData.data;
+          let type;
+          
+          if(fileData.includes("image")){
+            
+            type = "image";
+            
+          } else {
+            
+            type = "pdf";
+            
+          }
+          
+          const htmlPdf = `<object data="${fileData}" type="application/pdf" class="card"></object>`;
+          
+          const htmlImg = `<img src="${fileData}" alt="Input Image" class="card"/>`;
+          
+          const finalHtml = (type === "image") ? htmlImg : htmlPdf;
+          
+          this.view.runInsertHTML("result-output", finalHtml ,"afterbegin");
+          
+        } else {
+          this.view.runWriteToElement("result-output", currentHistory.inputData.data);
+        }
+      }
     })
   }
 }

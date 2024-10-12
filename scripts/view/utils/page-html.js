@@ -1,5 +1,5 @@
 const resultPageHtml = ({ icon, inputTitle, action }) => `<section class="result-page-container" id="result-page-container">
-    <button class="card">
+    <button class="card" id="output-switch">
       <i class="fa-regular fa-${icon}"></i>
       ${inputTitle}
     </button>

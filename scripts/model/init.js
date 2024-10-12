@@ -11,6 +11,8 @@ import textToPdf from './utils/text-to-pdf.js';
 import toBase64 from './utils/to-base-64.js';
 import markdownToHtml from './utils/markdown-to-html.js';
 import copyToClipboard from './utils/copy-to-clipboard.js';
+import markdownToText from './utils/markdown-to-txt.js';
+
 
 export default class Model {
   
@@ -113,5 +115,9 @@ export default class Model {
   
   runCopyToClipboard(text){
     copyToClipboard(text);
+  }
+  
+  runMarkdownToText(markdown){
+    return markdownToText(markdown);
   }
 }
