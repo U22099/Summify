@@ -1,7 +1,7 @@
-const toastHtml = `
+const toastHtml = (type, message) => `
 <div id="toast" class="toast">
-    <h1>Error</h1>
-    <p>Input param is empty, please add something</p>
+    <h1>${type}</h1>
+    <p>${message}</p>
   </div>
 `;
 

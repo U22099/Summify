@@ -22,7 +22,7 @@ export default function textToPdf(text, {title, subject, keywords}){
     pdfDoc.download(`${title}.pdf`);
     return true;
   } catch (e) {
-    console.log(e);
+    console.log(e.messagey);
     return false;
   }
 }

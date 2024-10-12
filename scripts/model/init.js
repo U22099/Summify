@@ -83,7 +83,7 @@ export default class Model {
   }
   
   //converts text fo speech
-  runTextToSpeech(text){
+  runTextToSpeech(text = null){
     textToSpeech(text);
   }
   
@@ -95,7 +95,7 @@ export default class Model {
   //converts text to pdf
   async runTextToPdf(summary){
     const meta = await this.getMeta(summary);
-    textToPdf(summary, meta);
+    textToPdf(summary, JSON.parse(meta));
   }
   
   //gets meta tags for pdf eg title, subject and keywords

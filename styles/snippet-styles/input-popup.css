@@ -45,7 +45,7 @@
   cursor: pointer;
 }
 .active-btn {
-  background: black;
+  background: black !important;
   color: white;
 }
 .input-popup > .input-popup-body > main{

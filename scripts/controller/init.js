@@ -325,6 +325,7 @@ export default class Controller {
     Array.from(this.view.runGetElement(".flash-card", true)).forEach(x => {
       x.addEventListener("click", (e) => {
         const element = e.target;
+        console.log(e.targst.classList)
         element.classList.remove("flip");
         element.classList.add("flip");
 
@@ -361,16 +362,26 @@ export default class Controller {
     const history = await this.model.getHistory();
     const index = this.model.getStoredValue("currentIndex");
 
-    this.view.runAddEventListener("copy", "click", async () => {
+    this.view.runAddEventListener("copy", "click", (e) => {
+      e.target.classList.add("active-btn");
       this.model.runCopyToClipboard(history[index].outputData);
+      e.target.classList.remove("active-btn");
     });
 
-    this.view.runAddEventListener("speak", "click", () => {
-      this.model.runTextToSpeech(history[index].outputData);
+    this.view.runAddEventListener("speak", "click", (e) => {
+      if(e.target.classList.contains("active-btn")){
+        e.target.classList.remove("active-btn");
+        this.model.runTextToSpeech();
+      } else {
+        e.target.classList.add("active-btn");
+        this.model.runTextToSpeech(history[index].outputData);
+      }
     });
     
-    this.view.runAddEventListener("download", "click", async () => {
+    this.view.runAddEventListener("download", "click", async (e) => {
+      e.target.classList.add("active-btn");
       await this.model.runTextToPdf(history[index].outputData);
+      e.target.classList.remove("active-btn");
     })
   }
 }
