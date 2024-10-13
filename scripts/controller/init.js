@@ -310,11 +310,36 @@ export default class Controller {
     });
     
     this.view.runAddEventListener("refresh", "click", async (e) => {
-      this.view.runGetElement("#flash-card").click();
+      const summary = this.view.runGetElement("#run-action");
+      const flashCard = this.view.runGetElement("#flash-card");
       e.target.classList.add("active-btn");
       e.target.classList.add("rotate");
-      this.view.runInsertHTML("result-main-container", this.view.getResultHtml().flashCardHtml(), "afterbegin");
-      await this.flashCardInit(true);
+      if(summary.classList.contains("active-btn")){
+        const index = this.model.getStoredValue("currentIndex");
+        const history = await this.model.getHistory();
+        const data = history[index].inputData;
+        
+        let result;
+        
+        if(history.action === "summary"){
+          if(data.type === "text"){
+            result = await this.model.runTextSummary(data.data, data.length)
+          } else {
+            result = await this.model.runFileSummary(data.data, data.length);
+          }
+        } else {
+          if(data.type === "text"){
+            result = await this.model.runTextExplanation(data.data, data.length)
+          } else {
+            result = await this.model.runFileExplanation(data.data, data.length);
+          }
+        }
+        this.view.runWriteToElement("result-output", this.model.runMarkdownToHtml(result));
+      } else if(flashCard.classList.contains("active-btn")){
+        
+        this.view.runInsertHTML("result-main-container", this.view.getResultHtml().flashCardHtml(), "afterbegin");
+        await this.flashCardInit(true);
+      }
       e.target.classList.remove("active-btn");
       e.target.classList.remove("rotate");
     });

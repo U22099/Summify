@@ -6,7 +6,8 @@ const historyDs = [
     inputData: {
       title: "...",
       type: "text" || "file",
-      data: "..." || file
+      data: "..." || file,
+      length: "..."
     },
     outputData: text,
     chat: [

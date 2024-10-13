@@ -1,5 +1,6 @@
 .rotate{
   animation: ROTATE .7s linear infinite;
+  border-radius: 50% !important;
 }
 .result-page-container{
   display: flex;
@@ -81,6 +82,9 @@
   gap: 10px;
 }
 .result-page-container > .icons > i{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: var(--light-mode-navbar);
   width: 20px;
   height: 20px;

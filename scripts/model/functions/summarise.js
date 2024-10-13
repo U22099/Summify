@@ -20,7 +20,8 @@ export async function TextSummary(text, length) {
     history[index].inputData = {
       title: text.slice(0,30),
       type: "text",
-      data: text
+      data: text,
+      length
     };
     history[index].outputData = response;
     history[index].chat = [
@@ -71,7 +72,8 @@ export async function FileSummary(file, length) {
     history[index].inputData = {
       title: file.name,
       type: "file",
-      data: `data:${filePart.inlineData.mimeType};base64,${filePart.inlineData.data}`
+      data: `data:${filePart.inlineData.mimeType};base64,${filePart.inlineData.data}`,
+      length
     };
     history[index].outputData = response;
     history[index].chat = [
