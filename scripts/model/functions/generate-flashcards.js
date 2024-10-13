@@ -66,7 +66,7 @@ export async function GenerateFlashCardsForFile(file) {
   const prompt = "Generate 20 flashcards of questions and answers from the document in the file";
 
   async function fileToGenerativePart(file) {
-    const base64 = await toBase64(file);
+    const base64 = file;
     const data = base64.split(",")[1];
     const mimeType = base64.split(",")[0].split(";")[0].split(":")[1];
     return {

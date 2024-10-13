@@ -358,7 +358,6 @@ export default class Controller {
   }
 
   async utilsInit() {
-    console.log("called utils")
     const history = await this.model.getHistory();
     const index = this.model.getStoredValue("currentIndex");
 

@@ -61,11 +61,12 @@
   width: 100%;
   word-break: break-all;
 }
-.result-page-container > .last-child > img,
-.result-page-container > .last-child > object{
+.result-page-container > main > .last-child > img,
+.result-page-container > main > .last-child > object{
   border-radius: 10px;
   width: 70vw;
   height: 50vh;
+  object-fit: cover;
   margin: 0px auto;
 }
 .result-page-container > .icons{
