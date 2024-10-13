@@ -316,12 +316,12 @@ export default class Controller {
       e.target.classList.add("rotate");
       if(summary.classList.contains("active-btn")){
         const index = this.model.getStoredValue("currentIndex");
-        const history = await this.model.getHistory();
-        const data = history[index].inputData;
+        const currentHistory = (await this.model.getHistory())[index];
+        const data = currentHistory.inputData;
         
         let result;
         
-        if(history.action === "summary"){
+        if(currentHistory.action === "summary"){
           if(data.type === "text"){
             result = await this.model.runTextSummary(data.data, data.length)
           } else {
