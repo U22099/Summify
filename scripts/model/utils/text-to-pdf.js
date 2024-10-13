@@ -22,10 +22,10 @@ export default function textToPdf(text, {title, subject, keywords}){
   };
   try {
     const pdfDoc = pdfMake.createPdf(docDefinition);
-    pdfDoc.download(`${title}.pdf`);*/
+    pdfDoc.download(`${title}.pdf`);
     return true;
   } catch (e) {
     console.log(e.message);
     return false;
-  }
+  }*/
 }
