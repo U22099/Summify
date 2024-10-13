@@ -1,9 +1,9 @@
-//import pdfMake from "pdfmake/build/pdfmake";
-//import * as pdfFonts from "pdfmake/build/vfs_fonts";
+import * as pdfMake from 'pdfmake/build/pdfmake';
+import 'pdfmake/build/vfs_fonts.js'
 
+//pdfMake.vfs = pdfMakeFonts.vfs;
 
 export default function textToPdf(text, {title, subject, keywords}){
-  /*pdfMake.vfs = pdfFonts.pdfMake.vfs;
   const docDefinition = {
     info: {
       title,
@@ -27,5 +27,5 @@ export default function textToPdf(text, {title, subject, keywords}){
   } catch (e) {
     console.log(e.messagey);
     return false;
-  }*/
+  }
 }
