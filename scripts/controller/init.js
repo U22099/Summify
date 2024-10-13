@@ -308,6 +308,14 @@ export default class Controller {
       this.view.runInsertHTML("result-main-container", this.view.getResultHtml().flashCardHtml(), "afterbegin");
       await this.flashCardInit();
     });
+    
+    this.view.runAddEventListener("flash-card", "dblclick", async (e) => {
+      e.target.classList.add("active-btn");
+      this.view.runGetElement("#run-action").classList.remove("active-btn");
+      this.view.runGetElement("#chat").classList.remove("active-btn");
+      this.view.runInsertHTML("result-main-container", this.view.getResultHtml().flashCardHtml(), "afterbegin");
+      await this.flashCardInit(true);
+    });
 
     this.view.runAddEventListener("chat", "click", (e) => {
       e.target.classList.add("active-btn");
@@ -317,35 +325,35 @@ export default class Controller {
     });
   }
 
-  async flashCardInit() {
-    const data = await this.getFlashCards();
-    console.log(JSON.parse(data).length);
+  async flashCardInit(refresh = false) {
+    const data = await this.getFlashCards(refresh);
     if (!data) return null
     this.view.runInsertHTML("flash-card-page-container", "", "beforeend");
     JSON.parse(data).forEach((x, i) => {
       this.view.runInsertHTML("flash-card-page-container", this.view.getResultHtml().flashCardSnippet(x.question, x.answer), "beforeend", false);
     });
     Array.from(this.view.runGetElement(".flash-card", true)).forEach(x => {
-      x.addEventListener("click", (e) => {
-        const element = e.target;
-        console.log(element.classList)
+      x.addEventListener("click", () => {
+        const element = x;
         element.classList.remove("flip");
         element.classList.add("flip");
 
-        const questionElement = element.querySelector("#q");
-        const answerElement = element.querySelector("#a");
-
-        questionElement.classList.toggle("hide");
-        answerElement.classList.toggle("hide");
-        element.classList.remove("flip");
+        setTimeout(() => {
+          const questionElement = element.querySelector("#q");
+          const answerElement = element.querySelector("#a");
+  
+          questionElement.classList.toggle("hide");
+          answerElement.classList.toggle("hide");
+          element.classList.remove("flip");
+        }, 400);
       });
     });
   }
 
-  async getFlashCards() {
+  async getFlashCards(refresh) {
     const history = await this.model.getHistory();
     const index = this.model.getStoredValue("currentIndex");
-    if (history[index].flashcards.length) {
+    if (history[index].flashcards.length && !refresh) {
       return history[index].flashcards;
     } else if (history[index].inputData.type === "text") {
       console.log("text")
