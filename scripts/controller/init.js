@@ -242,8 +242,7 @@ export default class Controller {
             `${x?.action[0].toUpperCase()}${x?.action.slice(1)}`, x?.inputData?.title, i);
 
           this.view.runInsertHTML("history", htmlText, "beforeend", false);
-        })
-        this.initHistoryButton();
+        });
       } else {
         this.view.runInsertHTML("history", "", "afterbegin");
       }
@@ -269,11 +268,11 @@ export default class Controller {
     const resultPage = this.view.runGetElement("#result-page-container");
     if (!resultPage) {
       this.showResultPage(history[index], "main-container");
-      await this.utilsInit();
     } else {
       this.showResultPage(history[index], "result-page-container");
     }
     this.view.runWriteToElement("result-output", this.model.runMarkdownToHtml(history[index].outputData));
+    await this.utilsInit();
   }
 
   showResultPage(history, container) {
@@ -354,12 +353,12 @@ export default class Controller {
       `;
       return await this.model.runGenerateFlashCardsForText(prompt);
     } else {
-      console.log("called");
       return await this.model.runGenerateFlashCardsForFile(history[index].inputData.data);
     }
   }
 
   async utilsInit() {
+    console.log("called utils")
     const history = await this.model.getHistory();
     const index = this.model.getStoredValue("currentIndex");
 
@@ -397,17 +396,11 @@ export default class Controller {
         if(currentHistory.inputData.type === "file"){
           const fileData = currentHistory.inputData.data;
           let type;
-          
           if(fileData.includes("image")){
-            
             type = "image";
-            
           } else {
-            
             type = "pdf";
-            
           }
-          
           const htmlPdf = `<object data="${fileData}" type="application/pdf" class="card"></object>`;
           
           const htmlImg = `<img src="${fileData}" alt="Input Image" class="card"/>`;
