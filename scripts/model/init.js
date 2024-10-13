@@ -63,8 +63,8 @@ export default class Model {
   }
 
   //gets summary for files
-  async runFileSummary(text, length) {
-    return await FileSummary(text, length);
+  async runFileSummary(text, length, isNew = true) {
+    return await FileSummary(text, length, isNew);
   }
 
   //gets flashcards for text
@@ -83,8 +83,8 @@ export default class Model {
   }
 
   //gets explanation for files
-  async runFileExplanation(file, length) {
-    return await FileExplanation(file, length);
+  async runFileExplanation(file, length, isNew = true) {
+    return await FileExplanation(file, length, isNew);
   }
 
   //starts chat about summary

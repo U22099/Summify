@@ -42,7 +42,7 @@ export async function TextSummary(text, length) {
   }
 }
 
-export async function FileSummary(file, length) {
+export async function FileSummary(file, length, isNew) {
   const genAI = new GoogleGenerativeAI(import.meta.env.VITE_API_KEY);
   const model = genAI.getGenerativeModel({
     model: "gemini-1.5-flash",
@@ -52,7 +52,7 @@ export async function FileSummary(file, length) {
   const prompt = `Generate a ${length} length summarisation of the document below: `;
 
   async function fileToGenerativePart(file) {
-    const base64 = await toBase64(file);
+    const base64 = isNew ? await toBase64(file) : file;
     const data = base64.split(",")[1];
     const mimeType = base64.split(",")[0].split(";")[0].split(":")[1];
     return {
@@ -72,7 +72,7 @@ export async function FileSummary(file, length) {
     history[index].inputData = {
       title: file.name,
       type: "file",
-      data: `data:${filePart.inlineData.mimeType};base64,${filePart.inlineData.data}`,
+      data: isNew ? `data:${filePart.inlineData.mimeType};base64,${filePart.inlineData.data}` : file,
       length
     };
     history[index].outputData = response;

@@ -325,13 +325,13 @@ export default class Controller {
           if(data.type === "text"){
             result = await this.model.runTextSummary(data.data, data.length)
           } else {
-            result = await this.model.runFileSummary(data.data, data.length);
+            result = await this.model.runFileSummary(data.data, data.length, false);
           }
         } else {
           if(data.type === "text"){
             result = await this.model.runTextExplanation(data.data, data.length)
           } else {
-            result = await this.model.runFileExplanation(data.data, data.length);
+            result = await this.model.runFileExplanation(data.data, data.length, false);
           }
         }
         this.view.runWriteToElement("result-output", this.model.runMarkdownToHtml(result));
