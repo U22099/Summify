@@ -309,12 +309,14 @@ export default class Controller {
       await this.flashCardInit();
     });
     
-    this.view.runAddEventListener("flash-card", "dblclick", async (e) => {
+    this.view.runAddEventListener("refresh", "click", async (e) => {
+      this.view.runGetElement("#flash-card").click();
       e.target.classList.add("active-btn");
-      this.view.runGetElement("#run-action").classList.remove("active-btn");
-      this.view.runGetElement("#chat").classList.remove("active-btn");
+      e.target.classList.add("rotate");
       this.view.runInsertHTML("result-main-container", this.view.getResultHtml().flashCardHtml(), "afterbegin");
       await this.flashCardInit(true);
+      e.target.classList.remove("active-btn");
+      e.target.classList.remove("rotate");
     });
 
     this.view.runAddEventListener("chat", "click", (e) => {

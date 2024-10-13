@@ -16,6 +16,7 @@ const resultPageHtml = ({ icon, inputTitle, action }) => `<section class="result
       <i class="fa-regular fa-copy" id="copy"></i>
       <i class="fa-regular fa-volume-up" id="speak"></i>
       <i class="fa-regular fa-download" id="download"></i>
+      <i class="fa-regular fa-refresh" id="refresh"></i>
     </section>
     <main id="result-main-container">
       <section class="first-child">

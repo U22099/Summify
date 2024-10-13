@@ -1,3 +1,6 @@
+.rotate{
+  animation: ROTATE .7s linear infinite;
+}
 .result-page-container{
   display: flex;
   justify-content: start;
