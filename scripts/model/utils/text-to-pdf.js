@@ -1,10 +1,10 @@
-import pdfMake from '/build/pdfmake';
-import '/build/vfs_fonts.js'
+/*import pdfMake from './build/pdfmake.js';
+import { pdfMake as pdfMakeFonts } from './build/vfs_fonts.js'
 
-//pdfMake.vfs = pdfMakeFonts.vfs;
+pdfMake.vfs = pdfMakeFonts.vfs;*/
 
 export default function textToPdf(text, {title, subject, keywords}){
-  const docDefinition = {
+  /*const docDefinition = {
     info: {
       title,
       author: "Summify",
@@ -22,10 +22,10 @@ export default function textToPdf(text, {title, subject, keywords}){
   };
   try {
     const pdfDoc = pdfMake.createPdf(docDefinition);
-    pdfDoc.download(`${title}.pdf`);
+    pdfDoc.download(`${title}.pdf`);*/
     return true;
   } catch (e) {
-    console.log(e.messagey);
+    console.log(e.message);
     return false;
   }
 }
