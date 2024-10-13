@@ -70,7 +70,7 @@ export async function FileExplanation(file, length, isNew) {
     const index = getValue("currentIndex");
     const history = await getData();
     history[index].inputData = {
-      title: file.name,
+      title: file.name || history[index].inputData.title,
       type: "file",
       data: isNew ? `data:${filePart.inlineData.mimeType};base64,${filePart.inlineData.data}` : file,
       length
