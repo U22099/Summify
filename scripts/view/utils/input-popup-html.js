@@ -79,7 +79,7 @@ The project will be structured using a combination of components and modules, wi
 
 This documentation will be updated throughout the development process to provide a comprehensive overview of Summify. 
         </textarea> 
-        <i class="fa-regular fa-microphone" id="mic"e></i>
+        <i class="fa-regular fa-microphone card" id="mic"></i>
       </main>
       <footer class="input-popup-footer">
         <select name="input-popup-length" id="input-popup-length">
@@ -93,7 +93,7 @@ This documentation will be updated throughout the development process to provide
   </div>`;
 
 const TextInputHtml = `<textarea type="text" placeholder="Paste in anything" id="input-popup-text-input">
-## Summify: AI-Powered Content Summarizer Documentation
+        ## Summify: AI-Powered Content Summarizer Documentation
 
 **Project Overview**
 
@@ -102,7 +102,7 @@ Summify is an AI-powered content summarizer that leverages the capabilities of t
 **Features**
 
 * **Text Summarization/Explanation:**  Users can paste or type in text content to generate a summary.
-* **PDF Summarization/Explanation:**  Users can upload PDF documents for summarization.out 
+* **PDF Summarization/Explanation:**  Users can upload PDF documents for summarization.
 * **Image Summarization/Explanation:** Users can upload images for summarization, leveraging the Gemini API's image understanding capabilities.
 * **Flash Cards:**  Based on the input document, the application generates flash cards with key points, promoting learning and knowledge retention.
 * **Chat Interface:** Users can engage in a conversational chat interface to ask further questions about the summarized content.
@@ -158,8 +158,8 @@ The project will be structured using a combination of components and modules, wi
 7. **Deployment:**  Deploy the application to a web server.
 
 This documentation will be updated throughout the development process to provide a comprehensive overview of Summify. 
-</textarea>
-        <i class="fa-regular fa-microphone" id="mic"ee></i>`;
+        </textarea> 
+        <i class="fa-regular fa-microphone card" id="mic"></i>`;
 
 const ImageInputHtml = (img, display) => `<label for="input-popup-image-input">
           <img src="${img}" alt="" style="display: ${display};"/>

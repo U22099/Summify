@@ -94,7 +94,26 @@ export default class Controller {
   }
 
   initPopupNav() {
-    
+
+    this.view.runAddEventListener("input-popup-text", "click", () => {
+      this.changeActiveBtn("input-popup-text");
+      this.view.runInsertHTML("input-popup-main", this.view.getInputPopupHtml().TextInputHtml, "afterbegin");
+      this.initMic();
+    });
+
+    this.view.runAddEventListener("input-popup-image", "click", () => {
+      this.changeActiveBtn("input-popup-image");
+      this.imageDisplay(null, "none");
+    });
+
+    this.view.runAddEventListener("input-popup-document", "click", () => {
+      this.changeActiveBtn("input-popup-document");
+      this.fileDisplay(null, "none");
+    });
+    this.initMic();
+  }
+  
+  initMic(){
     this.view.runAddEventListener("mic", "click", (e) => {
       if(e.target.classList.contains("active-btn")){
         this.recognition?.stop();
@@ -106,21 +125,6 @@ export default class Controller {
       this.recognition = this.model.runSpeechToText((text) => {
         document.getElementById("input-popup-text-input").value = text;
       });
-    });
-
-    this.view.runAddEventListener("input-popup-text", "click", () => {
-      this.changeActiveBtn("input-popup-text");u
-      this.view.runInsertHTML("input-popup-main", this.view.getInputPopupHtml().TextInputHtml, "afterbegin");
-    });
-
-    this.view.runAddEventListener("input-popup-image", "click", () => {
-      this.changeActiveBtn("input-popup-image");
-      this.imageDisplay(null, "none");
-    });
-
-    this.view.runAddEventListener("input-popup-document", "click", () => {
-      this.changeActiveBtn("input-popup-document");
-      this.fileDisplay(null, "none");
     });
   }
 
