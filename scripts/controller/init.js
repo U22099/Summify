@@ -423,7 +423,7 @@ export default class Controller {
     this.view.runAddEventListener("copy", "click", (e) => {
       e.target.classList.add("active-btn");
       this.model.runCopyToClipboard(data);
-      this.view.runShowToast("Summary copied", 2000);
+      this.view.runShowToast("copied", 2000);
       e.target.classList.remove("active-btn");
     });
 
