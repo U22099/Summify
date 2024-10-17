@@ -19,6 +19,16 @@
   background: none;
   cursor: pointer;
 }
+.toast-container {
+  position: fixed;
+  bottlm: 92%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  padding: 20px 0px;
+  z-index: 100;
+}
 
 .toast {
   font-weight: 700;
@@ -29,13 +39,11 @@
   background: var(--light-mode-background);
   cursor: pointer;
   animation: SCALEIN .5s ease;
-  position: fixed;
-  margin: 0px auto;
-  top: 95%;
-  align-self: center;
-  z-index: 100;
+  text-align: center;
 }
-
+.toast-close{  animation: SCALEOUT .5s ease-out;
+  animation-fill-mode: forwards;
+}
 @media (prefers-color-scheme: dark) {
 
   .card,
