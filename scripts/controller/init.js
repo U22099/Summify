@@ -154,7 +154,10 @@ export default class Controller {
     this.view.runAddEventListener("input-popup-btn", "click", async () => {
       const data = this.getInputData();
 
-      if (!data) return null;
+      if (!data){
+        this.view.runShowToast("Please enter a valid input", 2000);
+        return;
+      };
 
       const input = {
         data,
@@ -191,20 +194,26 @@ export default class Controller {
   }
 
   async getResult(input) {
-    if (this.action === "summary") {
-      const response = input.type === "text" ?
-        await this.model.runTextSummary(input.data, input.length) : ["image", "document"].includes(input.type) ?
-        await this.model.runFileSummary(input.data, input.length) :
-        null;
-
-      return response;
-    } else {
-      const response = input.type === "text" ?
-        await this.model.runTextExplanation(input.data, input.length) : ["image", "document"].includes(input.type) ?
-        await this.model.runFileExplanation(input.data, input.length) :
-        null;
-
-      return response;
+    try{
+      if (this.action === "summary") {
+        const response = input.type === "text" ?
+          await this.model.runTextSummary(input.data, input.length) : ["image", "document"].includes(input.type) ?
+          await this.model.runFileSummary(input.data, input.length) :
+          null;
+  
+        return response;
+      } else {
+        const response = input.type === "text" ?
+          await this.model.runTextExplanation(input.data, input.length) : ["image", "document"].includes(input.type) ?
+          await this.model.runFileExplanation(input.data, input.length) :
+          null;
+  
+        return response;
+      }
+    } catch(e){
+      this.view.runShowToast("An error occured, Please try again later", 2500);
+      console.log(e);
+      return;
     }
   }
 
@@ -320,19 +329,24 @@ export default class Controller {
         const data = currentHistory.inputData;
         
         let result;
-        
-        if(currentHistory.action === "summary"){
-          if(data.type === "text"){
-            result = await this.model.runTextSummary(data.data, data.length)
+        try{
+          if(currentHistory.action === "summary"){
+            if(data.type === "text"){
+              result = await this.model.runTextSummary(data.data, data.length)
+            } else {
+              result = await this.model.runFileSummary(data.data, data.length, false);
+            }
           } else {
-            result = await this.model.runFileSummary(data.data, data.length, false);
+            if(data.type === "text"){
+              result = await this.model.runTextExplanation(data.data, data.length)
+            } else {
+              result = await this.model.runFileExplanation(data.data, data.length, false);
+            }
           }
-        } else {
-          if(data.type === "text"){
-            result = await this.model.runTextExplanation(data.data, data.length)
-          } else {
-            result = await this.model.runFileExplanation(data.data, data.length, false);
-          }
+        } catch(e){
+          this.view.runShowToast("An error occured, Please try again later", 2500);
+          console.log(e);
+          return;
         }
         this.view.runWriteToElement("result-output", this.model.runMarkdownToHtml(result));
       } else if(flashCard.classList.contains("active-btn")){
@@ -354,7 +368,10 @@ export default class Controller {
 
   async flashCardInit(refresh = false) {
     const data = await this.getFlashCards(refresh);
-    if (!data) return null
+    if (!data){
+      this.view.runShowToast("An error occured, Please try again later", 2500);
+      return;
+    }
     this.view.runInsertHTML("flash-card-page-container", "", "beforeend");
     JSON.parse(data).forEach((x, i) => {
       this.view.runInsertHTML("flash-card-page-container", this.view.getResultHtml().flashCardSnippet(x.question, x.answer), "beforeend", false);
@@ -406,6 +423,7 @@ export default class Controller {
     this.view.runAddEventListener("copy", "click", (e) => {
       e.target.classList.add("active-btn");
       this.model.runCopyToClipboard(data);
+      this.view.runShowToast("Summary copied", 2000);
       e.target.classList.remove("active-btn");
     });
 

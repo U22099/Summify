@@ -21,22 +21,19 @@
 }
 
 .toast {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: center;
-  gap: 10px;
+  font-weight: 700;
   border: 2px solid var(--border-color-suggestion-light-mode);
   border-radius: 8px;
   padding: 5px;
   color: black;
-  background: none;
+  background: var(--light-mode-background);
   cursor: pointer;
-  animation: SCALEIN .7s ease;
+  animation: SCALEIN .5s ease;
   position: fixed;
   margin: 0px auto;
+  top: 95%;
   align-self: center;
-  bottom: calc(100% - 100px);
+  z-index: 100;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -45,6 +42,6 @@
   .toast {
     border: 2px solid var(--border-color-suggestion-dark-mode);
     color: white;
-    background: none;
+    background: var(--dark-mode-background);
   }
 }
