@@ -1,8 +1,7 @@
-const toastHtml = (type, message) => `
+const toastHtml = (message) => `
 <div id="toast" class="toast">
-    <h1>${type}</h1>
     <p>${message}</p>
   </div>
 `;
 
-export default { toastHtml }
+export default toastHtml;
