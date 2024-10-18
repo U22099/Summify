@@ -343,6 +343,7 @@ export default class Controller {
               result = await this.model.runFileExplanation(data.data, data.length, false);
             }
           }
+          await this.utilsInit();
         } catch(e){
           this.view.runShowToast("An error occured, Please try again later", 2500);
           console.log(e);
