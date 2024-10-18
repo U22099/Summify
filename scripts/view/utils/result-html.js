@@ -24,6 +24,20 @@ const flashCardSnippet = (question, answer) => `<div class="card flash-card">
       </div>
     </div>`;
 
-const chatHtml = ``
+const chatHtml = `
+<div class="chat-container">
+    <header>
+      Chats with AI is strictly restricted to the document and document's summary/explanation
+    </header>
+    <main id="chat-output">
+    </main>
+    <footer>
+      <div class="input">
+        <input type="text" placeholder="Ask anything about the document" id="chat-input">
+        <i class="fa-regular fa-paper-plane" id="chat-btn"></i>
+      </div>
+    </footer>
+  </div>
+`
   
   export default { homeHtml, flashCardHtml, flashCardSnippet, chatHtml }

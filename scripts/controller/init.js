@@ -112,10 +112,10 @@ export default class Controller {
     });
     this.initMic();
   }
-  
-  initMic(){
+
+  initMic() {
     this.view.runAddEventListener("mic", "click", (e) => {
-      if(e.target.classList.contains("active-btn")){
+      if (e.target.classList.contains("active-btn")) {
         this.recognition?.stop();
         e.target.classList.remove("active-btn");
         return;
@@ -154,7 +154,7 @@ export default class Controller {
     this.view.runAddEventListener("input-popup-btn", "click", async () => {
       const data = this.getInputData();
 
-      if (!data){
+      if (!data) {
         this.view.runShowToast("Please enter a valid input", 2000);
         return;
       };
@@ -194,23 +194,23 @@ export default class Controller {
   }
 
   async getResult(input) {
-    try{
+    try {
       if (this.action === "summary") {
         const response = input.type === "text" ?
           await this.model.runTextSummary(input.data, input.length) : ["image", "document"].includes(input.type) ?
           await this.model.runFileSummary(input.data, input.length) :
           null;
-  
+
         return response;
       } else {
         const response = input.type === "text" ?
           await this.model.runTextExplanation(input.data, input.length) : ["image", "document"].includes(input.type) ?
           await this.model.runFileExplanation(input.data, input.length) :
           null;
-  
+
         return response;
       }
-    } catch(e){
+    } catch (e) {
       this.view.runShowToast("An error occured, Please try again later", 2500);
       console.log(e);
       return;
@@ -317,41 +317,41 @@ export default class Controller {
       this.view.runInsertHTML("result-main-container", this.view.getResultHtml().flashCardHtml(), "afterbegin");
       await this.flashCardInit();
     });
-    
+
     this.view.runAddEventListener("refresh", "click", async (e) => {
       const summary = this.view.runGetElement("#run-action");
       const flashCard = this.view.runGetElement("#flash-card");
       e.target.classList.add("active-btn");
       e.target.classList.add("rotate");
-      if(summary.classList.contains("active-btn")){
+      if (summary.classList.contains("active-btn")) {
         const index = this.model.getStoredValue("currentIndex");
         const currentHistory = (await this.model.getHistory())[index];
         const data = currentHistory.inputData;
-        
+
         let result;
-        try{
-          if(currentHistory.action === "summary"){
-            if(data.type === "text"){
+        try {
+          if (currentHistory.action === "summary") {
+            if (data.type === "text") {
               result = await this.model.runTextSummary(data.data, data.length)
             } else {
               result = await this.model.runFileSummary(data.data, data.length, false);
             }
           } else {
-            if(data.type === "text"){
+            if (data.type === "text") {
               result = await this.model.runTextExplanation(data.data, data.length)
             } else {
               result = await this.model.runFileExplanation(data.data, data.length, false);
             }
           }
-        } catch(e){
+        } catch (e) {
           this.view.runShowToast("An error occured, Please try again later", 2500);
           console.log(e);
           return;
         }
         this.view.runWriteToElement("result-output", this.model.runMarkdownToHtml(result));
         //await this.utilsInit();
-      } else if(flashCard.classList.contains("active-btn")){
-        
+      } else if (flashCard.classList.contains("active-btn")) {
+
         this.view.runInsertHTML("result-main-container", this.view.getResultHtml().flashCardHtml(), "afterbegin");
         await this.flashCardInit(true);
       }
@@ -359,17 +359,18 @@ export default class Controller {
       e.target.classList.remove("rotate");
     });
 
-    this.view.runAddEventListener("chat", "click", (e) => {
+    this.view.runAddEventListener("chat", "click", async (e) => {
       e.target.classList.add("active-btn");
       this.view.runGetElement("#run-action").classList.remove("active-btn");
       this.view.runGetElement("#flash-card").classList.remove("active-btn");
       this.view.runInsertHTML("result-main-container", this.view.getResultHtml().chatHtml, "afterbegin");
+      await this.chatInit();
     });
   }
 
   async flashCardInit(refresh = false) {
     const data = await this.getFlashCards(refresh);
-    if (!data){
+    if (!data) {
       this.view.runShowToast("An error occured, Please try again later", 2500);
       return;
     }
@@ -386,7 +387,7 @@ export default class Controller {
         setTimeout(() => {
           const questionElement = element.querySelector("#q");
           const answerElement = element.querySelector("#a");
-  
+
           questionElement.classList.toggle("hide");
           answerElement.classList.toggle("hide");
           element.classList.remove("flip");
@@ -421,23 +422,23 @@ export default class Controller {
     const currentHistory = history[index];
     const markdown = currentHistory.outputData;
     const data = this.model.runMarkdownToText(markdown);
-    
+
     this.view.runAddEventListener("copy", "click", (e) => {
-      try{
+      try {
         e.target.classList.add("active-btn");
         this.model.runCopyToClipboard(data);
         this.view.runShowToast("copied", 2000);
-        } catch(error){
-          this.view.runShowToast("error", 2000);
-          console.log(error.message);
-        } finally{
-          e.target.classList.remove("active-btn");
-          }
-      
+      } catch (error) {
+        this.view.runShowToast("error", 2000);
+        console.log(error.message);
+      } finally {
+        e.target.classList.remove("active-btn");
+      }
+
     });
 
     this.view.runAddEventListener("speak", "click", (e) => {
-      if(e.target.classList.contains("active-btn")){
+      if (e.target.classList.contains("active-btn")) {
         e.target.classList.remove("active-btn");
         this.model.runTextToSpeech();
       } else {
@@ -445,39 +446,65 @@ export default class Controller {
         this.model.runTextToSpeech(data);
       }
     });
-    
+
     this.view.runAddEventListener("download", "click", async (e) => {
       e.target.classList.add("active-btn");
       await this.model.runTextToPdf(data);
       e.target.classList.remove("active-btn");
     });
-    
+
     this.view.runAddEventListener("output-switch", "click", (e) => {
-      if(e.target.classList.contains("active-btn")){
+      if (e.target.classList.contains("active-btn")) {
         e.target.classList.remove("active-btn");
         this.view.runWriteToElement("result-output", this.model.runMarkdownToHtml(markdown));
       } else {
         e.target.classList.add("active-btn");
-        if(currentHistory.inputData.type === "file"){
+        if (currentHistory.inputData.type === "file") {
           const fileData = currentHistory.inputData.data;
           let type;
-          if(fileData.includes("image")){
+          if (fileData.includes("image")) {
             type = "image";
           } else {
             type = "pdf";
           }
           const htmlPdf = `<object data="${fileData}" type="application/pdf" class="card"></object>`;
-          
+
           const htmlImg = `<img src="${fileData}" alt="Input Image" class="card"/>`;
-          
+
           const finalHtml = (type === "image") ? htmlImg : htmlPdf;
-          
-          this.view.runInsertHTML("result-output", finalHtml ,"afterbegin");
-          
+
+          this.view.runInsertHTML("result-output", finalHtml, "afterbegin");
+
         } else {
           this.view.runWriteToElement("result-output", currentHistory.inputData.data);
         }
       }
+    })
+  }
+  async chatInit() {
+    const index = this.model.getStoredValue("currentIndex");
+    const history = await this.model.getHistory()[index]
+    const chatHistory = history.chat;
+    const htmlSnippet = (text, role) => `<div class="${role}">${text}</div>`;
+
+    chatHistory.forEach(chat => {
+      this.view.runInsertHTML("chat-output", htmlSnippet(this.view.runMarkdownToHtml(chat.parts[0].text), chat.role), "beforeend", false);
+    });
+
+    this.view.runAddEventListener("chat-btn", "click", async (e) => {
+      const input = this.view.runGetInput("chat-input", "string");
+      if (!input) {
+        this.view.runShowToast("Empty Input", 2000);
+        return;
+      }
+      e.target.classList.remove("fa-paper-plane");
+      e.target.classList.add("fa-spinner");
+      e.target.classList.add("loading");
+      const response = await this.model.runChat(input);
+      this.view.runInsertHTML("chat-output", htmlSnippet(this.view.runMarkdownToHtml(response), "model"), "beforeend", false);
+      e.target.classList.remove("loading");
+      e.target.classList.remove("fa-spinner");
+      e.target.classList.add("fa-paper-plane");
     })
   }
 }

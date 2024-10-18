@@ -1,0 +1,88 @@
+.chat-container{
+  display: flex;
+  flex-direction: column;
+  background: none;
+  width: 100vw;
+  gap: 16px;
+}
+.chat-container > header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  margin: 0px auto;
+  width: clamp(60vw, 50vw, 30vw);
+  text-align: center;
+  background: var(--light-mode-input-box);
+  border-radius: 8px;
+  padding: 8px;
+}
+.chat-container > main{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  margin: 0px auto;
+  width: 92%;
+}
+.chat-container > main > div{
+  display: flex;
+  color: black;
+  border-radius: 8px;
+  padding: 8px;
+  background: var(--light-mode-navbar);
+  width: fit-content;
+}
+
+.chat-container > main > .user{
+  align-self: end;
+}
+
+.chat-container > footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 24px;
+}
+
+.chat-container > footer > div{
+  border-radius: 8px;
+  padding: 8px;
+  background: var(--light-mode-input-box);
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 8px;
+  width: 90%;
+  height: fit-content;
+}
+
+.chat-container > footer > div > input{
+  background: none;
+  width: 85%;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: start;
+}
+
+.chat-container > footer > div > i{
+  font-size: 1.5rem;
+  margin-left: 8px;
+}
+
+.loading{
+  animation: ROTATE .5s linear infinite;
+}
+
+@media (prefers-color-scheme: dark) {
+  .chat-container > header,
+  .chat-container > footer > div{
+    background: var(--dark-mode-input-box);
+  }
+  .chat-container > main > div{
+    background: var(--dark-mode-navbar);
+    color: #fbfbfb;
+  }
+}

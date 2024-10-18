@@ -4,6 +4,7 @@
 @import "snippet-styles/input-popup.css";
 @import "snippet-styles/result-page.css";
 @import "snippet-styles/flash-card.css";
+@import "snippet-styles/chat.css";
 
 ::-webkit-scrollbar {
   width: 8px;
