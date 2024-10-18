@@ -236,6 +236,9 @@ body{
     cursor: pointer;
     background: var(--dark-mode-navbar);
   }
+  *{
+   color: white;
+  }
   body{
     background: var(--dark-mode-background);
     color: white;

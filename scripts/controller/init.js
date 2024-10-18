@@ -483,12 +483,17 @@ export default class Controller {
   }
   async chatInit() {
     const index = this.model.getStoredValue("currentIndex");
-    const history = await this.model.getHistory()[index]
-    const chatHistory = history.chat;
-    const htmlSnippet = (text, role) => `<div class="${role}">${text}</div>`;
+    const history = (await this.model.getHistory())[index];
+    const chatHistory = history.chat || [];
 
-    chatHistory.forEach(chat => {
-      this.view.runInsertHTML("chat-output", htmlSnippet(this.view.runMarkdownToHtml(chat.parts[0].text), chat.role), "beforeend", false);
+    const htmlSnippet = (text, role) => {
+      return `<div class="${role}">${text}</div>`;
+      }
+      
+    chatHistory.forEach((chat, i) => {
+      if(![0,1].includes(i)){
+        this.view.runInsertHTML("chat-output", htmlSnippet(this.model.runMarkdownToHtml(chat.parts[0].text), chat.role), "beforeend", false);
+      }
     });
 
     this.view.runAddEventListener("chat-btn", "click", async (e) => {
@@ -500,8 +505,14 @@ export default class Controller {
       e.target.classList.remove("fa-paper-plane");
       e.target.classList.add("fa-spinner");
       e.target.classList.add("loading");
+      
+      this.view.runInsertHTML("chat-output", htmlSnippet(input, "user"), "beforeend", false);
+      
+      this.view.runWriteToElement("chat-input", "");
+      
       const response = await this.model.runChat(input);
-      this.view.runInsertHTML("chat-output", htmlSnippet(this.view.runMarkdownToHtml(response), "model"), "beforeend", false);
+      this.view.runInsertHTML("chat-output", htmlSnippet(this.model.runMarkdownToHtml(response), "model"), "beforeend", false);
+      
       e.target.classList.remove("loading");
       e.target.classList.remove("fa-spinner");
       e.target.classList.add("fa-paper-plane");

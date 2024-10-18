@@ -4,6 +4,8 @@
   background: none;
   width: 100vw;
   gap: 16px;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 .chat-container > header{
   display: flex;
@@ -23,9 +25,14 @@
   justify-content: start;
   margin: 0px auto;
   width: 92%;
+  gap: 16px;
+  margin-bottom: 64px;
 }
 .chat-container > main > div{
   display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: start;
   color: black;
   border-radius: 8px;
   padding: 8px;
@@ -62,14 +69,13 @@
 .chat-container > footer > div > input{
   background: none;
   width: 85%;
-  font-size: 1.2rem;
+  font-size: 1rem;
   display: flex;
   justify-content: start;
 }
 
 .chat-container > footer > div > i{
-  font-size: 1.5rem;
-  margin-left: 8px;
+  font-size: 1.4rem;
 }
 
 .loading{

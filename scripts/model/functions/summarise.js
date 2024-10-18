@@ -28,11 +28,11 @@ export async function TextSummary(text, length) {
     history[index].chat = [
       {
         role: "user",
-        parts: [{ text }]
+        parts: [{ text: "This is the input document " + text }]
       },
       {
         role: "model",
-        parts: [{ text: response }]
+        parts: [{ text: "This is the summary " + response }]
       }
     ];
     await saveData(history);
@@ -81,11 +81,11 @@ export async function FileSummary(file, length, isNew) {
     history[index].chat = [
       {
         role: "user",
-        parts: [{ filePart }]
+        parts: [{ filePart }, { text: "This is ths input document"}]
       },
       {
         role: "model",
-        parts: [{ text: response }]
+        parts: [{ text: "This is the summary " + response }]
       }
     ];
     await saveData(history);
