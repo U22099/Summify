@@ -1,7 +1,7 @@
 import { TextSummary, FileSummary } from './functions/summarise.js';
 import { GenerateFlashCardsForText, GenerateFlashCardsForFile } from './functions/generate-flashcards.js';
 import { TextExplanation, FileExplanation } from './functions/explain.js';
-import SummaryChat from './functions/summary-chat.js';
+import Chat from './functions/chat.js';
 import getPdfMeta from './functions/get-pdf-meta.js';
 import { storeValue, getValue } from './utils/storage.js';
 import { saveData, getData } from './utils/indexed-db.js';
@@ -88,8 +88,8 @@ export default class Model {
   }
 
   //starts chat about summary
-  async runSummaryChat(text) {
-    return await SummaryChat(text);
+  async runChat(text) {
+    return await Chat(text);
   }
   
   //converts text fo speech

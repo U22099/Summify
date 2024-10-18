@@ -446,11 +446,6 @@ export default class Controller {
     });
     
     this.view.runAddEventListener("download", "click", async (e) => {
-      const history = await this.model.getHistory();
-      const index = this.model.getStoredValue("currentIndex");
-      
-      const data = this.model.runMarkdownToText(history[index].outputData);
-      
       e.target.classList.add("active-btn");
       await this.model.runTextToPdf(data);
       e.target.classList.remove("active-btn");
