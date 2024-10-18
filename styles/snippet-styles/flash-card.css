@@ -11,6 +11,8 @@
   flex-direction: column;
   justify-content: start;
   align-items: center;
+  overflow: hidden;
+  overflow-y: scroll;
   margin: 30px auto;
   gap: 10px;
 }

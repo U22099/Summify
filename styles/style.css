@@ -51,6 +51,7 @@ body{
   align-items: start;
   width: 100vw;
   height: 100%;
+  overflow: hidden;
 }
 .main {
   display: flex;
@@ -61,7 +62,6 @@ body{
   margin: 0px auto;
   width: 100%;
   overflow: hidden;
-  overflow-y: scroll;
 }
 .header{
   display: flex;
