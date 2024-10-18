@@ -189,7 +189,7 @@ export default class Controller {
   async displayResult(result) {
     this.view.runWriteToElement("result-output", result);
     this.resultPageInit();
-    this.utilsInit();
+    await this.utilsInit();
     await this.updateHistory();
   }
 
@@ -285,7 +285,7 @@ export default class Controller {
       this.showResultPage(history[index], "result-page-container");
     }
     this.view.runWriteToElement("result-output", this.model.runMarkdownToHtml(history[index].outputData));
-    this.utilsInit();
+    await this.utilsInit();
   }
 
   showResultPage(history, container) {
@@ -413,14 +413,16 @@ export default class Controller {
     }
   }
 
-  utilsInit() {
-    this.view.runAddEventListener("copy", "click", async (e) => {
-      try{
-        const history = await this.model.getHistory();
-        const index = this.model.getStoredValue("currentIndex");
-        
-        const data = this.model.runMarkdownToText(history[index].outputData);
+  async utilsInit() {
+    const history = await this.model.getHistory();
+    const index = this.model.getStoredValue("currentIndex");
 
+    const currentHistory = history[index];
+    const markdown = currentHistory.outputData;
+    const data = this.model.runMarkdownToText(markdown);
+    
+    this.view.runAddEventListener("copy", "click", (e) => {
+      try{
         e.target.classList.add("active-btn");
         this.model.runCopyToClipboard(data);
         this.view.runShowToast("copied", 2000);
@@ -433,12 +435,7 @@ export default class Controller {
       
     });
 
-    this.view.runAddEventListener("speak", "click", async (e) => {
-      const history = await this.model.getHistory();
-      const index = this.model.getStoredValue("currentIndex");
-      
-      const data = this.model.runMarkdownToText(history[index].outputData);
-      
+    this.view.runAddEventListener("speak", "click", (e) => {
       if(e.target.classList.contains("active-btn")){
         e.target.classList.remove("active-btn");
         this.model.runTextToSpeech();
@@ -459,14 +456,7 @@ export default class Controller {
       e.target.classList.remove("active-btn");
     });
     
-    this.view.runAddEventListener("output-switch", "click", async (e) => {
-      const history = await this.model.getHistory();
-      const index = this.model.getStoredValue("currentIndex");
-  
-      const currentHistory = history[index];
-      const markdown = currentHistory.outputData;
-      const data = this.model.runMarkdownToText(markdown);
-    
+    this.view.runAddEventListener("output-switch", "click", (e) => {
       if(e.target.classList.contains("active-btn")){
         e.target.classList.remove("active-btn");
         this.view.runWriteToElement("result-output", this.model.runMarkdownToHtml(markdown));
