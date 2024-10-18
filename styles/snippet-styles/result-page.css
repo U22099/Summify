@@ -4,7 +4,7 @@
 }
 .result-page-container{
   display: flex;
-  justify-content: start;
+  justify-content: center;
   align-items: start;
   flex-direction: column;
   min-height: 100vh;
@@ -12,19 +12,21 @@
   background: var(--light-mode-background);
   gap: 8px;
   min-width: 95vw;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 .result-page-container > button {
   display: flex;
   align-items: center;
   gap: 8px;
   font-size: clamp(0.7em, 0.9em, 1em);
+  margin-left: 12px;
 }
 .result-page-container > nav{
   display: flex;
   align-items: center;
   justify-content: start;
   gap: 8px;
+  padding: 12px;
 }
 .result-page-container > nav > button{
   display: flex;
@@ -80,7 +82,7 @@
   justify-content: start;
   align-items: center;
   width: 100%;
-  padding-left: 10px;
+  padding-left: 16px;
   gap: 10px;
 }
 .result-page-container > .icons > i{
@@ -91,7 +93,7 @@
   width: 20px;
   height: 20px;
   border-radius: 10px;
-  padding: 10px;
+  padding: 8px;
   font-size: var(--clamp);
 }
 .result-page-container > main > .last-child > *{

@@ -9,12 +9,12 @@
 .flash-card-page-container{
   display: flex;
   flex-direction: column;
-  justify-content: start;
-  align-items: center;
+  justify-content: center;
+  align-items: start;
   overflow: hidden;
   overflow-y: scroll;
-  margin: 30px auto;
-  gap: 10px;
+  margin: 32px auto;
+  gap: 8px;
 }
 
 .flash-card-page-container > div {
@@ -25,9 +25,9 @@
   text-align: center;
   width: clamp(90vw, 80vw, 40vw);
   height: fit-content;
-  padding: 10px 5px;
+  padding: 8px 5px;
   margin: 0px;
-  gap: 10px;
+  gap: 8px;
 }
 
 .flash-card-page-container > div > div{
