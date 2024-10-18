@@ -2,6 +2,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import toBase64 from "../utils/to-base-64.js";
 import { getData, saveData } from "../utils/indexed-db.js";
 import { getValue } from "../utils/storage.js";
+import showToast from "../../view/utils/showToast.js";
 
 export async function TextSummary(text, length) {
   const genAI = new GoogleGenerativeAI(import.meta.env.VITE_API_KEY);
@@ -37,6 +38,7 @@ export async function TextSummary(text, length) {
     await saveData(history);
     return response;
   } catch (e) {
+    showToast("An error occured, Please try again later", 2500);
     console.log(e);
     return false;
   }
@@ -89,6 +91,7 @@ export async function FileSummary(file, length, isNew) {
     await saveData(history);
     return response;
   } catch (e) {
+    showToast("An error occured, Please try again later", 2500);
     console.log("Error occured")
     console.log(e)
     return false;
