@@ -32,7 +32,7 @@ export async function TextSummary(text, length) {
       },
       {
         role: "model",
-        parts: [{ text: "This is the summary " + response }]
+        parts: [{ text: "This is the output summary " + response }]
       }
     ];
     await saveData(history);
@@ -85,7 +85,7 @@ export async function FileSummary(file, length, isNew) {
       },
       {
         role: "model",
-        parts: [{ text: "This is the summary " + response }]
+        parts: [{ text: "This is the output summary " + response }]
       }
     ];
     await saveData(history);

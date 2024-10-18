@@ -3,7 +3,6 @@ import toBase64 from "../utils/to-base-64.js";
 import { getData, saveData } from "../utils/indexed-db.js";
 import { getValue } from "../utils/storage.js";
 import showToast from "../../view/utils/showToast.js";
-
 export async function TextExplanation(text, length) {
   const genAI = new GoogleGenerativeAI(import.meta.env.VITE_API_KEY);
   const model = genAI.getGenerativeModel({
@@ -28,11 +27,11 @@ export async function TextExplanation(text, length) {
     history[index].chat = [
       {
         role: "user",
-        parts: [{ text }]
+        parts: [{ text: "This is the input document " + text }]
       },
       {
         role: "model",
-        parts: [{ text: response }]
+        parts: [{ text: "This is the output explanation " + response }]
       }
     ];
     await saveData(history);
@@ -81,11 +80,11 @@ export async function FileExplanation(file, length, isNew) {
     history[index].chat = [
       {
         role: "user",
-        parts: [{ filePart }]
+        parts: [{ filePart }, { text: "This is the Input document"}]
       },
       {
         role: "model",
-        parts: [{ text: response }]
+        parts: [{ text: "This is the output explanation " + response }]
       }
     ];
     await saveData(history);

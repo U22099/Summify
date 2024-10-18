@@ -1,10 +1,12 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { getData, saveData } from "../utils/indexed-db.js";
 import { getValue } from "../utils/storage.js";
+import showToast from "../../view/utils/showToast.js";
 
 export default async function SummaryChat(text) {
   const genAI = new GoogleGenerativeAI(import.meta.env.VITE_API_KEY);
-  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"
+  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash",
+    systemInstructions: "You are an expert at giving good insights into documens, helping users answer questions strictly about the input or output document. Engaging in no other discussion except those concerning the document"
   });
 
   const index = getValue("currentIndex");
@@ -26,7 +28,8 @@ export default async function SummaryChat(text) {
     await saveData(history);
     return response;
   } catch (e) {
-    console.log(e);
+    showToast("An error occured, Please try again later", 2500);
+    console.log(e.message);
     return false;
   }
 }
