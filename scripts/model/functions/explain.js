@@ -80,7 +80,7 @@ export async function FileExplanation(file, length, isNew) {
     history[index].chat = [
       {
         role: "user",
-        parts: [{ filePart }, { text: "This is the Input document"}]
+        parts: [ filePart, { text: "This is the Input document"}]
       },
       {
         role: "model",

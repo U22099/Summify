@@ -44,6 +44,20 @@
   align-self: end;
 }
 
+.chat-container > main > div > *{
+  margin: 0px;
+  padding: 0px;
+  text-align: start;
+  font-family: 'SF-PRO-NORMAL';
+  font-size: clamp(0.8em, 0.9em, 1em);
+}
+.chat-container > main > div > h1{
+  text-decoration: underline;
+}
+.chat-container > main > div > a{
+  color: goldenrod;
+}
+
 .chat-container > footer{
   display: flex;
   justify-content: center;
@@ -66,20 +80,6 @@
   height: fit-content;
 }
 
-.chat-container > footer > div > *{
-  margin: 0px;
-  padding: 0px;
-  text-align: start;
-  font-family: 'SF-PRO-NORMAL';
-  font-size: clamp(0.8em, 0.9em, 1em);
-}
-.chat-container > footer > div > h1{
-  text-decoration: underline;
-}
-.chat-container > footer > div > a{
-  color: goldenrod;
-}
-
 .chat-container > footer > div > input{
   background: none;
   width: 85%;
@@ -100,6 +100,10 @@
   .chat-container > header,
   .chat-container > footer > div{
     background: var(--dark-mode-input-box);
+    color: white;
+  }
+  .chat-container > footer > div > input{
+    color: white;
   }
   .chat-container > main > div{
     background: var(--dark-mode-navbar);

@@ -81,7 +81,7 @@ export async function FileSummary(file, length, isNew) {
     history[index].chat = [
       {
         role: "user",
-        parts: [{ filePart }, { text: "This is ths input document"}]
+        parts: [ filePart , { text: "This is ths input document"}]
       },
       {
         role: "model",

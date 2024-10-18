@@ -496,7 +496,8 @@ export default class Controller {
       }
     });
     
-    this.view.runGetElement(".chat-output").scrollIntoView(false);
+    const outputContainer = this.view.runGetElement("#result-main-container");
+    outputContainer.scrollTop = outputContainer.scrollHeight;
 
     this.view.runAddEventListener("chat-btn", "click", async (e) => {
       const input = this.view.runGetInput("chat-input", "string");
@@ -511,7 +512,7 @@ export default class Controller {
       this.view.runInsertHTML("chat-output", htmlSnippet(input, "user"), "beforeend", false);
       
       this.view.runGetElement("#chat-input").value = "";
-      this.view.runGetElement(".chat-output").scrollIntoView(false);
+      outputContainer.scrollTop = outputContainer.scrollHeight;
       
       const response = await this.model.runChat(input);
       this.view.runInsertHTML("chat-output", htmlSnippet(this.model.runMarkdownToHtml(response), "model"), "beforeend", false);
