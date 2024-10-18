@@ -39,7 +39,7 @@
 .result-page-container > main{
   display: flex;
   align-items: start;
-  justify-content: start;
+  justify-content: center;
   overflow: hidden;
   overflow-y: scroll;
   width: 100%;
@@ -62,10 +62,10 @@
 }
 .result-page-container > main > .last-child{
   display: flex;
-  align-items: start;
+  align-items: center;
   justify-content: start;
   flex-direction: column;
-  gap: 5px;
+  gap: 6px;
   width: 100%;
   word-break: break-all;
 }
