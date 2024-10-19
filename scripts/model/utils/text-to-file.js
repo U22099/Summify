@@ -9,7 +9,7 @@ export default function textToFile(text, title){
   
   const a = document.createElement('a');
   a.href = url;
-  a.download = `${title}.txt`;
+  a.download = `${title}.pdf`;
   a.target = "_blank";
   a.click();
   URL.revokeObjectURL(url);

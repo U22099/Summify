@@ -30,7 +30,7 @@ export default async function getPdfMeta(summary) {
   try {
     const generatedContent = await model.generateContent(prompt + "\n" + summary);
     const response = generatedContent.response.text();
-    return JSON.parse(response).title.split(".")[0];
+    return JSON.parse(response).title;
   } catch (e) {
     console.log(e)
     return false;
