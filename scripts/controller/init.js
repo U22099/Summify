@@ -489,6 +489,8 @@ export default class Controller {
     const htmlSnippet = (text, role) => {
       return `<div class="${role}">${text}</div>`;
       }
+       
+      this.view.runInsertHTML("chat-output", "", "afterbegin");
       
     chatHistory.forEach((chat, i) => {
       if(![0,1].includes(i)){
@@ -512,9 +514,11 @@ export default class Controller {
       this.view.runInsertHTML("chat-output", htmlSnippet(input, "user"), "beforeend", false);
       
       this.view.runGetElement("#chat-input").value = "";
+      
       outputContainer.scrollTop = outputContainer.scrollHeight;
       
       const response = await this.model.runChat(input);
+      
       this.view.runInsertHTML("chat-output", htmlSnippet(this.model.runMarkdownToHtml(response), "model"), "beforeend", false);
       
       e.target.classList.remove("loading");

@@ -3,7 +3,7 @@ import { getData, saveData } from "../utils/indexed-db.js";
 import { getValue } from "../utils/storage.js";
 import showToast from "../../view/utils/showToast.js";
 
-export default async function SummaryChat(text) {
+export default async function Chat(text) {
   const genAI = new GoogleGenerativeAI(import.meta.env.VITE_API_KEY);
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash",
     systemInstruction: "You are an expert at giving good insights into documens, helping users answer questions strictly about the input or output document. Engaging in no other discussion except those concerning the document. You make sure to stick to conversations pertaining to the document alone."
