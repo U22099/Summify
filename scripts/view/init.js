@@ -14,6 +14,7 @@ import pageHtml from './utils/page-html.js';
 import historyHtml from './utils/history-html.js';
 import resultHtml from './utils/result-html.js';
 import showToast from './utils/showToast.js';
+import isMobile from './functions/isMobile.js';
 
 
 export default class View {
@@ -103,5 +104,10 @@ export default class View {
   //For showing toast notifications
   runShowToast(message, delay){
     showToast(message, delay);
+  }
+  
+  //Runs is mobile function
+  runIsMobile(){
+    return isMobile();
   }
 }
