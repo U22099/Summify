@@ -74,7 +74,7 @@
 .result-page-container > main > .last-child > img,
 .result-page-container > main > .last-child > object{
   border-radius: 8px;
-  width: 70vw;
+  width: clamp(70vw, 60vw, 40vw); 
   height: 50vh;
   object-fit: cover;
   margin: 0px auto;
@@ -115,12 +115,17 @@
   .result-page-container{
     background: var(--dark-mode-background);
     color: white;
-    width: 75%;
   }
   .result-page-container > main > .first-child > svg > path{
     fill: white;
   }
   .result-page-container > .icons > i{
     background: var(--dark-mode-navbar);
+  }
+}
+
+@media (min-width: 718px) {
+  .result-page-container{
+    min-width: 72vw;
   }
 }
