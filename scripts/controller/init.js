@@ -309,7 +309,7 @@ export default class Controller {
         const index = e.target.querySelector("input").value; // Get the index of the history item.
         this.model.runStoreValue("currentIndex", index); // Store the index in the model.
         await this.showHistoryResult(index); // Show the history result.
-        if(this.view.runIsMobile) this.sideBarClose(); // Close the side bar.
+        if(this.view.runIsMobile()) this.sideBarClose(); // Close the side bar.
       });
     });
   }
