@@ -291,7 +291,6 @@ export default class Controller {
             `${x?.action[0].toUpperCase()}${x?.action.slice(1)}`, x?.inputData?.title, i); // Generate the HTML for each history item.
           this.view.runInsertHTML("history", htmlText, "beforeend", false); // Insert the HTML into the history container.
         });
-        this.initHistoryButton(); //Re-initialise the history buttons
       } else {
         this.view.runInsertHTML("history", "", "afterbegin"); //Clear the history container if no history is available
       }
