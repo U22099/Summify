@@ -14,7 +14,7 @@
   height: fit-content;
   border: 2px solid var(--border-color-suggestion-light-mode);
   border-radius: 8px;
-  padding: 10px;
+  padding: 8px;
   color: black;
   background: none;
   cursor: pointer;
@@ -22,12 +22,11 @@
 
 .toast-container {
   position: fixed;
-  bottlm: 92%;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100vw;
-  padding: 20px 0px;
+  padding: 24px 0px;
   z-index: 100;
 }
 
@@ -35,7 +34,7 @@
   font-weight: 700;
   border: 2px solid var(--border-color-suggestion-light-mode);
   border-radius: 8px;
-  padding: 5px;
+  padding: 6px;
   color: black;
   background: var(--light-mode-background);
   cursor: pointer;

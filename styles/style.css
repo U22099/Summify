@@ -68,7 +68,7 @@ body{
   justify-content: space-between;
   align-items: center;
   width: 95%;
-  padding: 5px 10px;
+  padding: 6px 12px;
   animation: SLIDETOP .8s linear;
 }
 .header > h1{
@@ -87,7 +87,7 @@ body{
   align-items: start;
   width: clamp(50vw, 45vw, 25vw);
   height: 100vh;
-  padding: 8px 8px 30px 8px;
+  padding: 8px 8px 32px 8px;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -123,10 +123,10 @@ body{
 .side-bar :first-child > header > svg{
   width: 25px;
   height: 25px;
-  border-radius: 5px;
+  border-radius: 6px;
   background: linear-gradient(to bottom, black, gray);
   border: 2px solid var(--border-color-suggestion-light-mode);
-  padding: 5px;
+  padding: 6px;
   animation-delay: 1s;
   animation: FADEIN .5s ease;
 }
@@ -144,7 +144,7 @@ body{
   justify-content: start;
   align-items: center;
   width: fit-content;
-  gap: 5px;
+  gap: 6px;
 }
 .side-bar :nth-child(2) > i{
   display: flex;
@@ -154,7 +154,7 @@ body{
   color: black;
   border: none;
   padding: 2px;
-  border-radius: 5px;
+  border-radius: 6px;
   width: 24px;
   height: 24px;
 }
@@ -184,7 +184,7 @@ body{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   width: 100%;
   margin-top: 120px;
 }
@@ -209,7 +209,7 @@ body{
   flex-direction: column;
   align-items: start;
   justify-content: center;
-  gap: 40px;
+  gap: 42px;
   flex-wrap: wrap;
   white-space: nowrap;
   width: clamp(40%, 30%, 15%);
