@@ -343,6 +343,7 @@ export default class Controller {
   resultPageInit() {
     // Add event listener for run action button click.
     this.view.runAddEventListener("run-action", "click", async (e) => {
+      this.view.runRemoveClassName("result-main-container", "center");//Aligns page to start
       e.target.classList.add("active-btn"); // Add the active button class.
       this.view.runGetElement("#flash-card").classList.remove("active-btn"); // Remove the active button class from flash card button.
       this.view.runGetElement("#chat").classList.remove("active-btn"); // Remove the active button class from chat button.
@@ -354,6 +355,7 @@ export default class Controller {
 
     // Add event listener for flash card button click.
     this.view.runAddEventListener("flash-card", "click", async (e) => {
+      this.view.runAddClassName("result-main-container", "center"); //Aligns page to center
       e.target.classList.add("active-btn"); // Add the active button class.
       this.view.runGetElement("#run-action").classList.remove("active-btn"); // Remove the active button class from run action button.
       this.view.runGetElement("#chat").classList.remove("active-btn");  // Remove the active button class from chat button.
@@ -363,6 +365,7 @@ export default class Controller {
 
     // Add event listener for refresh button click.
     this.view.runAddEventListener("refresh", "click", async (e) => {
+      this.view.runAddClassName("result-main-container", "center"); //Aligns page to center
       const summary = this.view.runGetElement("#run-action"); // Get the summary button.
       const flashCard = this.view.runGetElement("#flash-card"); // Get the flash card button.
       e.target.classList.add("active-btn"); // Add the active button class.

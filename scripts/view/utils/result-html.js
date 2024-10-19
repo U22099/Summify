@@ -27,7 +27,7 @@ const flashCardSnippet = (question, answer) => `<div class="card flash-card">
 const chatHtml = `
 <div class="chat-container">
     <header>
-      Chats with AI is strictly restricted to the document and document's summary/explanation
+      Chats with AI are strictly restricted to the document and document's summary/explanation
     </header>
     <main id="chat-output">
     </main>
