@@ -18,8 +18,8 @@
     "@vite-pwa/assets-generator": "^0.2.6",
     "gh-pages": "^6.1.1",
     "highlight.js": "^11.10.0",
+    "jspdf": "^2.5.2",
     "markdown-to-txt": "^2.0.1",
-    "pdfmake": "^0.2.12",
     "remarkable": "^2.0.1",
     "vite-plugin-pwa": "^0.20.5"
   }

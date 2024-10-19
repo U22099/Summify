@@ -2,12 +2,12 @@ import { TextSummary, FileSummary } from './functions/summarise.js';
 import { GenerateFlashCardsForText, GenerateFlashCardsForFile } from './functions/generate-flashcards.js';
 import { TextExplanation, FileExplanation } from './functions/explain.js';
 import Chat from './functions/chat.js';
-import getPdfMeta from './functions/get-pdf-meta.js';
+import getPdfTitle from './functions/get-pdf-meta.js';
 import { storeValue, getValue } from './utils/storage.js';
 import { saveData, getData } from './utils/indexed-db.js';
 import textToSpeech from './utils/text-to-speech.js';
 import speechToText from './utils/speech-to-text.js';
-import textToPdf from './utils/text-to-pdf.js';
+import textToFile from './utils/text-to-file.js';
 import toBase64 from './utils/to-base-64.js';
 import markdownToHtml from './utils/markdown-to-html.js';
 import copyToClipboard from './utils/copy-to-clipboard.js';
@@ -103,14 +103,14 @@ export default class Model {
   }
   
   //converts text to pdf
-  async runTextToPdf(summary){
-    const meta = await this.getMeta(summary);
-    textToPdf(summary, JSON.parse(meta));
+  async runTextToFile(input){
+    const title = await this.getTitle(input);
+    textToFile(input, title);
   }
   
   //gets meta tags for pdf eg title, subject and keywords
-  async getMeta(summary){
-    return await getPdfMeta(summary);
+  async getTitle(input){
+    return await getPdfTitle(input);
   } 
   
   async runToBase64(file){

@@ -1,3 +1,22 @@
+const sampleDocument = `Elon Musk: A History of Innovation and Ambition
+Elon Musk, a South African-born American entrepreneur and investor, has become one of the most influential figures in technology and business. His visionary leadership and entrepreneurial spirit have led to the creation of groundbreaking companies like SpaceX, Tesla, and Neuralink.
+Early Life and Education
+ * Childhood in South Africa: Born in Pretoria, South Africa, in 1971, Musk grew up surrounded by technology and science. His father, Errol Musk, was an engineer, and his mother, Maye Musk, was a model.
+ * Education: Musk attended Pretoria Boys High School and later studied physics and economics at the University of Pennsylvania. He briefly attended Stanford University but dropped out after just two days to pursue his entrepreneurial ambitions.
+Entrepreneurial Ventures
+ * Zip2: In 1995, Musk and his brother, Kimbal, co-founded Zip2, an online city guide software company. They sold Zip2 to Compaq for $307 million in 1999.
+ * X.com: Using the proceeds from the sale of Zip2, Musk founded X.com, an online financial services company. X.com merged with Confinity, a company that owned PayPal, and Musk became the CEO of the combined company. eBay acquired PayPal in 2002 for $1.5 billion.
+ * SpaceX: In 2002, Musk founded SpaceX, a space transportation company with the goal of reducing space transportation costs and enabling the colonization of Mars. SpaceX has achieved significant milestones, including launching the first privately-funded spacecraft into orbit and successfully landing a rocket booster on Earth.
+ * Tesla: Musk was one of the early investors in Tesla, an electric vehicle manufacturer. He became the company's CEO in 2008 and has led Tesla to become a global leader in the electric vehicle market.
+ * Neuralink: In 2016, Musk co-founded Neuralink, a neurotechnology company focused on developing brain-machine interfaces. The company aims to treat neurological diseases and enhance human cognition.
+Other Ventures
+Musk has also been involved in other ventures, including The Boring Company, a tunnel construction company, and OpenAI, an artificial intelligence research laboratory.
+Legacy
+Elon Musk's legacy is one of innovation, ambition, and a relentless pursuit of his goals. His companies have pushed the boundaries of technology and have the potential to shape the future of humanity. Musk's visionary leadership and entrepreneurial spirit have inspired millions around the world.
+ * https://niitbirgunj.edu.np/elon-musk/
+ * https://github.com/Code-Institute-Submissions/web-CV
+`
+
 const PopupHtml = `<div class="input-popup" id="input-popup">
     <div class="input-popup-body">
       <nav class="input-popup-nav">
@@ -13,71 +32,7 @@ const PopupHtml = `<div class="input-popup" id="input-popup">
       </nav>
       <main class="input-popup-main" id="input-popup-main">
         <textarea type="text" placeholder="Paste in anything" id="input-popup-text-input">
-        ## Summify: AI-Powered Content Summarizer Documentation
-
-**Project Overview**
-
-Summify is an AI-powered content summarizer that leverages the capabilities of the Gemini API to provide users with concise and informative summaries of various input formats. It offers a user-friendly interface for summarizing text, PDFs, and even image prompts. 
-
-**Features**
-
-* **Text Summarization/Explanation:**  Users can paste or type in text content to generate a summary.
-* **PDF Summarization/Explanation:**  Users can upload PDF documents for summarization.
-* **Image Summarization/Explanation:** Users can upload images for summarization, leveraging the Gemini API's image understanding capabilities.
-* **Flash Cards:**  Based on the input document, the application generates flash cards with key points, promoting learning and knowledge retention.
-* **Chat Interface:** Users can engage in a conversational chat interface to ask further questions about the summarized content.
-* **IndexedDB History:**  A user's history of summarized documents is stored locally using IndexedDB for easy access and reference.
-* **PDF Download:**  Users can download a PDF version of the generated summary pr explanation for offline access and sharing.
-
-**Technology Stack**
-
-* **Frontend:** HTML, CSS, JavaScript, and Vite
-* **API:** Gemini API 
-* **Library:** PDFMake (for PDF generation)
-
-**Project Structure**
-
-The project will be structured using a combination of components and modules, with a focus on clear separation of concerns:
-
-* **Components:**
-    * **Input Components:**
-        * Text Input
-        * PDF Upload
-        * Image Upload
-    * **Summarization Component:** Handles the summarization process using the Gemini API.
-    * **Output Components:**
-        * Summary Display
-        * Flashcard View
-        * Chat Interface
-        * Download Button
-    * **History Component:**  Manages IndexedDB for storing and retrieving summarized documents.
-
-* **Modules:**
-    * **API Module:** Handles communication with the Gemini API.
-    * **Storage Module:**  Manages data storage and retrieval using IndexedDB.
-    * **PDF Module:** Handles PDF generation using PDFMake.
-
-**Workflow**
-
-1. **Input:** Users choose their preferred input method (text, PDF, or image) and provide the content.
-2. **Summarization/Explanation:**  The application uses the Gemini API to process the input and generate a summary or explanation.
-3. **Output:**  The summary or explanation is displayed in a user-friendly format.
-4. **Flash Cards:**  The app generates flash cards based on the summary.
-5. **Chat:**  Users can engage in a conversational chat interface to ask further questions.
-6. **History:**  The summary is stored in IndexedDB for later retrieval.
-7. **Download:**  Users can download the summary as a PDF.
-
-**Development Plan**
-
-1. **Project Setup:**  Create the project structure, initialize Vite, and install necessary dependencies.
-2. **Component Development:**  Build the UI components for input, output, and interaction.
-3. **API Integration:**  Connect to the Gemini API and implement the summarization logic.
-4. **Data Storage:**  Implement IndexedDB for storing summarization history.
-5. **PDF Generation:**  Use PDFMake to generate PDF files for download.
-6. **Testing:**  Thoroughly test all features and functionality.
-7. **Deployment:**  Deploy the application to a web server.
-
-This documentation will be updated throughout the development process to provide a comprehensive overview of Summify. 
+        ${sampleDocument}
         </textarea> 
         <i class="fa-regular fa-microphone card" id="mic"></i>
       </main>
@@ -93,71 +48,7 @@ This documentation will be updated throughout the development process to provide
   </div>`;
 
 const TextInputHtml = `<textarea type="text" placeholder="Paste in anything" id="input-popup-text-input">
-        ## Summify: AI-Powered Content Summarizer Documentation
-
-**Project Overview**
-
-Summify is an AI-powered content summarizer that leverages the capabilities of the Gemini API to provide users with concise and informative summaries of various input formats. It offers a user-friendly interface for summarizing text, PDFs, and even image prompts. 
-
-**Features**
-
-* **Text Summarization/Explanation:**  Users can paste or type in text content to generate a summary.
-* **PDF Summarization/Explanation:**  Users can upload PDF documents for summarization.
-* **Image Summarization/Explanation:** Users can upload images for summarization, leveraging the Gemini API's image understanding capabilities.
-* **Flash Cards:**  Based on the input document, the application generates flash cards with key points, promoting learning and knowledge retention.
-* **Chat Interface:** Users can engage in a conversational chat interface to ask further questions about the summarized content.
-* **IndexedDB History:**  A user's history of summarized documents is stored locally using IndexedDB for easy access and reference.
-* **PDF Download:**  Users can download a PDF version of the generated summary pr explanation for offline access and sharing.
-
-**Technology Stack**
-
-* **Frontend:** HTML, CSS, JavaScript, and Vite
-* **API:** Gemini API 
-* **Library:** PDFMake (for PDF generation)
-
-**Project Structure**
-
-The project will be structured using a combination of components and modules, with a focus on clear separation of concerns:
-
-* **Components:**
-    * **Input Components:**
-        * Text Input
-        * PDF Upload
-        * Image Upload
-    * **Summarization Component:** Handles the summarization process using the Gemini API.
-    * **Output Components:**
-        * Summary Display
-        * Flashcard View
-        * Chat Interface
-        * Download Button
-    * **History Component:**  Manages IndexedDB for storing and retrieving summarized documents.
-
-* **Modules:**
-    * **API Module:** Handles communication with the Gemini API.
-    * **Storage Module:**  Manages data storage and retrieval using IndexedDB.
-    * **PDF Module:** Handles PDF generation using PDFMake.
-
-**Workflow**
-
-1. **Input:** Users choose their preferred input method (text, PDF, or image) and provide the content.
-2. **Summarization/Explanation:**  The application uses the Gemini API to process the input and generate a summary or explanation.
-3. **Output:**  The summary or explanation is displayed in a user-friendly format.
-4. **Flash Cards:**  The app generates flash cards based on the summary.
-5. **Chat:**  Users can engage in a conversational chat interface to ask further questions.
-6. **History:**  The summary is stored in IndexedDB for later retrieval.
-7. **Download:**  Users can download the summary as a PDF.
-
-**Development Plan**
-
-1. **Project Setup:**  Create the project structure, initialize Vite, and install necessary dependencies.
-2. **Component Development:**  Build the UI components for input, output, and interaction.
-3. **API Integration:**  Connect to the Gemini API and implement the summarization logic.
-4. **Data Storage:**  Implement IndexedDB for storing summarization history.
-5. **PDF Generation:**  Use PDFMake to generate PDF files for download.
-6. **Testing:**  Thoroughly test all features and functionality.
-7. **Deployment:**  Deploy the application to a web server.
-
-This documentation will be updated throughout the development process to provide a comprehensive overview of Summify. 
+          ${sampleDocument}
         </textarea> 
         <i class="fa-regular fa-microphone card" id="mic"></i>`;
 

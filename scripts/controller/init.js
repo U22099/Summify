@@ -449,7 +449,7 @@ export default class Controller {
 
     this.view.runAddEventListener("download", "click", async (e) => {
       e.target.classList.add("active-btn");
-      await this.model.runTextToPdf(data);
+      await this.model.runTextToFile(data);
       e.target.classList.remove("active-btn");
     });
 
