@@ -22,8 +22,8 @@ const historyDs = [
     ],
     flashcards: [
       {
-        q: "...",
-        a: "..."
+        question: "...",
+        answer: "..."
       }
     ],
   }
