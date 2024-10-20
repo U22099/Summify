@@ -26,16 +26,6 @@ export default async function Chat(text) {
     // Extract the text from the response.
     const response = result.response.text();
     // Add user and model messages to the chat history.
-    history[index].chat.push(
-      {
-        role: "user",
-        parts: [{ text }]
-      },
-      {
-        role: "model",
-        parts: [{ text: response }]
-      }
-    );
     // Save the updated history to IndexedDB.
     await saveData(history);
     // Return the model's response.
