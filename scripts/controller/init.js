@@ -196,7 +196,7 @@ export default class Controller {
       };
 
       const icon = this.getIcon(input.type);   // Get the icon for the input type.
-      const inputTitle = input.data.name || input.data?.slice(0, 25) || "Document"; // Get the input title.
+      const inputTitle = input.data.name || input.data?.slice(0, 60) || "Document"; // Get the input title.
 
       //Remove existing main container and insert result page
       this.view.runRemoveElement("main", "main-container");

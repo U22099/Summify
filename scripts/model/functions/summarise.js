@@ -28,7 +28,7 @@ export async function TextSummary(text, length) {
     const history = await getData();
     // Updates the history object with input and output data, and a simulated chat history.
     history[index].inputData = {
-      title: text.slice(0, 30), // Extracts a shortened title from the input text.
+      title: text.slice(0, 60), // Extracts a shortened title from the input text.
       type: "text", // Specifies the input type as text.
       data: text, // Stores the input text.
       length // Stores the desired length of the summary.
