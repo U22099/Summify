@@ -32,10 +32,13 @@
 button{
   transition: transform .2s linear;
 }
-button:active,
-button:focus{
-  transform: scale(0.8);
+button:active{
+  transform: scale(0.9);
   cursor: pointer;
+}
+
+i{
+ cursor: pointer;
 }
 
 body{
@@ -259,7 +262,8 @@ body{
   }
 }
 @media (min-width: 718px) {
-  .header :first-child{
+  .header :first-child,
+  .header > h1{
     visibility: hidden;
   }
   .main{

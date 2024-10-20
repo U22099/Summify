@@ -74,7 +74,7 @@
 .result-page-container > main > .last-child > img,
 .result-page-container > main > .last-child > object{
   border-radius: 8px;
-  width: clamp(70vw, 60vw, 40vw); 
+width: 60vw; 
   height: 50vh;
   object-fit: cover;
   margin: 0px auto;
@@ -124,8 +124,12 @@
   }
 }
 
+
 @media (min-width: 718px) {
   .result-page-container{
     min-width: 72vw;
+  }
+  .result-page-container > main{
+    width: 72vw;
   }
 }

@@ -23,7 +23,7 @@
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  width: clamp(90vw, 80vw, 40vw);
+  width: 95%;
   height: fit-content;
   padding: 8px 5px;
   margin: 0px;
