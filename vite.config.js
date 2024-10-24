@@ -2,17 +2,6 @@ import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
-	build: {
-    rollupOptions: {
-      output: {
-        manualChunks(id) {
-          if (id.includes('pdfmake')) {
-            return 'pdfmake'; 
-          }
-        },
-      },
-    },
-  },
   base: '/',
   plugins: [VitePWA({
   	  workbox: {
@@ -22,10 +11,10 @@ export default defineConfig({
       manifest: {
         name: 'Summify AI Content Summariser',
         short_name: 'Summify',
-        description: 'Summify is an AI-powered content summarizer that uses the Gemini API to quickly and easily create summaries of text, PDFs, and images. Generate flash cards, chat with the AI about your content, and save your summaries for later.',
+        description: 'Summify is an AI-powered content summarizer that uses the Gemini API to quickly and easily create summaries of text, PDFs, and images.Generate flash cards, chat with the AI about your content, and save your summaries for later.',
         background_color: 'black', 
         display: 'standalone', 
-        start_url: '/Summify',
+        start_url: '/',
         scope: '/',
         orientation: 'portrait',
         theme_color: 'black',
