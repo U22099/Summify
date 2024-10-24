@@ -13,7 +13,7 @@ export default defineConfig({
       },
     },
   },
-  base: '/Summify/',
+  base: '/',
   plugins: [VitePWA({
   	  workbox: {
         maximumFileSizeToCacheInBytes: 10485760
