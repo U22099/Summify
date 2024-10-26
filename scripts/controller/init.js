@@ -25,6 +25,7 @@ export default class Controller {
       this.initPopupClose();   // Initialize popup closing functionality.
       this.initPopupNav();    // Initialize popup navigation functionality.
       this.initPopupBtn();    // Initialize popup button functionality.
+      this.initInputClear();  // Initialize popup input clear functionality.
     });
 
     // Add event listener for explanation button click.
@@ -35,6 +36,7 @@ export default class Controller {
       this.initPopupClose();    // Initialize popup closing functionality.
       this.initPopupNav();     // Initialize popup navigation functionality.
       this.initPopupBtn();     // Initialize popup button functionality.
+      this.initInputClear();  // Initialize popup input clear functionality.
     });
 
     // Add event listener for new chat button click.
@@ -174,6 +176,13 @@ export default class Controller {
       this.file = e.target.files[0]; // Get the selected file.
       const data = await this.model.runToBase64(e.target.files[0]); // Convert the file to base64.
       this.fileDisplay(data, "flex"); // Display the file.
+    });
+  }
+  
+  initInputClear(){
+    this.view.runAddEventListener("input-popup-text-input", "focus", (e) => {
+      console.log("called")
+      e.target.value = "";
     });
   }
 
