@@ -478,12 +478,16 @@ export default class Controller {
     const currentHistory = history[index]; // Get the current history item.
     const markdown = currentHistory.outputData; // Get the output data.
     const data = this.model.runMarkdownToText(markdown); // Convert the markdown to text.
-
+    const chatData = currentHistory.chat[currentHistory.chat.length - 1].role === "model" ? currentHistory.chat[currentHistory.chat.length - 1].parts[0].text : "Last message is not by AI"
     // Add event listener for copy button click.
     this.view.runAddEventListener("copy", "click", (e) => {
       try {
         e.target.classList.add("active-btn"); // Add the active button class.
-        this.model.runCopyToClipboard(data); // Copy the data to the clipboard.
+        if(this.view.runGetElement("#chat").classList.contains("active-btn")){
+          this.model.runCopyToClipboard(this.model.runMarkdownToText(chatData));
+        } else {
+          this.model.runCopyToClipboard(data); 
+        }// Copy the data to the clipboard.
         this.view.runShowToast("copied", 2000); // Show a toast message.
       } catch (error) {
         this.view.runShowToast("error", 2000); // Show an error toast message.
@@ -501,7 +505,11 @@ export default class Controller {
         this.model.runTextToSpeech();
       } else {
         e.target.classList.add("active-btn"); // Add the active button class.
-        this.model.runTextToSpeech(data);     // Speak the data.
+        if(this.view.runGetElement("#chat").classList.contains("active-btn")){
+          this.model.runTextToSpeech(this.model.runMarkdownToText(chatData));
+        } else {
+          this.model.runTextToSpeech(data);
+        }// Speak the data.
       }
     });
 
@@ -509,11 +517,10 @@ export default class Controller {
     this.view.runAddEventListener("download", "click", async (e) => {
       e.target.classList.add("active-btn"); // Add the active button class.
       if(this.view.runGetElement("#chat").classList.contains("active-btn")){
-        const chatData = currentHistory.chat[currentHistory.chat.length - 1].role === "model" ? currentHistory.chat[currentHistory.chat.length - 1].parts[0].text : "Last message is not by AI"
           await this.model.runTextToFile(this.model.runMarkdownToText(chatData));
       } else {
           await this.model.runTextToFile(data);
-      }// Download the data to a file.
+      }// Download the data to a see file.
       e.target.classList.remove("active-btn"); // Remove the active button class.
     });
 
