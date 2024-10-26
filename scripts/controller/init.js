@@ -508,7 +508,12 @@ export default class Controller {
     // Add event listener for download button click.
     this.view.runAddEventListener("download", "click", async (e) => {
       e.target.classList.add("active-btn"); // Add the active button class.
-      await this.model.runTextToFile(data);  // Download the data to a file.
+      if(this.view.runGetElement("#chat").classList.contains("active-btn")){
+        const chatData = currentHistory.chat[currentHistory.chat.length - 1].role === "model" ? currentHistory.chat[currentHistory.chat.length - 1].parts[0].text : "Last message is not by AI"
+          await this.model.runTextToFile(this.model.runMarkdownToText(chatData));
+      } else {
+          await this.model.runTextToFile(data);
+      }// Download the data to a file.
       e.target.classList.remove("active-btn"); // Remove the active button class.
     });
 
