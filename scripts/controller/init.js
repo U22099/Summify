@@ -12,7 +12,20 @@ export default class Controller {
 
   // Initializes the Controller, setting up event listeners and updating the history.
   async init() {
+    
     // Initialize side bar opening functionality.
+    this.view.runAddSwipeEventListener(() => {
+    const sideBar = this.view.runGetElement(".side-bar"); // Get the side bar element.
+    sideBar.classList.remove("animate-close-side-bar"); // Remove the closing animation class.
+    sideBar.classList.toggle("animate-open-side-bar"); // Toggle the opening animation class.
+    sideBar.style.visibility = "visible"; // Set the visibility to visible.
+  }, () => {
+    const sideBar = this.view.runGetElement(".side-bar"); // Get the side bar element.
+    sideBar.classList.remove("animate-open-side-bar"); // Remove the opening animation class.
+    sideBar.classList.toggle("animate-close-side-bar"); // Toggle the closing animation class.
+    // Set timeout to hide the side bar after animation completes.
+    setTimeout(() => { sideBar.style.visibility = "hidden"; }, 200);
+  });
     this.initSideBarOpen();
     // Initialize side bar closing functionality.
     this.initSideBarClose();

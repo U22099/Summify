@@ -14,7 +14,8 @@ import pageHtml from './utils/page-html.js';
 import historyHtml from './utils/history-html.js';
 import resultHtml from './utils/result-html.js';
 import showToast from './utils/showToast.js';
-import isMobile from './functions/isMobile.js';
+import isMobile from './utils/isMobile.js';
+import addSwipeEventListener from './utils/swipe.js';
 
 
 export default class View {
@@ -109,5 +110,10 @@ export default class View {
   //Runs is mobile function
   runIsMobile(){
     return isMobile();
+  }
+  
+  //Runs swipe eventlistner
+  runAddSwipeEventListener(leftSwipeAction, rightSwipeAction){
+   addSwipeEventListener(leftSwipeAction, rightSwipeAction);
   }
 }
