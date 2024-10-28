@@ -11,10 +11,8 @@ export default function addSwipeEventListener(leftSwipeAction, rightSwipeAction)
     const deltaX = endX - startX;
 
     if (deltaX > 50) { 
-      console.log("swiped left")
       leftSwipeAction();
     } else if(deltaX < -50){
-      console.log("swiped right")
       rightSwipeAction();
     }
 });
