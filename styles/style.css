@@ -211,17 +211,18 @@ body{
   display: flex;
   flex-direction: column;
   align-items: start;
-  justify-content: center;
+  justify-content: start;
   gap: 42px;
   flex-wrap: wrap;
   white-space: nowrap;
-  width: clamp(40%, 30%, 15%);
+  min-width: clamp(40%, 30%, 15%);
+  max-width: clamp(50%, 40%, 25%);
   font-size: clamp(0.8em, 0.9em, 1em);
   animation-delay: .5s;
   animation: SCALEIN 1s ease-in-out;
 }
 .section > div > button > i{
-  font-size: clamp(1.2em, 1.3em, 1.5em);
+  font-size: clamp(1.6em, 1.8em, 2em);
 }
 .section > div :first-child :first-child{
   color: aqua;
