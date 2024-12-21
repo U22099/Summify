@@ -21,9 +21,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  flex-wrap: wrap;
   text-align: center;
-  width: 95%;
   height: fit-content;
   padding: 8px 5px;
   margin: 0px;
@@ -34,6 +33,7 @@
   display: flex;
   flex-direction: column;
   text-align: center;
+  width: 95vw;
 }
 
 .flash-card-page-container > div > div > h1{
@@ -43,4 +43,9 @@
 .flash-card-page-container > div > div > p{
   margin: 0px;
   font-size: var(--clamp);
+}
+@media (min-width: 768px) {
+  .flash-card-page-container > div > div{
+    width: 45vw;
+  }
 }
