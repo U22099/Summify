@@ -88,7 +88,7 @@ body{
   flex-direction: column;
   justify-content: start;
   align-items: start;
-  width: clamp(50vw, 45vw, 25vw);
+  width: clamp(70vw, 70vw, 25vw);
   height: 100vh;
   padding: 8px 8px 32px 8px;
   position: fixed;
