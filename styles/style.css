@@ -11,44 +11,50 @@
   border-radius: 20px;
   transition: all 1s linear;
 }
+
 ::-webkit-scrollbar-thumb {
   cursor: pointer;
   background: var(--light-mode-navbar);
 }
+
 ::-webkit-scrollbar-track {
   background: transparent;
   cursor: pointer;
 }
 
-*{
+* {
   font-family: 'SF-PRO-NORMAL', sans-serif;
   margin: 0px;
   border: none;
   word-break: break-all;
 }
-*:focus{
+
+*:focus {
   outline: none;
 }
-button{
+
+button {
   transition: transform .2s linear;
 }
-button:active{
+
+button:active {
   transform: scale(0.9);
   cursor: pointer;
 }
 
-i{
- cursor: pointer;
+i {
+  cursor: pointer;
 }
 
-body{
+body {
   background: var(--light-mode-background);
   height: 100vh;
   width: 100vw;
   display: flex;
   justify-content: start;
 }
-.container{
+
+.container {
   display: flex;
   justify-content: start;
   align-items: start;
@@ -56,6 +62,7 @@ body{
   height: 100%;
   overflow: hidden;
 }
+
 .main {
   display: flex;
   flex-direction: column;
@@ -66,7 +73,8 @@ body{
   width: 100%;
   overflow: hidden;
 }
-.header{
+
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -74,16 +82,19 @@ body{
   padding: 6px 12px;
   animation: SLIDETOP .8s linear;
 }
-.header > h1{
+
+.header>h1 {
   margin: 0px;
   font-size: var(--clamp);
   animation: SCALEIN 1.5s ease;
 }
-.header > i{
+
+.header>i {
   font-size: var(--clamp);
   animation: FADEIN 1s ease;
 }
-.side-bar{
+
+.side-bar {
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -102,13 +113,16 @@ body{
   overflow-y: scroll;
   visibility: hidden;
 }
-.animate-open-side-bar{
+
+.animate-open-side-bar {
   animation: SLIDELEFT .3s ease-in-out;
 }
-.animate-close-side-bar{
+
+.animate-close-side-bar {
   animation: SCALEOUT .2s ease-in-out;
 }
-.side-bar :first-child{
+
+.side-bar :first-child {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -116,14 +130,16 @@ body{
   animation-delay: 1s;
   animation: SLIDETOP .5s ease;
 }
-.side-bar :first-child > header{
+
+.side-bar :first-child>header {
   display: flex;
   justify-content: start;
   align-items: center;
   gap: 8px;
   width: 100%;
 }
-.side-bar :first-child > header > svg{
+
+.side-bar :first-child>header>svg {
   width: 25px;
   height: 25px;
   border-radius: 6px;
@@ -133,23 +149,32 @@ body{
   animation-delay: 1s;
   animation: FADEIN .5s ease;
 }
-.side-bar :first-child > header > svg > path{
+
+.side-bar :first-child>header>svg>path {
   fill: white;
 }
-.side-bar :first-child > header > p{
+
+.side-bar :first-child>header>p {
   margin: 0px;
 }
-.side-bar :first-child > i{
+
+.side-bar :first-child>i {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding-right: 2px;
   font-size: clamp(1.2em, 1.3em, 1.4em);
 }
-.side-bar :nth-child(2){
+
+.side-bar :nth-child(2) {
   display: flex;
   justify-content: start;
   align-items: center;
   width: fit-content;
   gap: 6px;
 }
-.side-bar :nth-child(2) > i{
+
+.side-bar :nth-child(2)>i {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -161,13 +186,16 @@ body{
   width: 24px;
   height: 24px;
 }
-.side-bar :last-child{
- display: flex;
- flex-direction: column;
- gap: 2px;
- width: 100%;
+
+.side-bar :last-child {
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
 }
-.side-bar :last-child > button{
+
+.side-bar :last-child>button {
   width: 100%;
   font-size: 0.9em;
   justify-content: start;
@@ -180,10 +208,12 @@ body{
   animation-delay: 1s;
   animation: SLIDEBOTTOM 1s ease-in;
 }
-.side-bar :last-child > button > span{
- font-family: 'SF-PRO-BOLD', sans-serif;
+
+.side-bar :last-child>button>span {
+  font-family: 'SF-PRO-BOLD', sans-serif;
 }
-.section{
+
+.section {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -192,23 +222,27 @@ body{
   width: 100%;
   margin-top: 120px;
 }
-.section > h1{
+
+.section>h1 {
   font-size: var(--clamp);
   animation: FADEIN 1s ease;
 }
-.section > p{
+
+.section>p {
   font-size: clamp(0.9em, 1em, 1.2em);
   animation: FADEIN 1s ease;
   max-width: clamp(70%, 65%, 40%);
 }
-.section > div{
+
+.section>div {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
   width: 100%;
 }
-.section > div > button{
+
+.section>div>button {
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -222,17 +256,21 @@ body{
   animation-delay: .5s;
   animation: SCALEIN 1s ease-in-out;
 }
-.section > div > button > i{
+
+.section>div>button>i {
   font-size: clamp(1.6em, 1.8em, 2em);
 }
-.section > div :first-child :first-child{
+
+.section>div :first-child :first-child {
   color: aqua;
 }
-.section > div :last-child :first-child{
+
+.section>div :last-child :first-child {
   color: firebrick;
 }
-.section > div > button > p{
- font-size: var(--clamp);
+
+.section>div>button>p {
+  font-size: var(--clamp);
 }
 
 
@@ -241,42 +279,53 @@ body{
     cursor: pointer;
     background: var(--dark-mode-navbar);
   }
-  body{
+
+  body {
     background: var(--dark-mode-background);
     color: white;
   }
-  svg > path{
+
+  svg>path {
     fill: white;
   }
-  .side-bar{
+
+  .side-bar {
     background: var(--dark-mode-navbar);
   }
-  .side-bar :first-child > header > svg{
+
+  .side-bar :first-child>header>svg {
     border: 2px solid var(--border-color-suggestion-dark-mode);
   }
-  .side-bar :nth-child(2) > i{
+
+  .side-bar :nth-child(2)>i {
     background: var(--dark-mode-input-box);
     color: white;
   }
-  .side-bar :last-child > button{
+
+  .side-bar :last-child>button {
     background: var(--dark-mode-input-box);
     border: none;
   }
 }
+
 @media (min-width: 718px) {
+
   .header :first-child,
-  .header > h1{
+  .header>h1 {
     visibility: hidden;
   }
-  .main{
+
+  .main {
     width: 75%;
   }
-  .side-bar{
+
+  .side-bar {
     visibility: visible;
     position: static;
     width: 25%;
   }
-  .side-bar :first-child > i{
+
+  .side-bar :first-child>i {
     visibility: hidden;
   }
 }
