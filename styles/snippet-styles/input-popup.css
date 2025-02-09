@@ -13,10 +13,10 @@
   left: 0;
   right: 0;
   z-index: 20;
-  animation: SCALEIN .5s ease-in;
+  animation: SCALEIN .3s ease-in;
 }
 .input-popup-close{
-  animation: SCALEOUT .5s ease-out;
+  animation: SCALEOUT .3s ease-out;
   animation-fill-mode: forwards;
 }
 .input-popup > .input-popup-body{
