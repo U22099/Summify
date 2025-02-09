@@ -164,7 +164,8 @@ body{
 .side-bar :last-child{
  display: flex;
  flex-direction: column;
- gap: 16px;
+ gap: 2px;
+ width: 100%;
 }
 .side-bar :last-child > button{
   width: 100%;
